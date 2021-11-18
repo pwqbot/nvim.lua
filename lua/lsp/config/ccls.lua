@@ -1,0 +1,13 @@
+---<Esc>local lspconfig = require'lspconfig'
+---<Esc>
+---<Esc>lspconfig.ccls.setup {
+  ---<Esc>init_options = {
+    ---<Esc>compilationDatabaseDirectory = "build";
+    ---<Esc>index = {
+      ---<Esc>threads = 0;
+    ---<Esc>};
+    ---<Esc>clang = {
+      ---<Esc>excludeArgs = { "-frounding-math"} ;
+    ---<Esc>};
+  ---<Esc>}
+---<Esc>}
