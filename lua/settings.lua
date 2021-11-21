@@ -1,6 +1,8 @@
-local opt = vim.opt --- global options
+local opt = vim.opt --- global optlions
 
-vim.cmd 'colorscheme everforest'
+vim.cmd 'colorscheme nord'
+vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
 vim.cmd 'let $NVIM_TUI_ENABLE_TRUE_COLOR=1'
 vim.cmd 'set completeopt=menu,noselect'
 opt.termguicolors = true
@@ -15,9 +17,10 @@ opt.autoindent = true
 opt.mouse = 'a'
 opt.updatetime = 300
 opt.ignorecase = true
-opt.timeoutlen = 100
+opt.timeoutlen = 300
 opt.cmdheight = 2
 opt.scrolloff = 1
+opt.signcolumn = "yes:2"
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
 
@@ -39,3 +42,5 @@ local opts = {
 ---require('auto-session').setup(opts)
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
+
+vim.g.signify_priority=5

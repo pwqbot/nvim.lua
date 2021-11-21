@@ -9,11 +9,12 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = true,
 
 	-- show signs
-	signs = false,
-	signwidth = 50,
-	signcolumn = 50,
+	signs = true,
+	underline = false,
+	-- signwidth = 500,
+	-- signcolumn = yes,
 	-- delay update diagnostics
-	update_in_insert = true,
+	update_in_insert = false
 }
 )
 
@@ -47,7 +48,49 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+
+
+	vim.api.nvim_exec([[
+           augroup lsp_document_highlight
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            " autocmd CursorHold *.* :lua vim.lsp.diagnostic.show_line_diagnostics()
+            autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 300)
+           augroup END
+        ]],
+            false
+        )
+
+	-- protocol.CompletionItemKind = {
+	--         '', -- Text
+	--         '', -- Method
+	--         '', -- Function
+	--         '', -- Constructor
+	--         '', -- Field
+	--         '', -- Variable
+	--         '', -- Class
+	--         'ﰮ', -- Interface
+	--         '', -- Module
+	--         '', -- Property
+	--         '', -- Unit
+	--         '', -- Value
+	--         '', -- Enum
+	--         '', -- Keyword
+	--         '﬌', -- Snippet
+	--         '', -- Color
+	--         '', -- File
+	--         '', -- Reference
+	--         '', -- Folder
+	--         '', -- EnumMember
+	--         '', -- Constant
+	--         '', -- Struct
+	--         '', -- Event
+	--         'ﬦ', -- Operator
+	--         '', -- TypeParameter
+	-- }
 end
+
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

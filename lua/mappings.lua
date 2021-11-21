@@ -60,7 +60,7 @@ nmap('<Leader>h', ':History<CR>')
 -- nmap('<F1>', ':split term://bash<CR>i')
 
 --- ranger ---
-nmap('<Leader>r', ':RnvimrToggle<CR>')
+nmap('<F1>', ':RnvimrToggle<CR>')
 
 vim.cmd [[
   inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -90,11 +90,6 @@ vmap('<Leader><C-_>', ':call nerdcommenter#Comment(0,"sexy")<CR>')
 nmap('<A-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
 
 
--- Add spaces after comment delimiters by default
-vim.g.NERDSpaceDelims = 1
-
--- Align line-wise comment delimiters flush left instead of following code indentation
-vim.g.NERDDefaultAlign = 'both'
 
 -- vim.cmd 'tnoremap <Esc> <C-\\><C-n>:bd!<CR>'
 nmap('<Leader>gg', '20<C-w>k')
@@ -103,5 +98,6 @@ nmap('<Leader>G', '20<C-w>j')
 --- sneak ---
 vim.cmd 'map f <Plug>Sneak_s'
 vim.cmd 'map F <Plug>Sneak_S'
-vim.cmd 'let g:sneak#label = 1'
+nmap('<Leader>sa', ':SignifyDiff<CR>')
+-- vim.cmd 'let g:sneak#label = 1'
 

@@ -1,6 +1,9 @@
 require 'plugins/config/dashboard'
 require 'plugins/config/airline'
 require 'plugins/config/treesitter'
+require 'plugins/config/nerdcomment'
+require 'plugins/config/trouble'
+
 
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -20,6 +23,13 @@ return require('packer').startup(
 function(use)
 	--- packer itself ---
 	use 'wbthomason/packer.nvim'
+
+
+	--- tmux ---
+	use 'christoomey/vim-tmux-navigator'
+
+	--- git ---
+	use 'tpope/vim-fugitive'
 
 	--- file finder ---
 	use 'junegunn/fzf'
@@ -45,6 +55,9 @@ function(use)
 
 	use 'gcmt/wildfire.vim'
 	use "machakann/vim-sandwich"
+
+	--- sign ---
+	use 'mhinz/vim-signify'
 	
 	
 	--------------------------- beautify ----------------------------
@@ -77,6 +90,7 @@ function(use)
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 	}
+	use 'folke/lsp-colors.nvim'
 
 	--- session management ---
 	---use 'rmagatti/auto-session'
