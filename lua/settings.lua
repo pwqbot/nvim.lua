@@ -25,12 +25,13 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 
 --- make ranger replace netrw and be the file explorer ---
 vim.g.rnvimr_ex_enable = 1
 --- Add a shadow window, value is equal to 100 will disable shadow
 vim.g.rnvimr_enable_picker = 1
 
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
-
 vim.g.signify_priority = 5
+vim.g.webdevicons_enable_airline_statusline=1
+vim.cmd [[nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/ss\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>]]

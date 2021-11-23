@@ -6,7 +6,7 @@ local nvim_lsp = require('lspconfig')
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
 	-- disable virtual text
-	virtual_text = true,
+	virtual_text = false,
 
 	-- show signs
 	signs = true,

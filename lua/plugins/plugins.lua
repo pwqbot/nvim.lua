@@ -11,23 +11,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-	virtual_text = {
-		prefix = "O",
-	},
-}
-)
-
 return require('packer').startup(
 function(use)
 	--- packer itself ---
 	use 'wbthomason/packer.nvim'
 
-
-	--- tmux ---
-	use 'christoomey/vim-tmux-navigator'
-
+	----------------------------- file ---------------------------
 	--- git ---
 	use 'tpope/vim-fugitive'
 
@@ -40,12 +29,13 @@ function(use)
 
 	--- automatically change pwd ---
 	use 'airblade/vim-rooter'
+	
+	--- session management ---
+	use 'tpope/vim-obsession'
 
-	--- automatically turn off search highlight ---
-	use 'haya14busa/is.vim'
+	--- tmux ---
+	use 'christoomey/vim-tmux-navigator'
 
-	use 'justinmk/vim-sneak'
- 
 	--------------------------- code ------------------------------
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'rhysd/vim-clang-format'
@@ -53,12 +43,19 @@ function(use)
 	--- bracket ---
 	use 'cohama/lexima.vim'
 
-	use 'gcmt/wildfire.vim'
 	use "machakann/vim-sandwich"
 
 	--- sign ---
 	use 'mhinz/vim-signify'
 	
+	--- comment ---
+	use 'preservim/nerdcommenter'
+	
+	--- automatically turn off search highlight ---
+	use 'haya14busa/is.vim'
+
+	--- jump by two character ---
+	use 'justinmk/vim-sneak'
 	
 	--------------------------- beautify ----------------------------
 	--- theme ---
@@ -91,12 +88,6 @@ function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 	}
 	use 'folke/lsp-colors.nvim'
-
-	--- session management ---
-	---use 'rmagatti/auto-session'
-	use 'tpope/vim-obsession'
-
-	use 'preservim/nerdcommenter'
 
 	if packer_bootstrap then
 		require('packer').sync()
