@@ -1,8 +1,9 @@
 local opt = vim.opt --- global optlions
 
-vim.cmd 'colorscheme nord'
-vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
-vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
+vim.cmd 'colorscheme nightfox'
+-- vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+-- vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
+-- vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
 vim.cmd 'let $NVIM_TUI_ENABLE_TRUE_COLOR=1'
 vim.cmd 'set completeopt=menu,noselect'
 opt.termguicolors = true

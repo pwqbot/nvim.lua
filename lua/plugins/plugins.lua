@@ -3,6 +3,7 @@ require 'plugins/config/airline'
 require 'plugins/config/treesitter'
 require 'plugins/config/nerdcomment'
 require 'plugins/config/trouble'
+require 'plugins/config/fox'
 
 
 local fn = vim.fn
@@ -63,6 +64,8 @@ function(use)
 	use 'joshdick/onedark.vim'
 	use 'hzchirs/vim-material'
 	use 'sainnhe/everforest'
+	use 'folke/tokyonight.nvim'
+	use 'EdenEast/nightfox.nvim'
 
 	--- icon ---
 	use 'kyazdani42/nvim-web-devicons'
