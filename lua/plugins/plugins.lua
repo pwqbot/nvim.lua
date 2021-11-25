@@ -4,6 +4,9 @@ require 'plugins/config/treesitter'
 require 'plugins/config/nerdcomment'
 require 'plugins/config/trouble'
 require 'plugins/config/fox'
+require 'plugins/config/diffview'
+require('lspfuzzy').setup {}
+
 
 
 local fn = vim.fn
@@ -20,6 +23,9 @@ function(use)
 	----------------------------- file ---------------------------
 	--- git ---
 	use 'tpope/vim-fugitive'
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+	use 'airblade/vim-gitgutter'
+
 
 	--- file finder ---
 	use 'junegunn/fzf'
@@ -30,34 +36,37 @@ function(use)
 
 	--- automatically change pwd ---
 	use 'airblade/vim-rooter'
-	
+
 	--- session management ---
 	use 'tpope/vim-obsession'
 
 	--- tmux ---
 	use 'christoomey/vim-tmux-navigator'
 
+	--- markdown ---
+	use {"ellisonleao/glow.nvim"}
+
+	--- undo ---
+	use 'simnalamburt/vim-mundo'
+
 	--------------------------- code ------------------------------
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'rhysd/vim-clang-format'
-	
+
 	--- bracket ---
 	use 'cohama/lexima.vim'
 
 	use "machakann/vim-sandwich"
 
-	--- sign ---
-	use 'mhinz/vim-signify'
-	
 	--- comment ---
 	use 'preservim/nerdcommenter'
-	
+
 	--- automatically turn off search highlight ---
 	use 'haya14busa/is.vim'
 
 	--- jump by two character ---
 	use 'justinmk/vim-sneak'
-	
+
 	--------------------------- beautify ----------------------------
 	--- theme ---
 	use 'arcticicestudio/nord-vim'
@@ -91,6 +100,14 @@ function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 	}
 	use 'folke/lsp-colors.nvim'
+	use {
+		'ojroques/nvim-lspfuzzy',
+		requires = {
+			{'junegunn/fzf'},
+			{'junegunn/fzf.vim'},  -- to enable preview (optional)
+		},
+	}
+
 
 	if packer_bootstrap then
 		require('packer').sync()

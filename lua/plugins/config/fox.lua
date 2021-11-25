@@ -11,7 +11,7 @@ nightfox.setup({
 	--     functions = "italic,bold" -- styles can be a comma separated list
 	-- },
 	-- inverse = {
-	--     match_paren = true, -- inverse the highlighting of match_parens
+		-- match_paren = true, -- inverse the highlighting of match_parens
 	-- },
 	-- colors = {
 	--     red = "#FF000", -- Override the red color for MAX POWER

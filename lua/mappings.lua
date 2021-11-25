@@ -101,3 +101,4 @@ vim.cmd 'map F <Plug>Sneak_S'
 nmap('<Leader>sa', ':SignifyDiff<CR>')
 -- vim.cmd 'let g:sneak#label = 1'
 
+nmap('<Leader>df', ':DiffviewOpen<CR>')

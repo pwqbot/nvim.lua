@@ -1,12 +1,14 @@
 local opt = vim.opt --- global optlions
 
 vim.cmd 'colorscheme nightfox'
--- vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
--- vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
--- vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
+vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
+vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
 vim.cmd 'let $NVIM_TUI_ENABLE_TRUE_COLOR=1'
 vim.cmd 'set completeopt=menu,noselect'
+
 opt.termguicolors = true
+opt.undofile = true
 opt.hidden = true
 opt.syntax = 'on'
 opt.number = true
@@ -33,6 +35,6 @@ vim.g.rnvimr_ex_enable = 1
 --- Add a shadow window, value is equal to 100 will disable shadow
 vim.g.rnvimr_enable_picker = 1
 
-vim.g.signify_priority = 5
+vim.g.gitgutter_sign_priority = 15
 vim.g.webdevicons_enable_airline_statusline=1
 vim.cmd [[nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/ss\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>]]
