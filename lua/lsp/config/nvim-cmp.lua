@@ -5,7 +5,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+	  vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
@@ -14,7 +14,7 @@ cmp.setup({
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
+	['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
     ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -26,13 +26,19 @@ cmp.setup({
   },
   sources = cmp.config.sources({
 	{ name = 'nvim_lsp', max_item_count = 5 },
-    -- { name = 'vsnip', max_item_count = 5  }, -- For vsnip users.
+	{ name = 'vsnip', max_item_count = 5  }, -- For vsnip users.
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
-  })
+  }),
+
+  completion = {
+	keyword_length = 2;
+	}
+
+
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
@@ -57,6 +63,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require('lspconfig')['clangd'].setup {
   capabilities = capabilities
 }
+
 require('lspconfig')['pyright'].setup {
   capabilities = capabilities
 }

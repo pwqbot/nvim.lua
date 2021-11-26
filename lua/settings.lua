@@ -1,6 +1,6 @@
 local opt = vim.opt --- global optlions
 
-vim.cmd 'colorscheme onedark'
+vim.cmd 'colorscheme nord'
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
 vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
@@ -18,7 +18,7 @@ opt.splitright = true
 opt.laststatus = 2
 opt.autoindent = true
 opt.mouse = 'a'
-opt.updatetime = 300
+opt.updatetime = 100
 opt.ignorecase = true
 opt.timeoutlen = 300
 opt.cmdheight = 2
@@ -27,6 +27,7 @@ opt.signcolumn = "yes:2"
 opt.tabstop = 4
 opt.shiftwidth = 4
 vim.cmd 'set clipboard=unnamed'
+opt.expandtab = true
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"

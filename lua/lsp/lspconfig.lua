@@ -1,6 +1,8 @@
 require 'lsp/config/clangd'
 require 'lsp/config/pyright'
 require 'lsp/config/nvim-cmp'
+require 'lsp/config/html'
+require 'lsp/config/tsserver'
 local nvim_lsp = require('lspconfig')
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -94,7 +96,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd','pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'clangd', 'html', 'pyright', 'rust_analyzer', 'tsserver' }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,

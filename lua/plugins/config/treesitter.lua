@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"c", "cpp", "html", "javascript", "css", "bash", "vim"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"c", "lua", "cpp", "html", "javascript", "css", "bash", "vim"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { }, -- List of parsers to ignore installing
   highlight = {
@@ -11,4 +11,7 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = true
+  }
 }
