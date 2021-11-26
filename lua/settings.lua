@@ -26,6 +26,7 @@ opt.scrolloff = 1
 opt.signcolumn = "yes:2"
 opt.tabstop = 4
 opt.shiftwidth = 4
+vim.cmd 'set clipboard=unnamed'
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
