@@ -1,6 +1,6 @@
 local opt = vim.opt --- global optlions
 
-vim.cmd 'colorscheme nord'
+vim.cmd 'colorscheme nightfox'
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
 vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'

@@ -18,6 +18,10 @@ function vmap(shorcut, command)
 	map('v', shorcut, command)
 end
 
+function tmap(shorcut, command)
+    map('t', shorcut, command)
+end
+
 vim.g.mapleader = ' '
 imap('jk', '<Esc>')
 imap('kj', '<Esc>')
@@ -102,3 +106,12 @@ nmap('<Leader>sa', ':SignifyDiff<CR>')
 -- vim.cmd 'let g:sneak#label = 1'
 
 nmap('<Leader>df', ':DiffviewOpen<CR>')
+
+-- terminal navigation --
+tmap('<C-j>', [[<C-\><C-n><C-w>j]])
+tmap('<C-k>', [[<C-\><C-n><C-w>k]])
+tmap('<C-h>', [[<C-\><C-n><C-w>h]])
+tmap('<C-l>', [[<C-\><C-n><C-w>l]])
+vim.cmd [[
+    autocmd BufWinEnter,WinEnter term://* startinsert
+]]

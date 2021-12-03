@@ -67,6 +67,9 @@ function(use)
 	--- jump by two character ---
 	use 'justinmk/vim-sneak'
 
+    --- gdb ---
+    use 'puremourning/vimspector'
+
 	--------------------------- beautify ----------------------------
 	--- theme ---
 	use 'arcticicestudio/nord-vim'
