@@ -78,6 +78,11 @@ function(use)
 	use 'sainnhe/everforest'
 	use 'folke/tokyonight.nvim'
 	use 'EdenEast/nightfox.nvim'
+        use 'sonph/onehalf'
+        use 'altercation/vim-colors-solarized'
+        use 'overcache/NeoSolarized'
+        use 'cocopon/iceberg.vim'
+        use 'ayu-theme/ayu-vim'
 
 	--- icon ---
 	use 'kyazdani42/nvim-web-devicons'

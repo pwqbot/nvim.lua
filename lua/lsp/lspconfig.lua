@@ -3,6 +3,7 @@ require 'lsp/config/pyright'
 require 'lsp/config/nvim-cmp'
 require 'lsp/config/html'
 require 'lsp/config/tsserver'
+require 'lsp/config/bashls'
 local nvim_lsp = require('lspconfig')
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
