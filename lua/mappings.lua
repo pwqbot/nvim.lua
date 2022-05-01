@@ -26,7 +26,6 @@ vim.g.mapleader = ' '
 imap('jk', '<Esc>')
 imap('kj', '<Esc>')
 
-
 --- line move ---
 map('n','H', '^')
 map('v','H', '^')
@@ -42,12 +41,12 @@ nmap('<C-h>', '<C-w>h')
 --- save file ---
 nmap('<C-s>', ':update<CR>')
 
---- jump between tab ---
-nmap('<A-h>', 'gT')
-nmap('<A-l>', 'gt')
-
-nmap('<A-k>', ':bnext<CR>')
-nmap('<A-j>', ':bprevious<CR>')
+--- jump between buffer/tab ---
+nmap('<F8>', 'gT')
+nmap('<F7>', 'gt')
+nmap(')', '<cmd>bn<CR>')
+nmap('(', '<cmd>bprevious<CR>')
+nmap('<C-g>', '<cmd>bd<CR>')
 
 --- adjust windows size ---
 nmap('<Leader>-', ':vertical resize -5<CR>')
@@ -56,15 +55,13 @@ nmap('<Leader><Leader>-', ':resize -5<CR>')
 nmap('<Leader><Leader>=', ':resize +5<CR>')
 
 --- fuzzf finder ---
-nmap('<C-p>', ':Files<CR>')
-nmap('<C-[>', ':Files ~<CR>')
-nmap('<Leader>b', ':Buffers<CR>')
-nmap('<Leader>h', ':History<CR>')
-
--- nmap('<F1>', ':split term://bash<CR>i')
-
---- ranger ---
-nmap('<F1>', ':RnvimrToggle<CR>')
+nmap('<C-p>', '<cmd>Telescope find_files<CR>')
+nmap('<C-n>', '<cmd>Telescope live_grep<CR>')
+nmap('<C-b>', '<cmd>Telescope buffers<CR>')
+imap('<F1>', '<cmd>NvimTreeToggle<CR>')
+nmap('<F1>', '<cmd>NvimTreeToggle<CR>')
+nmap('<F3>', '<cmd>Telescope projects<CR>')
+nmap('<C-f>', [[:lua require('telescope.builtin').find_files{cwd = "~", hidden=true}<CR>]])
 
 vim.cmd [[
   inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -72,38 +69,17 @@ vim.cmd [[
 ]]
 
 --- trouble ---
-nmap("<leader>t", "<cmd>TroubleToggle<cr>")
-
-
-nmap('<Leader>ss', ':<C-u>SessionSave<CR>')
-nmap('<Leader>sl', ':<C-u>SessionLoad<CR>')
-
-vim.cmd 'let g:operator_sandwich_no_default_key_mappings = 1'
-vim.cmd 'let g:sandwich_no_default_key_mappings = 1'
-vim.cmd 'let g:operator_sandwich_no_default_key_mappings = 1'
-vim.cmd 'let g:textobj_sandwich_no_default_key_mappings = 1'
-
-nmap('cla', '<Plug>(operator-sandwich-add)')
-xmap('cld', '<Plug>(operator-sandwich-delete)')
-xmap('clr', '<Plug>(operator-sandwich-replace)<Plug>(textobj-sandwich-query-a)')
+vim.api.nvim_set_keymap('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
 vmap('<C-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
 nmap('<C-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
-nmap('<Leader><C-_>', ':call nerdcommenter#Comment(0,"sexy")<CR>')
-vmap('<Leader><C-_>', ':call nerdcommenter#Comment(0,"sexy")<CR>')
 nmap('<A-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
 
-
-
 -- vim.cmd 'tnoremap <Esc> <C-\\><C-n>:bd!<CR>'
-nmap('<Leader>gg', '20<C-w>k')
-nmap('<Leader>G', '20<C-w>j')
 
 --- sneak ---
-vim.cmd 'map f <Plug>Sneak_s'
-vim.cmd 'map F <Plug>Sneak_S'
-nmap('<Leader>sa', ':SignifyDiff<CR>')
--- vim.cmd 'let g:sneak#label = 1'
+vim.api.nvim_set_keymap('n', 'f', '<Plug>Sneak_s', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', 'F', '<Plug>Sneak_S', { noremap = false, silent = true })
 
 nmap('<Leader>df', ':DiffviewOpen<CR>')
 
@@ -112,6 +88,35 @@ tmap('<C-j>', [[<C-\><C-n><C-w>j]])
 tmap('<C-k>', [[<C-\><C-n><C-w>k]])
 tmap('<C-h>', [[<C-\><C-n><C-w>h]])
 tmap('<C-l>', [[<C-\><C-n><C-w>l]])
-vim.cmd [[
-    autocmd BufWinEnter,WinEnter term://* startinsert
-]]
+tmap('<A-j>', [[<C-\><C-n>:bprevious<CR>]])
+tmap('<A-k>', [[<C-\><C-n>:bnext<CR>]])
+
+local term_group = vim.api.nvim_create_augroup("term",{clear = true})
+vim.api.nvim_create_autocmd(
+{"BufWinEnter","WinEnter"},
+{
+    group = term_group,
+    pattern = "term://*", 
+    command = "startinsert",
+})
+
+vim.api.nvim_create_autocmd(
+{"BufWinEnter","WinEnter", "TermOpen"},
+{
+    group = term_group,
+    pattern = "term://*", 
+    command = [[nnoremap <buffer><silent> <C-g> <cmd>bd!<CR>]],
+})
+vim.api.nvim_create_autocmd(
+{"TermOpen"},
+{
+    group = term_group,
+    command = [[set nobuflisted]],
+})
+
+-- go to last position when opening a buf
+vim.api.nvim_create_autocmd(
+"BufReadPost",
+{
+    command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+})

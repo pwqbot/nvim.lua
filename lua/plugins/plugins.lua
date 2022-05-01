@@ -1,64 +1,61 @@
-require 'plugins/config/dashboard'
-require 'plugins/config/airline'
-require 'plugins/config/treesitter'
-require 'plugins/config/nerdcomment'
-require 'plugins/config/trouble'
-require 'plugins/config/fox'
-require 'plugins/config/diffview'
-require('lspfuzzy').setup {}
+vim.g.nvim_path = [[/home/qwqbot/.config/nvim/]]
+vim.opt.runtimepath:append(vim.g.nvim_path)
+vim.opt.packpath = vim.g.nvim_path
 
+local packer_start_path = vim.g.nvim_path..'pack/packer/start'
+vim.opt.runtimepath:append(packer_start_path..'/*')
+local packer_path = packer_start_path..'/packer.nvim'
 
-
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
+	print("!!")
+	packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path})
 end
 
-return require('packer').startup(
+vim.cmd [[ packadd packer.nvim ]]
+
+require ('packer').init({
+	package_root = vim.g.nvim_path..'pack/',
+	compile_path = vim.g.nvim_path..'pack/packer_compiled.lua'
+})
+
+require('packer').startup(
 function(use)
 	--- packer itself ---
 	use 'wbthomason/packer.nvim'
 
+    --------------------------- git ------------------------------
+	use { 
+		'sindrets/diffview.nvim', 
+		requires = 'nvim-lua/plenary.nvim' 
+	} 
+    use 'lewis6991/gitsigns.nvim'
+
 	----------------------------- file ---------------------------
-	--- git ---
-	use 'tpope/vim-fugitive'
-	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-	use 'airblade/vim-gitgutter'
-
-
-	--- file finder ---
-	use 'junegunn/fzf'
-	use 'junegunn/fzf.vim'
-
-	--- file explorer ---
-	use 'kevinhwang91/rnvimr'
-
-	--- automatically change pwd ---
-	use 'airblade/vim-rooter'
-
-	--- session management ---
-	use 'tpope/vim-obsession'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			'nvim/lua/plenary.nvim',
+		},
+	}
+	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons', -- optional, for file icon
+		},
+	}
+	use "ahmedkhalf/project.nvim"
 
 	--- tmux ---
 	use 'christoomey/vim-tmux-navigator'
 
-	--- markdown ---
-	use {"ellisonleao/glow.nvim"}
-
-	--- undo ---
-	use 'simnalamburt/vim-mundo'
-
+	use 'akinsho/toggleterm.nvim'
 	--------------------------- code ------------------------------
 	use 'nvim-treesitter/nvim-treesitter'
-	use 'rhysd/vim-clang-format'
 
 	--- bracket ---
 	use 'cohama/lexima.vim'
 
-	use "machakann/vim-sandwich"
-
-	--- comment ---
+	--- add comment ---
 	use 'preservim/nerdcommenter'
 
 	--- automatically turn off search highlight ---
@@ -66,23 +63,22 @@ function(use)
 
 	--- jump by two character ---
 	use 'justinmk/vim-sneak'
-
-    --- gdb ---
-    use 'puremourning/vimspector'
-
 	--------------------------- beautify ----------------------------
 	--- theme ---
-	use 'arcticicestudio/nord-vim'
 	use 'joshdick/onedark.vim'
 	use 'hzchirs/vim-material'
-	use 'sainnhe/everforest'
+	use {
+		'sainnhe/everforest',
+		config = function() 
+			vim.g.everforest_better_performance = 1
+		end
+	}
 	use 'folke/tokyonight.nvim'
-	use 'EdenEast/nightfox.nvim'
-        use 'sonph/onehalf'
-        use 'altercation/vim-colors-solarized'
-        use 'overcache/NeoSolarized'
-        use 'cocopon/iceberg.vim'
-        use 'ayu-theme/ayu-vim'
+	use 'sonph/onehalf'
+	use 'altercation/vim-colors-solarized'
+	use 'overcache/NeoSolarized'
+	use 'cocopon/iceberg.vim'
+	use 'ayu-theme/ayu-vim'
 
 	--- icon ---
 	use 'kyazdani42/nvim-web-devicons'
@@ -108,16 +104,21 @@ function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 	}
 	use 'folke/lsp-colors.nvim'
-	use {
-		'ojroques/nvim-lspfuzzy',
-		requires = {
-			{'junegunn/fzf'},
-			{'junegunn/fzf.vim'},  -- to enable preview (optional)
-		},
-	}
 
 
 	if packer_bootstrap then
 		require('packer').sync()
 	end
 end)
+
+require 'plugins/config/dashboard'
+require 'plugins/config/airline'
+require 'plugins/config/tree'
+require 'plugins/config/nerdcomment'
+require 'plugins/config/trouble'
+require 'plugins/config/diffview'
+require 'plugins/config/tele'
+require 'plugins/config/filetree'
+require 'plugins/config/gitsign'
+require("project_nvim").setup()
+require 'plugins/config/toggle'
