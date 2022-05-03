@@ -1,4 +1,4 @@
-vim.g.nvim_path = [[/home/qwqbot/.config/nvim/]]
+vim.g.nvim_path = [[~/.config/nvim/]]
 vim.opt.runtimepath:append(vim.g.nvim_path)
 vim.opt.packpath = vim.g.nvim_path
 
