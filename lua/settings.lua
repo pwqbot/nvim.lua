@@ -7,7 +7,6 @@ vim.g.everforest_enable_italic = 0
 vim.g.everforest_transparent_background = 1
 vim.g.everforest_show_eob = 0
 vim.cmd [[ colorscheme everforest ]]
-
 -- vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 -- vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
 -- vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
@@ -31,11 +30,13 @@ opt.autoindent = true
 opt.mouse = 'a'
 opt.updatetime = 100
 opt.ignorecase = true
-opt.timeoutlen = 300
+opt.timeoutlen = 500
+
 opt.cmdheight = 2
 opt.scrolloff = 1
 opt.signcolumn = "yes:2"
 opt.tabstop = 4
+vim.cmd 'set noswapfile'
 opt.shiftwidth = 4
 vim.cmd 'set clipboard=unnamed'
 opt.expandtab = true
@@ -43,6 +44,11 @@ vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 
-vim.g.gitgutter_sign_priority = 15
 vim.g.webdevicons_enable_airline_statusline=1
-vim.cmd [[nnoremap <silent> <leader>rs :let _s=@/ <Bar> :%s/ss\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>]]
+
+-- go to last position when opening a buf
+vim.api.nvim_create_autocmd(
+"BufReadPost",
+{
+    command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+})

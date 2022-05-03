@@ -32,7 +32,7 @@ vim.g.dashboard_preview_file_width = 58
 vim.g.dashboard_custom_section = {
   a = {
     description = { " 最近  " },
-    command = ":History",
+    command = ":Telescope oldfiles",
   },
   b = {
     description = { " 重啓  " },
@@ -44,7 +44,7 @@ vim.g.dashboard_custom_section = {
   },
   d = {
     description = { " 單詞  " },
-    command = ":FZF",
+    command = ":Telescope live_grep",
   },
 }
 

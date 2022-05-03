@@ -150,11 +150,6 @@ _G.packer_plugins = {
     path = "/home/qwqbot/.config/nvim/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
   },
-  ["nord-vim"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/nord-vim",
-    url = "https://github.com/arcticicestudio/nord-vim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/nvim-cmp",
@@ -174,6 +169,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -204,11 +204,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
-  },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -249,11 +244,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-material",
     url = "https://github.com/hzchirs/vim-material"
-  },
-  ["vim-obsession"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-obsession",
-    url = "https://github.com/tpope/vim-obsession"
   },
   ["vim-sneak"] = {
     loaded = true,

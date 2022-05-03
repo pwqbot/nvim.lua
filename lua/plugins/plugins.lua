@@ -51,12 +51,14 @@ function(use)
 	use 'akinsho/toggleterm.nvim'
 	--------------------------- code ------------------------------
 	use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
 
 	--- bracket ---
 	use 'cohama/lexima.vim'
-
+    
 	--- add comment ---
 	use 'preservim/nerdcommenter'
+
 
 	--- automatically turn off search highlight ---
 	use 'haya14busa/is.vim'
@@ -105,7 +107,6 @@ function(use)
 	}
 	use 'folke/lsp-colors.nvim'
 
-
 	if packer_bootstrap then
 		require('packer').sync()
 	end
@@ -122,3 +123,5 @@ require 'plugins/config/filetree'
 require 'plugins/config/gitsign'
 require("project_nvim").setup()
 require 'plugins/config/toggle'
+require 'plugins/config/textobj'
+

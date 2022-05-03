@@ -52,6 +52,7 @@ require'diffview'.setup {
       ["<C-w>gf"]    = cb("goto_file_tab"),      -- Open the file in a new tabpage
       ["<leader>e"]  = cb("focus_files"),        -- Bring focus to the files panel
       ["<leader>b"]  = cb("toggle_files"),       -- Toggle the files panel.
+      ["q"] = cb("close"),
     },
     file_panel = {
       ["j"]             = cb("next_entry"),           -- Bring the cursor to the next file entry
