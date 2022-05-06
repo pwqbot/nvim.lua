@@ -1,5 +1,5 @@
 function map(mode, shortcut, command)
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+    vim.keymap.set(mode, shortcut, command, { silent = true })
 end
 
 function nmap(shortcut, command)
@@ -29,10 +29,8 @@ nmap('<C-S-Tab>', 'gT')
 nmap('<C-q>', '<cmd>qa<cr>')
 
 --- line move ---
-map('n','H', '^')
-map('v','H', '^')
-map('n','L', '$')
-map('v','L', '$')
+map({'n', 'v'},'H', '^')
+map({'n', 'v'},'L', '$')
 
 --- move between windows ---
 nmap('<C-j>', '<C-w>j')
@@ -57,14 +55,13 @@ nmap('<Leader><Leader>-', ':resize -5<CR>')
 nmap('<Leader><Leader>=', ':resize +5<CR>')
 
 --- fuzzf finder ---
-nmap('<C-p>', '<cmd>Telescope find_files<CR>')
-nmap('<C-n>', '<cmd>Telescope live_grep<CR>')
-nmap('<C-b>', '<cmd>Telescope buffers<CR>')
-nmap('<C-t>', '<cmd>Telescope oldfiles<CR>')
-nmap('<F3>', '<cmd>Telescope projects<CR>')
-imap('<F1>', '<cmd>NvimTreeToggle<CR>')
-nmap('<F1>', '<cmd>NvimTreeToggle<CR>')
-nmap('<C-f>', [[:lua require('telescope.builtin').find_files{cwd = "~", hidden=true}<CR>]])
+map('n', '<F3>', function() require('telescope').extensions.projects.projects{} end)
+map('n', '<C-t>', function() require('telescope.builtin').oldfiles() end)
+map('n', '<C-b>', function() require('telescope.builtin').buffers{sort_mru=true} end)
+map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
+map('n', '<C-p>', function() require('telescope.builtin').find_files{hidden=true} end)
+map('n', '<C-f>', function() require('telescope.builtin').find_files{cwd = "~", hidden=true} end)
+map({'t', 'n'}, '<F1>', '<cmd>NvimTreeToggle<CR>')
 
 vim.cmd [[
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -75,16 +72,16 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 vim.keymap.set('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
 --- comment ---
-vim.keymap.set('n', '<C-_>', require("Comment.api").toggle_current_linewise)
-vim.keymap.set('x', '<C-_>', 
+map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
+map('x', '<C-_>', 
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
 
 --- sneak ---
-vim.api.nvim_set_keymap('n', 'f', '<Plug>Sneak_s', { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', 'F', '<Plug>Sneak_S', { noremap = false, silent = true })
+map('n', 'f', '<Plug>Sneak_s')
+map('n', 'F', '<Plug>Sneak_S')
 
-nmap('<F2>', ':DiffviewOpen<CR>')
+map('n','<F2>', ':DiffviewOpen<CR>')
 local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
     {"BufWinEnter"},
@@ -191,17 +188,7 @@ function TerminalExec(cmd)
     vim.cmd([[ stopinsert ]])
 end
 
-vim.api.nvim_set_keymap('n', '<C-`>', '', {
-    noremap = true,
-    callback = TerminalToggle,
-})
-vim.api.nvim_set_keymap('t', '<C-`>', '', {
-    noremap = true,
-    callback = TerminalToggle,
-})
-vim.api.nvim_set_keymap('t', '<F1>', '<cmd>NvimTreeToggle<CR>', {
-    noremap = true,
-})
+map({'n','t'}, '<C-`>', TerminalToggle)
 
 function MapGoRun()
     print("???")
