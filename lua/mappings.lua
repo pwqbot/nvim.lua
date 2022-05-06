@@ -72,13 +72,13 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 ]]
 
 --- trouble ---
-vim.api.nvim_set_keymap('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
+vim.keymap.set('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
-vmap('<C-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
-nmap('<C-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
-nmap('<A-_>', ':call nerdcommenter#Comment(0,"toggle")<CR>')
-
--- vim.cmd 'tnoremap <Esc> <C-\\><C-n>:bd!<CR>'
+--- comment ---
+vim.keymap.set('n', '<C-_>', require("Comment.api").toggle_current_linewise)
+vim.keymap.set('x', '<C-_>', 
+    '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
+)
 
 --- sneak ---
 vim.api.nvim_set_keymap('n', 'f', '<Plug>Sneak_s', { noremap = false, silent = true })
@@ -87,58 +87,33 @@ vim.api.nvim_set_keymap('n', 'F', '<Plug>Sneak_S', { noremap = false, silent = t
 nmap('<F2>', ':DiffviewOpen<CR>')
 local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
-{"BufWinEnter"},
-{
-    group = diffview_group,
-    pattern = "DiffviewFilePanel",
-    command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-})
+    {"BufWinEnter"},
+    {
+        group = diffview_group,
+        pattern = "DiffviewFilePanel",
+        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
+    })
 vim.api.nvim_create_autocmd(
-{"BufWinEnter"},
-{
-    group = diffview_group,
-    pattern = "DiffviewFilePanel",
-    command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-})
+    {"BufWinEnter"},
+    {
+        group = diffview_group,
+        pattern = "DiffviewFilePanel",
+        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
+    })
+
 vim.api.nvim_create_autocmd(
-{"BufDelete","BufHidden"},
-{
-    group = diffview_group,
-    pattern = "DiffviewFilePanel",
-    command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
-})
+    {"BufDelete","BufHidden"},
+    {
+        group = diffview_group,
+        pattern = "DiffviewFilePanel",
+        command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
+    })
 
 ---------------------------- terminal navigation ------------------------------
 tmap('<C-j>', [[<C-\><C-n><C-w>j]])
 tmap('<C-k>', [[<C-\><C-n><C-w>k]])
 tmap('<C-h>', [[<C-\><C-n><C-w>h]])
 tmap('<C-l>', [[<C-\><C-n><C-w>l]])
-
-local term_group = vim.api.nvim_create_augroup("term",{clear = true})
-vim.api.nvim_create_autocmd(
-{"BufWinEnter","WinEnter"},
-{
-    group = term_group,
-    pattern = "Terminal_*", 
-    command = "startinsert",
-})
-
-
-vim.api.nvim_create_autocmd(
-{"BufWinEnter","WinEnter", "TermOpen"},
-{
-    group = term_group,
-    pattern = "Terminal_*", 
-    command = [[nnoremap <buffer><silent> <C-g> <cmd>bd!<CR>]],
-})
-
-vim.api.nvim_create_autocmd(
-{"TermOpen"},
-{
-    group = term_group,
-    pattern = "Terminal_*",
-    command = [[set nobuflisted]],
-})
 
 local dd_terminal_buffer = -1
 local dd_terminal_window = -1
@@ -231,18 +206,17 @@ vim.api.nvim_set_keymap('t', '<F1>', '<cmd>NvimTreeToggle<CR>', {
 function MapGoRun()
     print("???")
     vim.api.nvim_buf_set_keymap(0,'n','<F5>',
-    [[<cmd>call v:lua.TerminalExec('go run '..expand('%'))<CR>]],
-    {
-        noremap = true,
-    })
+        [[<cmd>call v:lua.TerminalExec('go run '..expand('%'))<CR>]],
+        {
+            noremap = true,
+        })
 end
 
 local go_group = vim.api.nvim_create_augroup("go_group", {clear = true})
 vim.api.nvim_create_autocmd(
-{'BufWinEnter'},
-{
-    group = go_group,
-    pattern = "*.go",
-    callback = MapGoRun,
-})
-
+    {'BufWinEnter'},
+    {
+        group = go_group,
+        pattern = "*.go",
+        callback = MapGoRun,
+    })

@@ -1,0 +1,13 @@
+
+-- vim.cmd 'let ayucolor="light" '
+vim.cmd 'set background=dark'
+vim.g.everforest_background = 'soft'
+vim.g.everforest_enable_italic = 0
+vim.g.everforest_transparent_background = 1
+vim.g.everforest_show_eob = 0
+vim.cmd [[ colorscheme everforest ]]
+-- vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+-- vim.cmd 'hi SignColumn guibg=NONE ctermbg=NONE'
+-- vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
+-- vim.cmd 'hi! EndOfBuffer ctermbg=255 ctermfg=255 guibg=255 guifg=255'
+-- vim.api.nvim_command([[set fillchars=eob:\]])

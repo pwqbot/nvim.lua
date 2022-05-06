@@ -1,0 +1,148 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.004  000.004: --- NVIM STARTING ---
+000.228  000.224: locale set
+000.428  000.200: inits 1
+000.437  000.009: window checked
+000.439  000.002: parsing arguments
+002.258  001.819: expanding arguments
+002.277  000.019: inits 2
+002.673  000.396: init highlight
+002.675  000.002: waiting for UI
+003.582  000.906: done waiting for UI
+003.639  000.057: init screen for UI
+003.662  000.023: init default mappings
+003.687  000.025: init default autocommands
+004.335  000.044  000.044: sourcing /usr/share/nvim/runtime/ftplugin.vim
+004.464  000.025  000.025: sourcing /usr/share/nvim/runtime/indent.vim
+095.867  000.124  000.124: sourcing /home/qwqbot/.config/nvim//pack/packer/start/everforest/autoload/everforest.vim
+106.469  010.780  010.656: sourcing /home/qwqbot/.config/nvim//pack/packer/start/everforest/colors/everforest.vim
+107.132  102.633  091.853: sourcing /home/qwqbot/.config/nvim/init.lua
+107.142  000.753: sourcing vimrc file(s)
+107.216  000.042  000.042: sourcing /usr/share/nvim/runtime/filetype.lua
+115.268  008.038  008.038: sourcing /usr/share/nvim/runtime/filetype.vim
+115.729  000.075  000.075: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+115.818  000.206  000.132: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+116.552  000.251  000.251: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+116.569  000.007  000.007: sourcing /usr/share/nvim/runtime/plugin/health.vim
+116.645  000.069  000.069: sourcing /usr/share/nvim/runtime/plugin/man.vim
+116.665  000.011  000.011: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+116.814  000.140  000.140: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+117.244  000.417  000.417: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+117.376  000.007  000.007: sourcing /home/qwqbot/.local/share/nvim/rplugin.vim
+117.381  000.117  000.110: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+117.489  000.097  000.097: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+117.522  000.019  000.019: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+117.668  000.133  000.133: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+117.757  000.075  000.075: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+117.783  000.015  000.015: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+117.959  000.167  000.167: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+118.708  000.222  000.222: sourcing /home/qwqbot/.config/nvim/pack/packer/start/dashboard-nvim/plugin/dashboard.vim
+118.852  000.126  000.126: sourcing /home/qwqbot/.config/nvim/pack/packer/start/diffview.nvim/plugin/diffview.vim
+119.242  000.374  000.374: sourcing /home/qwqbot/.config/nvim/pack/packer/start/is.vim/plugin/is.vim
+119.397  000.136  000.136: sourcing /home/qwqbot/.config/nvim/pack/packer/start/lexima.vim/plugin/lexima.vim
+120.617  001.203  001.203: sourcing /home/qwqbot/.config/nvim/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+123.384  002.747  002.747: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nerdcommenter/plugin/nerdcommenter.vim
+123.482  000.071  000.071: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+124.512  001.014  001.014: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+124.563  000.031  000.031: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+124.607  000.031  000.031: sourcing /home/qwqbot/.config/nvim/pack/packer/start/plenary.nvim/plugin/plenary.vim
+124.671  000.052  000.052: sourcing /home/qwqbot/.config/nvim/pack/packer/start/toggleterm.nvim/plugin/toggleterm.vim
+124.831  000.148  000.148: sourcing /home/qwqbot/.config/nvim/pack/packer/start/trouble.nvim/plugin/trouble.vim
+125.230  000.108  000.108: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/init.vim
+126.138  000.528  000.528: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/parts.vim
+126.421  000.012  000.012: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/formatter/short_path.vim
+127.645  000.141  000.141: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/util.vim
+127.723  002.879  002.091: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-airline/plugin/airline.vim
+127.771  000.028  000.028: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-airline-themes/plugin/airline-themes.vim
+128.692  000.902  000.902: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-sneak/plugin/sneak.vim
+128.797  000.080  000.080: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+129.527  000.225  000.225: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+129.798  000.058  000.058: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+129.949  000.017  000.017: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+130.296  001.115  000.815: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+130.630  000.127  000.127: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+130.942  000.056  000.056: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+131.336  000.112  000.112: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+131.687  000.052  000.052: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+132.126  000.129  000.129: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+132.330  003.272  001.681: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+132.566  003.626  000.354: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-vsnip/autoload/vsnip.vim
+133.073  004.257  000.630: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+134.202  000.569  000.569: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-cmp/plugin/cmp.lua
+134.995  000.769  000.769: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+135.199  000.182  000.182: sourcing /home/qwqbot/.config/nvim/pack/packer/start/telescope.nvim/plugin/telescope.lua
+135.203  002.436: loading rtp plugins
+135.536  000.011  000.011: sourcing /home/qwqbot/.config/nvim/pack/packer/start/dashboard-nvim/plugin/dashboard.vim
+135.602  000.010  000.010: sourcing /home/qwqbot/.config/nvim/pack/packer/start/diffview.nvim/plugin/diffview.vim
+135.710  000.020  000.020: sourcing /home/qwqbot/.config/nvim/pack/packer/start/is.vim/plugin/is.vim
+135.781  000.018  000.018: sourcing /home/qwqbot/.config/nvim/pack/packer/start/lexima.vim/plugin/lexima.vim
+136.169  000.334  000.334: sourcing /home/qwqbot/.config/nvim/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+136.245  000.009  000.009: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nerdcommenter/plugin/nerdcommenter.vim
+136.373  000.061  000.061: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-cmp/plugin/cmp.lua
+136.421  000.008  000.008: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+136.568  000.066  000.066: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+136.940  000.330  000.330: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+137.020  000.009  000.009: sourcing /home/qwqbot/.config/nvim/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+137.143  000.034  000.034: sourcing /home/qwqbot/.config/nvim/pack/packer/start/plenary.nvim/plugin/plenary.vim
+137.312  000.087  000.087: sourcing /home/qwqbot/.config/nvim/pack/packer/start/telescope.nvim/plugin/telescope.lua
+137.427  000.059  000.059: sourcing /home/qwqbot/.config/nvim/pack/packer/start/toggleterm.nvim/plugin/toggleterm.vim
+137.714  000.217  000.217: sourcing /home/qwqbot/.config/nvim/pack/packer/start/trouble.nvim/plugin/trouble.vim
+137.794  000.025  000.025: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-airline/plugin/airline.vim
+137.871  000.021  000.021: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-airline-themes/plugin/airline-themes.vim
+137.960  000.009  000.009: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-sneak/plugin/sneak.vim
+138.020  000.008  000.008: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+138.079  000.006  000.006: sourcing /home/qwqbot/.config/nvim/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+138.103  001.558: loading packages
+138.302  000.097  000.097: sourcing /home/qwqbot/.config/nvim//pack/packer/start/cmp-vsnip/after/plugin/cmp_vsnip.vim
+138.774  000.427  000.427: sourcing /home/qwqbot/.config/nvim//pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+138.968  000.146  000.146: sourcing /home/qwqbot/.config/nvim//pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+139.085  000.069  000.069: sourcing /home/qwqbot/.config/nvim//pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+139.301  000.175  000.175: sourcing /home/qwqbot/.config/nvim//pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+139.332  000.314: loading after plugins
+139.342  000.010: inits 3
+141.047  001.705: reading ShaDa
+141.613  000.279  000.279: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions.vim
+141.804  000.042  000.042: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/quickfix.vim
+142.069  000.151  000.151: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline.vim
+142.293  000.026  000.026: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/netrw.vim
+142.695  000.053  000.053: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/section.vim
+143.067  000.181  000.181: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/highlighter.vim
+143.364  000.904  000.669: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/term.vim
+143.789  000.045  000.045: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/nvimlsp.vim
+144.083  000.111  000.111: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/whitespace.vim
+144.408  000.055  000.055: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/po.vim
+144.640  000.075  000.075: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/wordcount.vim
+144.939  000.145  000.145: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline.vim
+145.133  000.039  000.039: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/autoshow.vim
+145.479  000.076  000.076: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/tabs.vim
+145.798  000.139  000.139: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/buffers.vim
+146.095  000.026  000.026: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/keymap.vim
+146.512  000.038  000.038: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/searchcount.vim
+154.704  000.053  000.053: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/themes.vim
+155.437  001.308  001.255: sourcing /home/qwqbot/.config/nvim//pack/packer/start/everforest/autoload/airline/themes/everforest.vim
+162.064  001.116  001.116: sourcing /home/qwqbot/.config/nvim//pack/packer/start/everforest/autoload/airline/themes/everforest.vim
+187.126  000.131  000.131: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/builder.vim
+187.579  000.071  000.071: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/default.vim
+213.226  067.400: opening buffers
+213.259  000.033: BufEnter autocommands
+213.262  000.003: editing files in windows
+213.877  000.122  000.122: sourcing /home/qwqbot/.config/nvim//pack/packer/start/dashboard-nvim/autoload/dashboard.vim
+214.113  000.050  000.050: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/buflist.vim
+214.239  000.017  000.017: sourcing /home/qwqbot/.config/nvim//pack/packer/start/dashboard-nvim/autoload/dashboard/utils.vim
+214.803  000.186  000.186: sourcing /home/qwqbot/.config/nvim//pack/packer/start/dashboard-nvim/autoload/dashboard/section.vim
+215.643  000.518  000.518: sourcing /usr/share/nvim/runtime/autoload/provider/clipboard.vim
+218.383  000.058  000.058: sourcing /home/qwqbot/.config/nvim//pack/packer/start/dashboard-nvim/syntax/dashboard.vim
+218.666  000.009  000.009: sourcing /home/qwqbot/.config/nvim/pack/packer/start/dashboard-nvim/syntax/dashboard.vim
+226.857  012.635: VimEnter autocommands
+226.861  000.004: UIEnter autocommands
+226.863  000.003: before starting main loop
+924.883  000.104  000.104: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim
+925.125  000.086  000.086: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/tabws.vim
+925.643  000.116  000.116: sourcing /home/qwqbot/.config/nvim//pack/packer/start/vim-airline/autoload/airline/extensions/tabline/builder.vim
+943.164  715.993: first screen update
+943.168  000.004: --- NVIM STARTED ---

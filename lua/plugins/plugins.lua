@@ -57,7 +57,9 @@ function(use)
 	use 'cohama/lexima.vim'
     
 	--- add comment ---
-	use 'preservim/nerdcommenter'
+    use {
+        'numToStr/Comment.nvim',
+    }
 
 
 	--- automatically turn off search highlight ---
@@ -90,7 +92,10 @@ function(use)
 	use 'vim-airline/vim-airline-themes'
 
 	--- start up ---
-	use 'glepnir/dashboard-nvim'
+	-- use 'glepnir/dashboard-nvim'
+    use {
+            'goolord/alpha-nvim',
+    }
 
 	---------------------------- LSP --------------------------------
 	use 'neovim/nvim-lspconfig'
@@ -112,7 +117,7 @@ function(use)
 	end
 end)
 
-require 'plugins/config/dashboard'
+-- require 'plugins/config/dashboard'
 require 'plugins/config/airline'
 require 'plugins/config/tree'
 require 'plugins/config/nerdcomment'
@@ -124,4 +129,6 @@ require 'plugins/config/gitsign'
 require("project_nvim").setup()
 require 'plugins/config/toggle'
 require 'plugins/config/textobj'
+require 'plugins/config/alpha'
+require 'plugins/config/comment'
 
