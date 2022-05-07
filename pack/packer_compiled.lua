@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/qwqbot/.config/nvim/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/qwqbot/.config/nvim/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["iceberg.vim"] = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/iceberg.vim",
@@ -249,11 +254,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-material",
     url = "https://github.com/hzchirs/vim-material"
-  },
-  ["vim-sneak"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-sneak",
-    url = "https://github.com/justinmk/vim-sneak"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

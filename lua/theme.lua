@@ -1,5 +1,6 @@
 
 -- vim.cmd 'let ayucolor="light" '
+vim.g.everforest_better_performance = 1
 vim.cmd 'set background=dark'
 vim.g.everforest_background = 'soft'
 vim.g.everforest_enable_italic = 0

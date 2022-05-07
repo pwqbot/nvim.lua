@@ -71,7 +71,10 @@ function(use)
 	use 'haya14busa/is.vim'
 
 	--- jump by two character ---
-	use 'justinmk/vim-sneak'
+        use {
+            'phaazon/hop.nvim',
+            branch = 'v1', -- optional but strongly recommended
+        }
 	--------------------------- beautify ----------------------------
 	--- theme ---
 	use 'joshdick/onedark.vim'
@@ -79,7 +82,6 @@ function(use)
 	use {
 		'sainnhe/everforest',
 		config = function() 
-			vim.g.everforest_better_performance = 1
 		end
 	}
 	use 'folke/tokyonight.nvim'
@@ -137,4 +139,5 @@ require 'plugins/config/textobj'
 require 'plugins/config/alpha'
 require 'plugins/config/comment'
 require 'plugins/config/bufferline'
+require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 

@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd(
 
 local term_group = vim.api.nvim_create_augroup("term",{clear = true})
 vim.api.nvim_create_autocmd(
-    {"BufWinEnter","WinEnter"},
+    {"BufWinEnter","WinEnter", "TermOpen"},
     {
         group = term_group,
         pattern = {"Terminal_*", "term://*"},
@@ -49,5 +49,15 @@ vim.api.nvim_create_autocmd(
         callback = function()
             vim.keymap.set('n', 'q', "<cmd>close<cr>", {silent = true})
         end
+    }
+)
+
+local git_group = vim.api.nvim_create_augroup("git", {})
+vim.api.nvim_create_autocmd(
+    {"FocusGained", "BufEnter"},
+    {
+        group = git_group,
+        pattern = {"*"},
+        command = [[checktime]],
     }
 )

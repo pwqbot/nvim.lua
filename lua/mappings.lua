@@ -75,10 +75,6 @@ map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
 
---- sneak ---
-map('n', 'f', '<Plug>Sneak_s')
-map('n', 'F', '<Plug>Sneak_S')
-
 map('n','<F2>', ':DiffviewOpen<CR>')
 local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
@@ -87,14 +83,8 @@ vim.api.nvim_create_autocmd(
         group = diffview_group,
         pattern = "DiffviewFilePanel",
         command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-    })
-vim.api.nvim_create_autocmd(
-    {"BufWinEnter"},
-    {
-        group = diffview_group,
-        pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-    })
+    }
+)
 
 vim.api.nvim_create_autocmd(
     {"BufDelete","BufHidden"},
@@ -102,7 +92,8 @@ vim.api.nvim_create_autocmd(
         group = diffview_group,
         pattern = "DiffviewFilePanel",
         command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
-    })
+    }
+)
 
 ---------------------------- terminal navigation ------------------------------
 tmap('<C-j>', [[<C-\><C-n><C-w>j]])
@@ -110,64 +101,45 @@ tmap('<C-k>', [[<C-\><C-n><C-w>k]])
 tmap('<C-h>', [[<C-\><C-n><C-w>h]])
 tmap('<C-l>', [[<C-\><C-n><C-w>l]])
 
+local cwd_to_terminal = {}
 local dd_terminal_buffer = -1
 local dd_terminal_window = -1
 local dd_terminal_chan_id = -1
+local dd_terminal_cwd = ""
 
 function TerminalOpenHorizontal()
-    if vim.fn.bufexists(dd_terminal_buffer) == 0 then
+    local cwd = vim.fn.getcwd()
+    if cwd_to_terminal[cwd] == nil then
         vim.cmd('below new terminal_window')
         vim.cmd('wincmd J')
         vim.cmd('resize 15')
-        dd_terminal_chan_id = vim.api.nvim_call_function("termopen", {"$SHELL"})
-        vim.cmd([[silent file Terminal_1]])
-        vim.cmd([[startinsert]])
-        vim.cmd([[set nobuflisted]])
-        dd_terminal_window = vim.fn.win_getid()
-        dd_terminal_buffer = vim.fn.bufnr('%')
+        chan_id = vim.api.nvim_call_function("termopen", {"$SHELL"})
+        vim.cmd([[silent file Terminal_]]..tostring(vim.fn.bufnr('%')))
+
+        cwd_to_terminal[cwd] = {
+            window = vim.fn.win_getid(),
+            buffer = vim.fn.bufnr('%'),
+            chan = chan_id,
+        }
     else 
-        if  vim.fn.win_gotoid(dd_terminal_window) == 0 then
+        if  vim.fn.win_gotoid(cwd_to_terminal[cwd].window) == 0 then
             vim.cmd('sp')
             vim.cmd([[wincmd J]])
             vim.cmd([[execute "resize " . 15]])
-            vim.cmd([[buffer Terminal_1]])
-            vim.cmd([[startinsert]])
-            dd_terminal_window = vim.fn.win_getid()
-        end
-    end
-end
-
-function TerminalOpenVeritical()
-    if vim.fn.bufexists(dd_terminal_buffer) == 0 then
-        vim.cmd('new terminal_window')
-        vim.cmd('wincmd L')
-        vim.cmd('vertical resize 60')
-        dd_terminal_chan_id = vim.api.nvim_call_function("termopen", {"$SHELL"})
-        vim.cmd([[silent file Terminal_1]])
-        vim.cmd([[startinsert]])
-        vim.cmd([[set nobuflisted]])
-        dd_terminal_window = vim.fn.win_getid()
-        dd_terminal_buffer = vim.fn.bufnr('%')
-    else 
-        if  vim.fn.win_gotoid(dd_terminal_window) == 0 then
-            vim.cmd('vsp')
-            vim.cmd([[wincmd L]])
-            vim.cmd([[execute "vertical resize " . 60]])
-            vim.cmd([[buffer Terminal_1]])
-            vim.cmd([[startinsert]])
-            dd_terminal_window = vim.fn.win_getid()
+            vim.cmd([[buffer Terminal_]]..tostring(cwd_to_terminal[cwd].buffer))
+            cwd_to_terminal[cwd].window = vim.fn.win_getid()
         end
     end
 end
 
 function TerminalClose()
-    if vim.fn.win_gotoid(dd_terminal_window) == 1 then
-        vim.cmd('hide')
-    end
+    vim.cmd('hide')
+    vim.cmd('stopinsert')
 end
 
 function TerminalToggle()
-    if vim.fn.win_gotoid(dd_terminal_window) == 1 then
+    local cwd = vim.fn.getcwd()
+    if cwd_to_terminal[cwd] ~= nil and vim.fn.win_gotoid(cwd_to_terminal[cwd].window) == 1 then
         TerminalClose() 
     else
         TerminalOpenHorizontal() 
@@ -176,7 +148,7 @@ end
 
 function TerminalExec(cmd)
     if vim.fn.win_gotoid(dd_terminal_window) == 0 then
-        TerminalOpenVeritical()
+        TerminalOpenHorizontal()
     end
 
     vim.api.nvim_chan_send(dd_terminal_chan_id, "clear\n")
@@ -189,7 +161,6 @@ end
 map({'n','t'}, '<C-`>', TerminalToggle)
 
 function MapGoRun()
-    print("???")
     vim.api.nvim_buf_set_keymap(0,'n','<F5>',
         [[<cmd>call v:lua.TerminalExec('go run '..expand('%'))<CR>]],
         {
@@ -205,3 +176,8 @@ vim.api.nvim_create_autocmd(
         pattern = "*.go",
         callback = MapGoRun,
     })
+
+map('n', 'f', function()
+    require'hop'.hint_words({})
+end
+)
