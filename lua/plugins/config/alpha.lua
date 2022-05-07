@@ -23,10 +23,10 @@ dashboard.section.header.opts = {
 }
 
 entrys = {
-    {"<C-t>", " 近來  ", ":Telescope oldfiles<CR>" },
-    {"<F3>", " 項目  ", ":Telescope projects<CR>" },
-    { ":ene <CR>", " 創建  " , ":ene <CR>"},
-    { ":qa<CR>", " 出去  " , ":qa<CR>"},
+    {"<C-t>", "  近來  ", ":Telescope oldfiles<CR>" },
+    {"<F3>", "  項目  ", ":Telescope projects<CR>" },
+    { ":ene <CR>", "  創建  " , ":ene <CR>"},
+    { ":qa<CR>", "  出去  " , ":qa<CR>"},
 }
 
 buttons = {}

@@ -42,10 +42,8 @@ nmap('<C-h>', '<C-w>h')
 nmap('<C-s>', ':update<CR>')
 
 --- jump between buffer/tab ---
-nmap('<F8>', 'gT')
-nmap('<F7>', 'gt')
-nmap(')', '<cmd>bn<CR>')
-nmap('(', '<cmd>bprevious<CR>')
+nmap(')', '<cmd>BufferLineCycleNext<CR>')
+nmap('(', '<cmd>BufferLineCyclePrev<CR>')
 nmap('<C-g>', '<cmd>bd<CR>')
 
 --- adjust windows size ---

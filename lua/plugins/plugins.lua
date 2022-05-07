@@ -31,6 +31,11 @@ function(use)
     use 'lewis6991/gitsigns.nvim'
 
 	----------------------------- file ---------------------------
+    -- using packer.nvim
+    use {'akinsho/bufferline.nvim', 
+            tag = "v2.*", 
+            requires = 'kyazdani42/nvim-web-devicons',
+    }
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -131,4 +136,5 @@ require 'plugins/config/toggle'
 require 'plugins/config/textobj'
 require 'plugins/config/alpha'
 require 'plugins/config/comment'
+require 'plugins/config/bufferline'
 

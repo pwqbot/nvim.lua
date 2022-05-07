@@ -25,8 +25,6 @@ vim.api.nvim_create_autocmd(
         pattern = {"Terminal_*", "term://*"},
         command = "startinsert",
     })
-
-
 vim.api.nvim_create_autocmd(
     {"BufWinEnter","WinEnter", "TermOpen"},
     {
@@ -34,7 +32,6 @@ vim.api.nvim_create_autocmd(
         pattern = {"Terminal_*","term://*"},
         command = [[nnoremap <buffer><silent> <C-g> <cmd>bd!<CR>]],
     })
-
 vim.api.nvim_create_autocmd(
     {"TermOpen"},
     {
@@ -42,3 +39,15 @@ vim.api.nvim_create_autocmd(
         pattern = {"Terminal_*","term://*"},
         command = [[set nobuflisted]],
     })
+
+local quick_exit_group = vim.api.nvim_create_augroup("quick_exit", {})
+vim.api.nvim_create_autocmd(
+    {"FileType"},
+    {
+        group = quick_exit_group,
+        pattern = {"qf,help,man"},
+        callback = function()
+            vim.keymap.set('n', 'q', "<cmd>close<cr>", {silent = true})
+        end
+    }
+)
