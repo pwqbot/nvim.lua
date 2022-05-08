@@ -100,6 +100,8 @@ tmap('<C-j>', [[<C-\><C-n><C-w>j]])
 tmap('<C-k>', [[<C-\><C-n><C-w>k]])
 tmap('<C-h>', [[<C-\><C-n><C-w>h]])
 tmap('<C-l>', [[<C-\><C-n><C-w>l]])
+tmap('<C-Tab>',[[<C-\><C-n>gt]])
+tmap('<C-S-Tab>',[[<C-\><C-n>gT]])
 
 local cwd_to_terminal = {}
 local dd_terminal_buffer = -1
