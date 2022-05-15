@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/qwqbot/.config/nvim/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/qwqbot/.config/nvim/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   NeoSolarized = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/NeoSolarized",
@@ -113,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
-  },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -163,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/qwqbot/.config/nvim/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -258,11 +263,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/qwqbot/.config/nvim/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 

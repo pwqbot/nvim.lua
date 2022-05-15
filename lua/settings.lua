@@ -4,7 +4,8 @@ vim.wo.fillchars = 'eob: '
 vim.cmd 'let $NVIM_TUI_ENABLE_TRUE_COLOR=1'
 vim.cmd 'set completeopt=menu,noselect'
 
-opt.pumheight=10
+-- opt.pumheight=10
+-- opt.colorcolumn="80"
 opt.termguicolors = true
 opt.undofile = true
 opt.hidden = true

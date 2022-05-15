@@ -1,57 +1,17 @@
-require 'lsp/config/clangd'
-require 'lsp/config/pyright'
+
 require 'lsp/config/nvim-cmp'
-require 'lsp/config/html'
-require 'lsp/config/tsserver'
-require 'lsp/config/bashls'
-require 'lsp/config/cmake'
-require'lspconfig'.gopls.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- disable virtual text
-    virtual_text = true,
-
-    -- show signs
-    signs = true,
+    virtual_text = true, 
+    signs = true,     
     underline = false,
     -- signwidth = 500,
     -- signcolumn = yes,
-    -- delay update diagnostics
-    update_in_insert = false
-}
-)
-
-require('vim.lsp.protocol').CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-}
+    update_in_insert = false     -- delay update diagnostics
+})
 
 local nvim_lsp = require('lspconfig')
-
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -65,8 +25,8 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>zz', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>zz', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -77,7 +37,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
     vim.api.nvim_exec([[
     augroup lsp_document_highlight
@@ -91,18 +51,65 @@ local on_attach = function(client, bufnr)
     false
     )
 
-
 end
-
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'html', 'pyright', 'rust_analyzer', 'tsserver', 'gopls' }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
+local servers = { 'clangd', 'html', 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'sumneko_lua' }
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local configs = {
+    gopls = {
+        settings = {
+            gopls = {
+                analyses = {
+                    unusedparams = true,
+                },
+                staticcheck = true
+            }
         }
+    },
+    sumneko_lua = {
+        settings = {
+            Lua = {
+                runtime = {
+                    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                    version = 'LuaJIT',
+                    -- Setup your lua path
+                    path = runtime_path,
+                },
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = {'vim'},
+                },
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                -- Do not send telemetry data containing a randomized but unique identifier
+                telemetry = {
+                    enable = false,
+                },
+            },
+        },
     }
+}
+
+local default_config = {
+    on_attach = on_attach,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    capabilities = capabilities,
+}
+
+for _, lsp in ipairs(servers) do
+    config = configs[lsp]
+    if config == nil then 
+        config = default_config
+    else
+    config = vim.tbl_deep_extend("force", config, default_config)
+    end
+    nvim_lsp[lsp].setup(config)
 end
+

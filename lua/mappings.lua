@@ -40,6 +40,7 @@ nmap('<C-h>', '<C-w>h')
 
 --- save file ---
 nmap('<C-s>', ':update<CR>')
+imap('<C-s>', '<ESC>l:update<CR>')
 
 --- jump between buffer/tab ---
 nmap(')', '<cmd>BufferLineCycleNext<CR>')
