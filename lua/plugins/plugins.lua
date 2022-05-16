@@ -1,5 +1,5 @@
 user_path = vim.fn.expand('~')
-vim.g.nvim_path = user_path..[[/.config/nvim/]]
+vim.g.nvim_path = user_path .. [[/.config/nvim/]]
 vim.opt.runtimepath:append(vim.g.nvim_path)
 vim.opt.packpath = vim.g.nvim_path
 
@@ -102,6 +102,7 @@ require('packer').startup(
     }
 
     ---------------------------- LSP --------------------------------
+    use 'jose-elias-alvarez/null-ls.nvim'
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -137,3 +138,4 @@ require 'plugins/config/alpha'
 require 'plugins/config/comment'
 require 'plugins/config/bufferline'
 require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+require 'plugins/config/null-ls'

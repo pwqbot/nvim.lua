@@ -1,36 +1,36 @@
-function map(mode, shortcut, command)
+local function map(mode, shortcut, command)
     vim.keymap.set(mode, shortcut, command, { silent = true })
 end
 
-function nmap(shortcut, command)
+local function nmap(shortcut, command)
     map('n', shortcut, command)
 end
 
-function imap(shortcut, command)
+local function imap(shortcut, command)
     map('i', shortcut, command)
 end
 
-function xmap(shorcut, command)
+local function xmap(shorcut, command)
     map('x', shorcut, command)
 end
 
-function vmap(shorcut, command)
+local function vmap(shorcut, command)
     map('v', shorcut, command)
 end
 
-function tmap(shorcut, command)
+local function tmap(shorcut, command)
     map('t', shorcut, command)
 end
 
 imap('jk', '<Esc>')
 imap('kj', '<Esc>')
-nmap('<C-Tab>', 'gt') 
+nmap('<C-Tab>', 'gt')
 nmap('<C-S-Tab>', 'gT')
 nmap('<C-q>', '<cmd>qa<cr>')
 
 --- line move ---
-map({'n', 'v'},'H', '^')
-map({'n', 'v'},'L', '$')
+map({ 'n', 'v' }, 'H', '^')
+map({ 'n', 'v' }, 'L', '$')
 
 --- move between windows ---
 nmap('<C-j>', '<C-w>j')
@@ -54,13 +54,13 @@ nmap('<Leader><Leader>-', ':resize -5<CR>')
 nmap('<Leader><Leader>=', ':resize +5<CR>')
 
 --- fuzzf finder ---
-map('n', '<F3>', function() require('telescope').extensions.projects.projects{} end)
+map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
 map('n', '<C-t>', function() require('telescope.builtin').oldfiles() end)
-map('n', '<C-b>', function() require('telescope.builtin').buffers{sort_mru=true} end)
+map('n', '<C-b>', function() require('telescope.builtin').buffers { sort_mru = true } end)
 map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
-map('n', '<C-p>', function() require('telescope.builtin').find_files{hidden=true} end)
-map('n', '<C-f>', function() require('telescope.builtin').find_files{cwd = "~", hidden=true} end)
-map({'t', 'n'}, '<F1>', '<cmd>NvimTreeToggle<CR>')
+map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
+map('n', '<C-f>', function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end)
+map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeToggle<CR>')
 
 vim.cmd [[
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -72,28 +72,28 @@ vim.keymap.set('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent 
 
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
-map('x', '<C-_>', 
+map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
 
-map('n','<F2>', ':DiffviewOpen<CR>')
+map('n', '<F2>', ':DiffviewOpen<CR>')
 local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
-    {"BufWinEnter"},
+    { "BufWinEnter" },
     {
-        group = diffview_group,
-        pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-    }
+    group = diffview_group,
+    pattern = "DiffviewFilePanel",
+    command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
+}
 )
 
 vim.api.nvim_create_autocmd(
-    {"BufDelete","BufHidden"},
+    { "BufDelete", "BufHidden" },
     {
-        group = diffview_group,
-        pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
-    }
+    group = diffview_group,
+    pattern = "DiffviewFilePanel",
+    command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
+}
 )
 
 ---------------------------- terminal navigation ------------------------------
@@ -101,8 +101,8 @@ tmap('<C-j>', [[<C-\><C-n><C-w>j]])
 tmap('<C-k>', [[<C-\><C-n><C-w>k]])
 tmap('<C-h>', [[<C-\><C-n><C-w>h]])
 tmap('<C-l>', [[<C-\><C-n><C-w>l]])
-tmap('<C-Tab>',[[<C-\><C-n>gt]])
-tmap('<C-S-Tab>',[[<C-\><C-n>gT]])
+tmap('<C-Tab>', [[<C-\><C-n>gt]])
+tmap('<C-S-Tab>', [[<C-\><C-n>gT]])
 
 local cwd_to_terminal = {}
 local dd_terminal_buffer = -1
@@ -116,20 +116,20 @@ function TerminalOpenHorizontal()
         vim.cmd('below new terminal_window')
         vim.cmd('wincmd J')
         vim.cmd('resize 15')
-        chan_id = vim.api.nvim_call_function("termopen", {"$SHELL"})
-        vim.cmd([[silent file Terminal_]]..tostring(vim.fn.bufnr('%')))
+        chan_id = vim.api.nvim_call_function("termopen", { "$SHELL" })
+        vim.cmd([[silent file Terminal_]] .. tostring(vim.fn.bufnr('%')))
 
         cwd_to_terminal[cwd] = {
             window = vim.fn.win_getid(),
             buffer = vim.fn.bufnr('%'),
             chan = chan_id,
         }
-    else 
-        if  vim.fn.win_gotoid(cwd_to_terminal[cwd].window) == 0 then
+    else
+        if vim.fn.win_gotoid(cwd_to_terminal[cwd].window) == 0 then
             vim.cmd('sp')
             vim.cmd([[wincmd J]])
             vim.cmd([[execute "resize " . 15]])
-            vim.cmd([[buffer Terminal_]]..tostring(cwd_to_terminal[cwd].buffer))
+            vim.cmd([[buffer Terminal_]] .. tostring(cwd_to_terminal[cwd].buffer))
             cwd_to_terminal[cwd].window = vim.fn.win_getid()
         end
     end
@@ -143,9 +143,9 @@ end
 function TerminalToggle()
     local cwd = vim.fn.getcwd()
     if cwd_to_terminal[cwd] ~= nil and vim.fn.win_gotoid(cwd_to_terminal[cwd].window) == 1 then
-        TerminalClose() 
+        TerminalClose()
     else
-        TerminalOpenHorizontal() 
+        TerminalOpenHorizontal()
     end
 end
 
@@ -155,32 +155,32 @@ function TerminalExec(cmd)
     end
 
     vim.api.nvim_chan_send(dd_terminal_chan_id, "clear\n")
-    vim.api.nvim_chan_send(dd_terminal_chan_id, cmd..'\n')
+    vim.api.nvim_chan_send(dd_terminal_chan_id, cmd .. '\n')
     vim.fn.execute("normal G")
     vim.fn.execute("wincmd p")
     vim.cmd([[ stopinsert ]])
 end
 
-map({'n','t'}, '<C-`>', TerminalToggle)
+map({ 'n', 't' }, '<C-`>', TerminalToggle)
 
 function MapGoRun()
-    vim.api.nvim_buf_set_keymap(0,'n','<F5>',
+    vim.api.nvim_buf_set_keymap(0, 'n', '<F5>',
         [[<cmd>call v:lua.TerminalExec('go run '..expand('%'))<CR>]],
         {
-            noremap = true,
-        })
+        noremap = true,
+    })
 end
 
-local go_group = vim.api.nvim_create_augroup("go_group", {clear = true})
+local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
 vim.api.nvim_create_autocmd(
-    {'BufWinEnter'},
+    { 'BufWinEnter' },
     {
-        group = go_group,
-        pattern = "*.go",
-        callback = MapGoRun,
-    })
+    group = go_group,
+    pattern = "*.go",
+    callback = MapGoRun,
+})
 
 map('n', 'f', function()
-    require'hop'.hint_words({})
+    require 'hop'.hint_words({})
 end
 )
