@@ -2,7 +2,6 @@ local opt = vim.opt --- global optlions
 
 vim.wo.fillchars = 'eob: '
 vim.cmd 'let $NVIM_TUI_ENABLE_TRUE_COLOR=1'
-vim.cmd 'set completeopt=menu,noselect'
 
 -- opt.pumheight=10
 -- opt.colorcolumn="80"
@@ -31,6 +30,6 @@ vim.cmd 'set clipboard=unnamed'
 opt.expandtab = true
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
 
-vim.g.webdevicons_enable_airline_statusline=1
+vim.g.webdevicons_enable_airline_statusline = 1

@@ -30,6 +30,7 @@ require('packer').startup(
         'sindrets/diffview.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
+
     use 'lewis6991/gitsigns.nvim'
 
     ----------------------------- file ---------------------------
