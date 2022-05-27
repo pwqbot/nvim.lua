@@ -1,10 +1,10 @@
 local user_path = vim.fn.expand('~')
 nvim_path = user_path .. [[/.config/nvim/]]
-vim.opt.runtimepath:append(nvim_path)
-vim.opt.packpath = nvim_path
 
 local packer_start_path = nvim_path .. 'pack/packer/start'
 vim.opt.runtimepath:append(packer_start_path .. '/*')
+vim.opt.runtimepath:append(nvim_path)
+
 local packer_path = packer_start_path .. '/packer.nvim'
 
 local packer_bootstrap
