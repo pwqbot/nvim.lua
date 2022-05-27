@@ -5,18 +5,18 @@ local packer_start_path = nvim_path .. 'pack/packer/start'
 vim.opt.runtimepath:append(packer_start_path .. '/*')
 vim.opt.runtimepath:append(nvim_path)
 
-local packer_path = packer_start_path .. '/packer.nvim'
-
-local packer_bootstrap
-if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
-    print("!!")
-    packer_bootstrap = vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path })
-end
-
 require('packer').init({
     package_root = nvim_path .. 'pack/',
     compile_path = nvim_path .. 'pack/packer_compiled.lua'
 })
+
+local packer_path = packer_start_path .. '/packer.nvim'
+
+local packer_bootstrap
+if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
+    print("install packer")
+    packer_bootstrap = vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path })
+end
 
 require('packer').startup(
     function(use)
