@@ -75,6 +75,7 @@ local on_attach = function(client, bufnr)
             vim.lsp.buf.format({ bufnr = bufnr })
         end,
     })
+    require("aerial").on_attach(client, bufnr)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and

@@ -1,9 +1,9 @@
-user_path = vim.fn.expand('~')
-vim.g.nvim_path = user_path .. [[/.config/nvim/]]
-vim.opt.runtimepath:append(vim.g.nvim_path)
-vim.opt.packpath = vim.g.nvim_path
+local user_path = vim.fn.expand('~')
+nvim_path = user_path .. [[/.config/nvim/]]
+vim.opt.runtimepath:append(nvim_path)
+vim.opt.packpath = nvim_path
 
-local packer_start_path = vim.g.nvim_path .. 'pack/packer/start'
+local packer_start_path = nvim_path .. 'pack/packer/start'
 vim.opt.runtimepath:append(packer_start_path .. '/*')
 local packer_path = packer_start_path .. '/packer.nvim'
 
@@ -13,115 +13,119 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
     packer_bootstrap = vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path })
 end
 
-vim.cmd [[ packadd packer.nvim ]]
-
 require('packer').init({
-    package_root = vim.g.nvim_path .. 'pack/',
-    compile_path = vim.g.nvim_path .. 'pack/packer_compiled.lua'
+    package_root = nvim_path .. 'pack/',
+    compile_path = nvim_path .. 'pack/packer_compiled.lua'
 })
 
 require('packer').startup(
     function(use)
-    --- packer itself ---
-    use 'wbthomason/packer.nvim'
+        --- packer itself ---
+        use 'wbthomason/packer.nvim'
+        use 'lambdalisue/suda.vim'
 
-    --------------------------- git ------------------------------
-    use {
-        'sindrets/diffview.nvim',
-        requires = 'nvim-lua/plenary.nvim'
-    }
+        --------------------------- git ------------------------------
+        use {
+            'sindrets/diffview.nvim',
+            requires = 'nvim-lua/plenary.nvim'
+        }
 
-    use 'lewis6991/gitsigns.nvim'
+        use 'lewis6991/gitsigns.nvim'
 
-    ----------------------------- file ---------------------------
-    -- using packer.nvim
-    use { 'akinsho/bufferline.nvim',
-        tag = "v2.*",
-        requires = 'kyazdani42/nvim-web-devicons',
-    }
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim/lua/plenary.nvim',
-        },
-    }
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-    }
-    use "ahmedkhalf/project.nvim"
+        ----------------------------- file ---------------------------
+        -- using packer.nvim
+        use { 'akinsho/bufferline.nvim',
+            tag = "v2.*",
+            requires = 'kyazdani42/nvim-web-devicons',
+        }
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = {
+                'nvim/lua/plenary.nvim',
+            },
+        }
+        use {
+            'kyazdani42/nvim-tree.lua',
+            requires = {
+                'kyazdani42/nvim-web-devicons', -- optional, for file icon
+            },
+        }
+        use "ahmedkhalf/project.nvim"
 
-    --- tmux ---
-    use 'christoomey/vim-tmux-navigator'
+        --- tmux ---
+        use 'christoomey/vim-tmux-navigator'
 
-    use 'akinsho/toggleterm.nvim'
-    --------------------------- code ------------------------------
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
+        use 'akinsho/toggleterm.nvim'
+        use 'ldelossa/litee.nvim'
+        use 'ldelossa/litee-calltree.nvim'
 
-    --- bracket ---
-    use 'cohama/lexima.vim'
+        --------------------------- code ------------------------------
+        use 'nvim-treesitter/nvim-treesitter'
+        use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-    --- add comment ---
-    use {
-        'numToStr/Comment.nvim',
-    }
+        --- bracket ---
+        -- use 'cohama/lexima.vim'
+        --
+        use 'stevearc/aerial.nvim'
 
-    --- automatically turn off search highlight ---
-    use 'haya14busa/is.vim'
+        --- add comment ---
+        use {
+            'numToStr/Comment.nvim',
+        }
 
-    --- jump by two character ---
-    use {
-        'phaazon/hop.nvim',
-        branch = 'v1', -- optional but strongly recommended
-    }
-    --------------------------- beautify ----------------------------
-    --- theme ---
-    use 'joshdick/onedark.vim'
-    use 'hzchirs/vim-material'
-    use 'sainnhe/everforest'
-    use 'folke/tokyonight.nvim'
-    use 'sonph/onehalf'
-    use 'altercation/vim-colors-solarized'
-    use 'overcache/NeoSolarized'
-    use 'cocopon/iceberg.vim'
-    use 'ayu-theme/ayu-vim'
+        --- automatically turn off search highlight ---
+        use 'haya14busa/is.vim'
 
-    --- icon ---
-    use 'kyazdani42/nvim-web-devicons'
+        --- jump by two character ---
+        use {
+            'phaazon/hop.nvim',
+            branch = 'v1', -- optional but strongly recommended
+        }
+        --------------------------- beautify ----------------------------
+        --- theme ---
+        use 'joshdick/onedark.vim'
+        use 'hzchirs/vim-material'
+        use 'sainnhe/everforest'
+        use 'folke/tokyonight.nvim'
+        use 'sonph/onehalf'
+        use 'altercation/vim-colors-solarized'
+        use 'overcache/NeoSolarized'
+        use 'cocopon/iceberg.vim'
+        use 'ayu-theme/ayu-vim'
 
-    --- status line ---
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+        --- icon ---
+        use 'kyazdani42/nvim-web-devicons'
 
-    --- start up ---
-    -- use 'glepnir/dashboard-nvim'
-    use {
-        'goolord/alpha-nvim',
-    }
+        --- status line ---
+        use 'vim-airline/vim-airline'
+        use 'vim-airline/vim-airline-themes'
 
-    ---------------------------- LSP --------------------------------
-    use 'jose-elias-alvarez/null-ls.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'L3MON4D3/LuaSnip'
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-    }
-    use 'folke/lsp-colors.nvim'
+        --- start up ---
+        -- use 'glepnir/dashboard-nvim'
+        use {
+            'goolord/alpha-nvim',
+        }
 
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end)
+        ---------------------------- LSP --------------------------------
+        use 'jose-elias-alvarez/null-ls.nvim'
+        use 'neovim/nvim-lspconfig'
+        use 'williamboman/nvim-lsp-installer'
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/cmp-path'
+        use 'hrsh7th/cmp-cmdline'
+        use 'hrsh7th/nvim-cmp'
+        use 'L3MON4D3/LuaSnip'
+        use {
+            "folke/trouble.nvim",
+            requires = "kyazdani42/nvim-web-devicons",
+        }
+        use 'folke/lsp-colors.nvim'
+
+        if packer_bootstrap then
+            require('packer').sync()
+        end
+    end)
 
 require 'plugins/config/lsp-installer'
 require 'plugins/config/airline'
@@ -140,3 +144,7 @@ require 'plugins/config/comment'
 require 'plugins/config/bufferline'
 require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 require 'plugins/config/null-ls'
+require 'plugins/config/aerial'
+require 'plugins/config/aerial'
+require 'plugins/config/aerial'
+require 'plugins/config/aerial'

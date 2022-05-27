@@ -26,9 +26,11 @@ require 'diffview'.setup {
         }
     },
     file_history_panel = {
-        position = "bottom",
-        width = 35,
-        height = 16,
+        win_config = {
+            position = "bottom",
+            width = 35,
+            height = 16,
+        },
         log_options = {
             max_count = 256, -- Limit the number of commits
             follow = false, -- Follow renames (only for single file)

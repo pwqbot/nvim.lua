@@ -55,11 +55,13 @@ nmap('<Leader><Leader>=', ':resize +5<CR>')
 
 --- fuzzf finder ---
 map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
+map('n', '<F4>', function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end)
 map('n', '<C-t>', function() require('telescope.builtin').oldfiles() end)
 map('n', '<C-b>', function() require('telescope.builtin').buffers { sort_mru = true } end)
 map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
 map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
-map('n', '<C-f>', function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end)
+map('n', '<C-f>', function() require('telescope.builtin').lsp_document_symbols {} end)
+map('n', '<C-a>', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
 map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeToggle<CR>')
 
 vim.cmd [[
@@ -81,19 +83,19 @@ local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
     { "BufWinEnter" },
     {
-    group = diffview_group,
-    pattern = "DiffviewFilePanel",
-    command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
-}
+        group = diffview_group,
+        pattern = "DiffviewFilePanel",
+        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
+    }
 )
 
 vim.api.nvim_create_autocmd(
     { "BufDelete", "BufHidden" },
     {
-    group = diffview_group,
-    pattern = "DiffviewFilePanel",
-    command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
-}
+        group = diffview_group,
+        pattern = "DiffviewFilePanel",
+        command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
+    }
 )
 
 ---------------------------- terminal navigation ------------------------------
@@ -167,18 +169,18 @@ function MapGoRun()
     vim.api.nvim_buf_set_keymap(0, 'n', '<F5>',
         [[<cmd>call v:lua.TerminalExec('go run '..expand('%'))<CR>]],
         {
-        noremap = true,
-    })
+            noremap = true,
+        })
 end
 
 local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
 vim.api.nvim_create_autocmd(
     { 'BufWinEnter' },
     {
-    group = go_group,
-    pattern = "*.go",
-    callback = MapGoRun,
-})
+        group = go_group,
+        pattern = "*.go",
+        callback = MapGoRun,
+    })
 
 map('n', 'f', function()
     require 'hop'.hint_words({})

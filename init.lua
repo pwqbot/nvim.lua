@@ -1,5 +1,5 @@
-require('mappings')
 require('plugins/plugins')
+require('mappings')
 require('settings')
 require('lsp/lspconfig')
 require('theme')

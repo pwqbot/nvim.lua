@@ -1,5 +1,5 @@
-local alpha = require'alpha'
-local dashboard = require'alpha.themes.dashboard'
+local alpha = require 'alpha'
+local dashboard = require 'alpha.themes.dashboard'
 
 
 dashboard.section.header.val = {
@@ -22,20 +22,20 @@ dashboard.section.header.opts = {
     hl = "Function",
 }
 
-entrys = {
-    {"<C-t>", "  近來  ", ":Telescope oldfiles<CR>" },
-    {"<F3>", "  項目  ", ":Telescope projects<CR>" },
-    { ":ene <CR>", "  創建  " , ":ene <CR>"},
-    { ":qa<CR>", "  出去  " , ":qa<CR>"},
+local entrys = {
+    { "<C-t>", "  近來  ", ":Telescope oldfiles<CR>" },
+    { "<F3>", "  項目  ", ":Telescope projects<CR>" },
+    { ":ene <CR>", "  創建  ", ":ene <CR>" },
+    { ":qa<CR>", "  出去  ", ":qa<CR>" },
 }
 
 buttons = {}
 
 for _, entry in pairs(entrys) do
     local on_press = function()
-      local sc_ = entry[1]
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
-      vim.api.nvim_feedkeys(key, "normal", false)
+        local sc_ = entry[1]
+        local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+        vim.api.nvim_feedkeys(key, "normal", false)
     end
 
     local button = dashboard.button(entry[1], entry[2], entry[3])

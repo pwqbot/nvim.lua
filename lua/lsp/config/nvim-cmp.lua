@@ -61,7 +61,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -70,7 +70,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "s", "c" }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<C-y>'] = cmp.config.disable,
         -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -78,7 +78,7 @@ cmp.setup({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp', max_item_count = 5 },
@@ -89,9 +89,9 @@ cmp.setup({
         -- { name = 'snippy' }, -- For snippy users.
     },
         {
-        { name = 'buffer', max_item_count = 5 },
-        { name = 'path', max_item_count = 3 },
-    }),
+            { name = 'buffer', max_item_count = 5 },
+            { name = 'path', max_item_count = 3 },
+        }),
     completion = {
         keyword_length = 1,
     },
@@ -113,6 +113,9 @@ cmp.setup({
             return vim_item
         end,
     },
+    view = {
+        entries = "custom"
+    },
     experimental = {
         ghost_text = false,
     }
@@ -132,17 +135,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline', max_item_count = 10 }
     })
 })
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- require('lspconfig')['clangd'].setup {
---     capabilities = capabilities
--- }
---
--- require('lspconfig')['pyright'].setup {
---     capabilities = capabilities
--- }
---
--- require('lspconfig')['gopls'].setup {
---     capabilities = capabilities
--- }
