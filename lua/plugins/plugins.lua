@@ -35,13 +35,6 @@ return require('packer').startup(
 
         --------------------------- git ------------------------------
         use {
-            'sindrets/diffview.nvim',
-            requires = 'nvim-lua/plenary.nvim',
-            config = function()
-                require 'plugins/config/diffview'
-            end,
-        }
-        use {
             'lewis6991/gitsigns.nvim',
             config = function()
                 require 'plugins/config/gitsign'
@@ -49,7 +42,14 @@ return require('packer').startup(
         }
         use {
             'TimUntersberger/neogit',
-            requires = 'nvim-lua/plenary.nvim'
+            requires = {
+                'nvim-lua/plenary.nvim',
+                'sindrets/diffview.nvim',
+            },
+            config = function()
+                require 'plugins/config/neogit'
+                require 'plugins/config/diffview'
+            end
         }
 
         ---------------------------- vim -----------------------------

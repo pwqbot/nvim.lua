@@ -71,25 +71,26 @@ map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
 
-map('n', '<Leader>df', ':DiffviewOpen<CR>')
-local diffview_group = vim.api.nvim_create_augroup("diffview", {})
-vim.api.nvim_create_autocmd(
-    { "BufWinEnter" },
-    {
-        group = diffview_group,
-        pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <Leader>df <cmd>DiffviewClose<CR><cmd>tabprevious<CR> ]]
-    }
-)
-
-vim.api.nvim_create_autocmd(
-    { "BufDelete", "BufHidden" },
-    {
-        group = diffview_group,
-        pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <Leader>df <cmd>DiffviewOpen<CR> ]]
-    }
-)
+map('n', '<Leader>gi', '<cmd>Neogit<CR>')
+-- map('n', '<Leader>df', ':DiffviewOpen<CR>')
+-- local diffview_group = vim.api.nvim_create_augroup("diffview", {})
+-- vim.api.nvim_create_autocmd(
+--     { "BufWinEnter" },
+--     {
+--         group = diffview_group,
+--         pattern = "DiffviewFilePanel",
+--         command = [[ nnoremap q <cmd>DiffviewClose<CR><cmd>tabprevious<CR> ]]
+--     }
+-- )
+--
+-- vim.api.nvim_create_autocmd(
+--     { "BufDelete", "BufHidden" },
+--     {
+--         group = diffview_group,
+--         pattern = "DiffviewFilePanel",
+--         command = [[ nnoremap <Leader>df <cmd>DiffviewOpen<CR> ]]
+--     }
+-- )
 
 ---------------------------- terminal navigation ------------------------------
 tmap('<C-j>', [[<C-\><C-n><C-w>j]])
