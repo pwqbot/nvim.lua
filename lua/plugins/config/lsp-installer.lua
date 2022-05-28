@@ -10,7 +10,7 @@ require("nvim-lsp-installer").setup({
     --   - true: All servers set up via lspconfig are automatically installed.
     --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
     --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
-    automatic_installation = true,
+    automatic_installation = false,
 
     ui = {
         icons = {
@@ -40,7 +40,7 @@ require("nvim-lsp-installer").setup({
     },
 
     -- The directory in which to install all servers.
-    install_root_dir = nvim_path .. "pack/lsp_server",
+    -- install_root_dir = nvim_path .. "pack/lsp_server",
 
     pip = {
         -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior

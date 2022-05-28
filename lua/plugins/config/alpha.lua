@@ -29,7 +29,7 @@ local entrys = {
     { ":qa<CR>", "  出去  ", ":qa<CR>" },
 }
 
-buttons = {}
+local buttons = {}
 
 for _, entry in pairs(entrys) do
     local on_press = function()

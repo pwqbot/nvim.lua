@@ -22,8 +22,6 @@ local function tmap(shorcut, command)
     map('t', shorcut, command)
 end
 
-imap('jk', '<Esc>')
-imap('kj', '<Esc>')
 nmap('<C-Tab>', 'gt')
 nmap('<C-S-Tab>', 'gT')
 nmap('<C-q>', '<cmd>qa<cr>')
@@ -48,10 +46,10 @@ nmap('(', '<cmd>BufferLineCyclePrev<CR>')
 nmap('<C-g>', '<cmd>b#<CR><cmd>bd#<CR>')
 
 --- adjust windows size ---
-nmap('<Leader>-', ':vertical resize -5<CR>')
-nmap('<Leader>=', ':vertical resize +5<CR>')
-nmap('<Leader><Leader>-', ':resize -5<CR>')
-nmap('<Leader><Leader>=', ':resize +5<CR>')
+nmap('<C-Left>', ':vertical resize -5<CR>')
+nmap('<C-Right>', ':vertical resize +5<CR>')
+nmap('<C-Down>', ':resize -5<CR>')
+nmap('<C-Up>', ':resize +5<CR>')
 
 --- fuzzf finder ---
 map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
@@ -62,12 +60,7 @@ map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
 map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
 map('n', '<C-f>', function() require('telescope.builtin').lsp_document_symbols {} end)
 map('n', '<C-a>', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
-map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeToggle<CR>')
-
-vim.cmd [[
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-]]
+map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 
 --- trouble ---
 vim.keymap.set('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
@@ -78,14 +71,14 @@ map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
 
-map('n', '<F2>', ':DiffviewOpen<CR>')
+map('n', '<Leader>df', ':DiffviewOpen<CR>')
 local diffview_group = vim.api.nvim_create_augroup("diffview", {})
 vim.api.nvim_create_autocmd(
     { "BufWinEnter" },
     {
         group = diffview_group,
         pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <F2> <cmd>DiffviewClose<CR> ]]
+        command = [[ nnoremap <Leader>df <cmd>DiffviewClose<CR><cmd>tabprevious<CR> ]]
     }
 )
 
@@ -94,7 +87,7 @@ vim.api.nvim_create_autocmd(
     {
         group = diffview_group,
         pattern = "DiffviewFilePanel",
-        command = [[ nnoremap <F2> <cmd>DiffviewOpen<CR> ]]
+        command = [[ nnoremap <Leader>df <cmd>DiffviewOpen<CR> ]]
     }
 )
 
@@ -107,10 +100,8 @@ tmap('<C-Tab>', [[<C-\><C-n>gt]])
 tmap('<C-S-Tab>', [[<C-\><C-n>gT]])
 
 local cwd_to_terminal = {}
-local dd_terminal_buffer = -1
 local dd_terminal_window = -1
 local dd_terminal_chan_id = -1
-local dd_terminal_cwd = ""
 
 function TerminalOpenHorizontal()
     local cwd = vim.fn.getcwd()
@@ -118,7 +109,7 @@ function TerminalOpenHorizontal()
         vim.cmd('below new terminal_window')
         vim.cmd('wincmd J')
         vim.cmd('resize 15')
-        chan_id = vim.api.nvim_call_function("termopen", { "$SHELL" })
+        local chan_id = vim.api.nvim_call_function("termopen", { "$SHELL" })
         vim.cmd([[silent file Terminal_]] .. tostring(vim.fn.bufnr('%')))
 
         cwd_to_terminal[cwd] = {

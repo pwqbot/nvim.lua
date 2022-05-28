@@ -31,5 +31,3 @@ opt.expandtab = true
 vim.wo.wrap = false
 vim.cmd 'set inccommand=nosplit'
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
-
-vim.g.webdevicons_enable_airline_statusline = 1
