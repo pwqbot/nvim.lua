@@ -22,8 +22,6 @@ local function tmap(shorcut, command)
     map('t', shorcut, command)
 end
 
-nmap('<C-Tab>', 'gt')
-nmap('<C-S-Tab>', 'gT')
 nmap('<C-q>', '<cmd>qa<cr>')
 
 --- line move ---
@@ -43,13 +41,18 @@ imap('<C-s>', '<ESC>l:update<CR>')
 --- jump between buffer/tab ---
 nmap(')', '<cmd>BufferLineCycleNext<CR>')
 nmap('(', '<cmd>BufferLineCyclePrev<CR>')
-nmap('<C-g>', '<cmd>b#<CR><cmd>bd#<CR>')
 
 --- adjust windows size ---
 nmap('<C-Left>', ':vertical resize -5<CR>')
 nmap('<C-Right>', ':vertical resize +5<CR>')
 nmap('<C-Down>', ':resize -5<CR>')
 nmap('<C-Up>', ':resize +5<CR>')
+
+--- file tree ---
+map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
+
+--- git ---
+map('n', '<F2>', '<cmd>Neogit<CR>')
 
 --- fuzzf finder ---
 map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
@@ -60,19 +63,15 @@ map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
 map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
 map('n', '<C-f>', function() require('telescope.builtin').lsp_document_symbols {} end)
 map('n', '<C-a>', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
-map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 
 --- trouble ---
-vim.keymap.set('n', "<C-1>", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
+vim.keymap.set('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
 map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
 )
-
---- git ---
-map('n', '<F2>', '<cmd>Neogit<CR>')
 
 ---------------------------- terminal navigation ------------------------------
 tmap('<C-j>', [[<C-\><C-n><C-w>j]])

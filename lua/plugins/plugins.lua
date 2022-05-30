@@ -1,7 +1,7 @@
 local user_path = vim.fn.expand('~')
-nvim_path = user_path .. [[/.config/nvim/]]
+Nvim_path = user_path .. [[/.config/nvim/]]
 
-local packer_start_path = nvim_path .. 'pack/packer/start'
+local packer_start_path = Nvim_path .. 'pack/packer/start'
 local packer_path = packer_start_path .. '/packer.nvim'
 local packer_bootstrap
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
@@ -15,11 +15,11 @@ vim.opt.runtimepath:append(packer_start_path .. '/*')
 -- vim.opt.runtimepath:append(packer_path)
 
 require('packer').init({
-    package_root = nvim_path .. 'pack/',
+    package_root = Nvim_path .. 'pack/',
     -- compile_path = nvim_path .. 'pack/packer_compiled.lua',
     profile = {
         enable = true,
-        threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+        threshold = 0,
     },
     display = {
         open_fn = function()
@@ -40,6 +40,7 @@ return require('packer').startup(
                 require 'plugins/config/gitsign'
             end
         }
+        --- F2 ---
         use {
             'TimUntersberger/neogit',
             requires = {
@@ -55,12 +56,16 @@ return require('packer').startup(
         ---------------------------- vim -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
+
+        --  jk to ESC
         use {
             "max397574/better-escape.nvim",
             config = function()
                 require 'plugins/config/better-escape'
             end,
         }
+
+        -- quickfix preview
         use {
             'kevinhwang91/nvim-bqf',
         }
@@ -73,18 +78,14 @@ return require('packer').startup(
                 require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
             end
         }
+
+        -- show key hint
         use {
             "folke/which-key.nvim",
             config = function()
-                require("which-key").setup {
-                    -- your configuration comes here
-                    -- or leave it empty to use the default settings
-                    -- refer to the configuration section below
-                }
+                require 'plugins/config/which-key'
             end
         }
-
-
         ----------------------------- file ---------------------------
         use {
             'nvim-telescope/telescope.nvim',
@@ -104,6 +105,7 @@ return require('packer').startup(
                 'kyazdani42/nvim-web-devicons', -- optional, for file icon
             },
         }
+
         use
         {
             "ahmedkhalf/project.nvim",
@@ -111,9 +113,6 @@ return require('packer').startup(
                 require("project_nvim").setup()
             end
         }
-
-        use 'ldelossa/litee.nvim'
-        use 'ldelossa/litee-calltree.nvim'
         -- --------------------------- code ------------------------------
         use {
             'nvim-treesitter/nvim-treesitter',
@@ -135,15 +134,13 @@ return require('packer').startup(
             end
         }
 
-        -- --- add comment ---
+        -- add comment
         use {
             'numToStr/Comment.nvim',
             config = function()
                 require 'plugins/config/comment'
             end,
         }
-
-
         -- --------------------------- beautify ----------------------------
         -- theme
         use 'joshdick/onedark.vim'
