@@ -140,15 +140,7 @@ return require('packer').startup(
         }
         -- --------------------------- beautify ----------------------------
         -- theme
-        use 'joshdick/onedark.vim'
-        use 'hzchirs/vim-material'
-        use 'sainnhe/everforest'
-        use 'folke/tokyonight.nvim'
-        use 'sonph/onehalf'
-        use 'altercation/vim-colors-solarized'
-        use 'overcache/NeoSolarized'
-        use 'cocopon/iceberg.vim'
-        use 'ayu-theme/ayu-vim'
+        use "EdenEast/nightfox.nvim"
 
         --  icon
         use 'kyazdani42/nvim-web-devicons'
