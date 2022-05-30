@@ -2,7 +2,7 @@
 	Hi, you love neovim, right?		
 
 ## Install Nerd Font
-1. Download a Nerd Font
+1. Download a Nerd Font https://www.nerdfonts.com/font-downloads
 2. Unzip and copy to `~/.fonts`
 3. Run the command `fc-cache -fv` to manually rebuild the font cache
 
