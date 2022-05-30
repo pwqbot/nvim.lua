@@ -1,4 +1,3 @@
-
 -- vim.cmd 'let ayucolor="light" '
 vim.g.everforest_better_performance = 1
 vim.cmd 'set background=dark'
@@ -12,4 +11,4 @@ vim.cmd [[ colorscheme everforest ]]
 -- vim.cmd 'hi NonText guibg=NONE ctermbg=NONE'
 -- vim.cmd 'hi! EndOfBuffer ctermbg=255 ctermfg=255 guibg=255 guifg=255'
 -- vim.api.nvim_command([[set fillchars=eob:\]])
--- vim.api.nvim_set_hl(0, 'ColorColumn', { fg = "#ffffff", bg = "#212529", }) 
+-- vim.api.nvim_set_hl(0, 'ColorColumn', { fg = "#ffffff", bg = "#212529", })
