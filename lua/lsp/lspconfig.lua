@@ -41,7 +41,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    require 'lsp/keymaps'.setup(client, bufnr)
+    require 'keymap/lsp'.setup(client, bufnr)
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
