@@ -10,9 +10,6 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
 end
 
 vim.opt.runtimepath:append(packer_start_path .. '/*')
--- vim.opt.runtimepath:append(nvim_path)
--- vim.opt.runtimepath:append(nvim_path.. 'pack/')
--- vim.opt.runtimepath:append(packer_path)
 
 require('packer').init({
     package_root = Nvim_path .. 'pack/',
