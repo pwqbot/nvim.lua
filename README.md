@@ -10,13 +10,13 @@ or there will be some text garbled.
 
 ## Go
 
-lua/settings.lua has basic setting for neovim.
+`lua/settings.lua` has basic setting for neovim.
 
-lua/keymap is for keymap, include basic, plugin and lsp.
+`lua/keymap` is for keymap, include basic, plugin and lsp.
 
-lua/lsp is for language server protocal, which provides code complete, goto definition, code diagnositic...
+`lua/lsp` is for language server protocal, which provides code complete, goto definition, code diagnositic...
 
-lua/plugins include many useful plugin, like telescope.nvim.
+`lua/plugins` include many useful plugin, like telescope.nvim.
 
 ## How to map key
 
