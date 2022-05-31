@@ -54,3 +54,14 @@ function TerminalExec(cmd)
 end
 
 vim.keymap.set({ 'n', 't' }, '<C-t>', TerminalToggle)
+
+local term_group = vim.api.nvim_create_augroup("toggleterm", { clear = true })
+vim.api.nvim_create_autocmd(
+    { "BufWinEnter", "WinEnter", "BufEnter", "TermEnter" },
+    {
+        group = term_group,
+        pattern = { "Terminal_*" },
+        callback = function()
+            vim.keymap.set('n', 'q', TerminalToggle, { buffer = true })
+        end,
+    })

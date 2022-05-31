@@ -5,8 +5,9 @@ end
 --- quick exit ---
 map('n', '<C-q>', '<cmd>qa<cr>')
 
-map('n', '<F7>', 'gt')
-map('n', '<F8>', 'gT')
+--- cycle through tab ---
+map('n', '(', 'gt')
+map('n', ')', 'gT')
 
 --- line move ---
 map({ 'n', 'v' }, 'H', '^')
@@ -21,10 +22,6 @@ map('n', '<C-h>', '<C-w>h')
 --- save file ---
 map('n', '<C-s>', ':update<CR>')
 map('i', '<C-s>', '<ESC>l:update<CR>')
-
---- jump between buffer/tab ---
-map('n', ')', '<cmd>BufferLineCycleNext<CR>')
-map('n', '(', '<cmd>BufferLineCyclePrev<CR>')
 
 --- adjust windows size ---
 map('n', '<C-Left>', ':vertical resize -5<CR>')
