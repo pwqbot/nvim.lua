@@ -32,5 +32,3 @@ require 'nvim-treesitter.configs'.setup {
         },
     },
 }
-
-vim.api.nvim_set_keymap('n', '<leader>vv', '[fV$%]F', {})

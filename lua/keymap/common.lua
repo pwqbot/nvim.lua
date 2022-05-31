@@ -6,8 +6,8 @@ end
 map('n', '<C-q>', '<cmd>qa<cr>')
 
 --- cycle through tab ---
-map('n', '(', 'gt')
-map('n', ')', 'gT')
+map('n', '<M-j>', 'gT')
+map('n', '<M-k>', 'gt')
 
 --- line move ---
 map({ 'n', 'v' }, 'H', '^')
@@ -34,8 +34,8 @@ map('t', '<C-j>', [[<C-\><C-n><C-w>j]])
 map('t', '<C-k>', [[<C-\><C-n><C-w>k]])
 map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
-map('t', '<F7>', '<C-\\><C-n>gt')
-map('t', '<F8>', '<C-\\><C-n>gT')
+map('t', '<M-j>', '<C-\\><C-n>gT')
+map('t', '<M-k>', '<C-\\><C-n>gt')
 
 --- emacs like ---
 map('i', '<C-A>', '<Home>')
