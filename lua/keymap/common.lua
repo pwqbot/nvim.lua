@@ -10,8 +10,8 @@ map('n', '<M-j>', 'gT')
 map('n', '<M-k>', 'gt')
 
 --- line move ---
-map({ 'n', 'v' }, 'H', '^')
-map({ 'n', 'v' }, 'L', '$')
+map({ 'n', 'v' }, '(', '^')
+map({ 'n', 'v' }, ')', '$')
 
 --- move between windows ---
 map('n', '<C-j>', '<C-w>j')
