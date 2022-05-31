@@ -1,5 +1,8 @@
-# Oh NO
-	Hi, you love neovim, right?		
+# Nvim
+        git clone this project, then run `nvim -u nvim.lua/init.lua`.
+        On first time startup, there will be some errors due to lack of plugins, just omit errors and run `:PackerSync` in neovim,
+        and then restart.
+        if you like this config, you can mv `nvim.lua` to `~/.config/nvim`.
 
 ## Install Nerd Font
 1. Download a Nerd Font https://www.nerdfonts.com/font-downloads
