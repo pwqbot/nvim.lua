@@ -39,3 +39,9 @@ map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 map('t', '<F7>', '<C-\\><C-n>gt')
 map('t', '<F8>', '<C-\\><C-n>gT')
+
+--- emacs like ---
+map('i', '<C-A>', '<Home>')
+map('i', '<C-E>', '<End>')
+map('i', '<C-F>', '<Right>')
+map('i', '<C-B>', '<Left>')

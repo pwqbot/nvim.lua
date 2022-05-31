@@ -53,4 +53,4 @@ function TerminalExec(cmd)
     vim.cmd([[ stopinsert ]])
 end
 
-vim.keymap.set({ 'n', 't' }, '<C-`>', TerminalToggle)
+vim.keymap.set({ 'n', 't' }, '<C-t>', TerminalToggle)

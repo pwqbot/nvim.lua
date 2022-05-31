@@ -23,7 +23,7 @@ dashboard.section.header.opts = {
 }
 
 local entrys = {
-    { "<C-t>", "  近來  ", ":Telescope oldfiles<CR>" },
+    { "<leader>fo", "  近來  ", ":Telescope oldfiles<CR>" },
     { "<F3>", "  項目  ", ":Telescope projects<CR>" },
     { ":ene <CR>", "  創建  ", ":ene <CR>" },
     { ":qa<CR>", "  出去  ", ":qa<CR>" },

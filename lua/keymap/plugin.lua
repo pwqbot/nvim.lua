@@ -11,12 +11,12 @@ map('n', '<F2>', '<cmd>Neogit<CR>')
 --- fuzzf finder ---
 map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
 map('n', '<F4>', function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end)
-map('n', '<C-t>', function() require('telescope.builtin').oldfiles() end)
-map('n', '<C-b>', function() require('telescope.builtin').buffers { sort_mru = true } end)
-map('n', '<C-n>', function() require('telescope.builtin').live_grep() end)
 map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
-map('n', '<C-f>', function() require('telescope.builtin').lsp_document_symbols {} end)
-map('n', '<C-a>', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
+map('n', '<C-n>', function() require('telescope.builtin').buffers { sort_mru = true } end)
+map('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end)
+map('n', '<leader>fw', function() require('telescope.builtin').live_grep() end)
+map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols {} end)
+map('n', '<leader>fa', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
 
 --- trouble ---
 vim.keymap.set('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })

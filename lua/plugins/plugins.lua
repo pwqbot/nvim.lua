@@ -13,7 +13,6 @@ vim.opt.runtimepath:append(packer_start_path .. '/*')
 
 require('packer').init({
     package_root = Nvim_path .. 'pack/',
-    -- compile_path = nvim_path .. 'pack/packer_compiled.lua',
     profile = {
         enable = true,
         threshold = 0,
@@ -25,7 +24,7 @@ require('packer').init({
     },
 })
 
-return require('packer').startup(
+require('packer').startup(
     function(use)
         --- packer itself ---
         use 'wbthomason/packer.nvim'
@@ -62,7 +61,7 @@ return require('packer').startup(
             end,
         }
 
-        -- quickfix preview
+        -- quickfix window preview
         use {
             'kevinhwang91/nvim-bqf',
         }
@@ -84,6 +83,7 @@ return require('packer').startup(
             end
         }
         ----------------------------- file ---------------------------
+        -- fuzzy finder, see keymap in keymap/plugin.lua
         use {
             'nvim-telescope/telescope.nvim',
             config = function()
@@ -93,6 +93,8 @@ return require('packer').startup(
                 'nvim/lua/plenary.nvim',
             },
         }
+
+        -- <F1> open file explorer
         use {
             'kyazdani42/nvim-tree.lua',
             config = function()
@@ -103,6 +105,7 @@ return require('packer').startup(
             },
         }
 
+        -- auto switch pwd
         use
         {
             "ahmedkhalf/project.nvim",
@@ -144,7 +147,7 @@ return require('packer').startup(
 
         --  icon
         use 'kyazdani42/nvim-web-devicons'
-        --
+
         -- status line
         use {
             'nvim-lualine/lualine.nvim',
@@ -153,6 +156,8 @@ return require('packer').startup(
                 require 'plugins/config/lualine'
             end,
         }
+
+        -- show position in code in status line
         use {
             "SmiteshP/nvim-gps",
             requires = "nvim-treesitter/nvim-treesitter",
@@ -160,6 +165,8 @@ return require('packer').startup(
                 require("nvim-gps").setup()
             end
         }
+
+        -- buffer line beautify
         use {
             'akinsho/bufferline.nvim',
             tag = "v2.*",
@@ -168,6 +175,7 @@ return require('packer').startup(
             end,
             requires = 'kyazdani42/nvim-web-devicons',
         }
+
         -- start up
         use {
             'goolord/alpha-nvim',
@@ -175,14 +183,7 @@ return require('packer').startup(
                 require 'plugins/config/alpha'
             end
         }
-
         -- ---------------------------- LSP --------------------------------
-        use {
-            'jose-elias-alvarez/null-ls.nvim',
-            config = function()
-                require 'plugins/config/null-ls'
-            end
-        }
         use {
             'williamboman/nvim-lsp-installer',
             {
@@ -193,12 +194,29 @@ return require('packer').startup(
                 end
             }
         }
-        use 'hrsh7th/cmp-nvim-lsp'
-        use 'hrsh7th/cmp-buffer'
-        use 'hrsh7th/cmp-path'
-        use 'hrsh7th/cmp-cmdline'
-        use 'hrsh7th/nvim-cmp'
-        use 'L3MON4D3/LuaSnip'
+
+        -- lsp adapter
+        use {
+            'jose-elias-alvarez/null-ls.nvim',
+            config = function()
+                require 'plugins/config/null-ls'
+            end
+        }
+
+        -- beautify
+        use 'folke/lsp-colors.nvim'
+
+        -- all complete plugins
+        use {
+            'hrsh7th/nvim-cmp',
+            'L3MON4D3/LuaSnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+        }
+
+        -- <leader>t to open lsp diagnostic
         use {
             "folke/trouble.nvim",
             requires = "kyazdani42/nvim-web-devicons",
@@ -206,7 +224,6 @@ return require('packer').startup(
                 require 'plugins/config/trouble'
             end,
         }
-        use 'folke/lsp-colors.nvim'
 
         if packer_bootstrap then
             require('packer').sync()
