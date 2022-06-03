@@ -3,8 +3,8 @@ local M = {}
 
 M.servers = {
     clangd = {},
-    -- pyright = {},
-    pylsp = {},
+    pyright = {},
+    -- pylsp = {},
     gopls = {
         settings = {
             gopls = {

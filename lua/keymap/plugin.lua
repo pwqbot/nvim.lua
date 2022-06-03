@@ -14,7 +14,7 @@ map('n', '<F4>', function() require('telescope.builtin').find_files { cwd = "~",
 map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
 map('n', '<C-n>', function() require('telescope.builtin').buffers { sort_mru = true } end)
 map('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end)
-map('n', '<leader>fw', function() require('telescope.builtin').live_grep() end)
+map('n', '<leader>fg', function() require('telescope.builtin').live_grep() end)
 map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols {} end)
 map('n', '<leader>fa', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
 

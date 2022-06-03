@@ -36,6 +36,7 @@ require('packer').startup(
                 require 'plugins/config/gitsign'
             end
         }
+
         --- F2 ---
         use {
             'TimUntersberger/neogit',
