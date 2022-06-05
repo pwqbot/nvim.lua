@@ -5,6 +5,7 @@ M.servers = {
     clangd = {},
     pyright = {},
     -- pylsp = {},
+    html = {},
     gopls = {
         settings = {
             gopls = {
