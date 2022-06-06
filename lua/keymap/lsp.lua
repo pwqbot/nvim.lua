@@ -27,7 +27,7 @@ local function keymappings(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ic', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>oc', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 end
