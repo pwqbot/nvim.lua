@@ -145,6 +145,7 @@ require('packer').startup(
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"
+        use "sainnhe/everforest"
 
         --  icon
         use 'kyazdani42/nvim-web-devicons'

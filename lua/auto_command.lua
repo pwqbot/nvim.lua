@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd(
     { "FileType" },
     {
         group = lsp_group,
-        pattern = { "*" },
+        pattern = { "lspinfo" },
         callback = function()
             vim.keymap.set('n', 'q', "<cmd>close<cr>",
                 { silent = true, buffer = true })

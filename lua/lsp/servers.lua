@@ -2,7 +2,15 @@ local M = {}
 -- Use a loop to conveniently call 'setup' on multiple servers and
 
 M.servers = {
-    clangd = {},
+    clangd = {
+        cmd = {
+            "clangd",
+            "--background-index",
+            "--suggest-missing-includes",
+            "-compile-commands-dir=build",
+            "--clang-tidy",
+        }
+    },
     pyright = {},
     -- pylsp = {},
     html = {},

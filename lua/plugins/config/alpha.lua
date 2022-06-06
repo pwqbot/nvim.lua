@@ -23,10 +23,10 @@ dashboard.section.header.opts = {
 }
 
 local entrys = {
-    { "<leader>fo", "  Recent ", ":Telescope oldfiles<CR>" },
-    { "<F3>",       "ﳑ  Project", ":Telescope projects<CR>" },
-    { ":ene <CR>",  "  New    ", ":ene <CR>" },
-    { ":qa<CR>",    "  Out    ", ":qa<CR>" },
+    { "<leader>fo", "       Recent ", ":Telescope oldfiles<CR>" },
+    { "<F3>", "     ﳑ  Project", ":Telescope projects<CR>" },
+    { ":ene <CR>", "       New    ", ":ene <CR>" },
+    { ":qa<CR>", "       Out    ", ":qa<CR>" },
 }
 
 local buttons = {}
