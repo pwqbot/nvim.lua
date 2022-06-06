@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd(
     { "FileType" },
     {
         group = quick_exit_group,
-        pattern = { "qf,help,man" },
+        pattern = { "qf,help,man,checkhealth" },
         callback = function()
             vim.keymap.set('n', 'q', "<cmd>close<cr>",
                 { silent = true, buffer = true })

@@ -94,6 +94,8 @@ require('packer').startup(
                 'nvim/lua/plenary.nvim',
             },
         }
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 
         -- <F1> open file explorer
         use {
