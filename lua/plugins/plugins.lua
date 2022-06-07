@@ -194,12 +194,6 @@ require('packer').startup(
                 require 'plugins/config/lualine'
             end,
         }
-        -- use {
-        --     "lukas-reineke/virt-column.nvim",
-        --     config = function()
-        --         require("virt-column").setup()
-        --     end
-        -- }
 
         -- show position in code in status line
         use {
@@ -209,7 +203,14 @@ require('packer').startup(
                 require("nvim-gps").setup()
             end
         }
-        use 'Raimondi/delimitMate'
+
+        --- auto pairs
+        use {
+            'windwp/nvim-autopairs',
+            config = function()
+                require 'plugins/config/autopairs'
+            end
+        }
 
         -- buffer line beautify
         use {
