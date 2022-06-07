@@ -94,7 +94,10 @@ require('packer').startup(
                 'nvim/lua/plenary.nvim',
             },
         }
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            run = 'make'
+        }
 
 
         -- <F1> open file explorer
@@ -144,6 +147,13 @@ require('packer').startup(
                 require 'plugins/config/comment'
             end,
         }
+        use {
+            "lukas-reineke/indent-blankline.nvim",
+            config = function()
+                require 'plugins/config/indent'
+            end
+        }
+
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"

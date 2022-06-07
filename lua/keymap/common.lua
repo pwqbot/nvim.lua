@@ -8,6 +8,9 @@ map('n', '<C-q>', '<cmd>qa<cr>')
 --- cycle through tab ---
 map('n', '<M-j>', 'gT')
 map('n', '<M-k>', 'gt')
+-- map('n', '<leader>nt', '<Cmd>tabnew<CR>')
+map('n', '<leader>ct', '<Cmd>tabclose<CR>')
+map('n', '<leader>cb', '<Cmd>bd<CR>')
 
 --- line move ---
 map({ 'n', 'v' }, 'H', '^')
