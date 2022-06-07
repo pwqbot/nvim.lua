@@ -36,6 +36,4 @@ map('x', '<C-_>',
 )
 
 --- quick motion ---
-map('n', 'f', function()
-    require 'hop'.hint_words({})
-end)
+map('n', 'f', function() require 'hop'.hint_words({}) end)

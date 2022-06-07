@@ -45,3 +45,6 @@ map('i', '<C-A>', '<Home>')
 map('i', '<C-E>', '<End>')
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
+
+map('n', '<leader>sc',
+    [[:execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>]])

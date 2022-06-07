@@ -6,7 +6,9 @@ local packer_path = packer_start_path .. '/packer.nvim'
 local packer_bootstrap
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
     print("install packer")
-    packer_bootstrap = vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packer_path })
+    packer_bootstrap = vim.fn.system({
+        'git', 'clone', '--depth', '1',
+        'https://github.com/wbthomason/packer.nvim', packer_path })
 end
 
 vim.opt.runtimepath:append(packer_start_path .. '/*')
