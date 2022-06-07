@@ -19,7 +19,7 @@ require('packer').init({
     },
     display = {
         open_fn = function()
-            return require("packer.util").float { border = "rounded" }
+            return require("packer.util").float { border = 'rounded' }
         end,
     },
 })
@@ -132,6 +132,12 @@ require('packer').startup(
                 require 'plugins/config/textobj'
             end
         }
+        use {
+            'nvim-treesitter/nvim-treesitter-context',
+            config = function()
+                require 'plugins/config/context'
+            end
+        }
 
         use {
             'stevearc/aerial.nvim',
@@ -153,6 +159,22 @@ require('packer').startup(
                 require 'plugins/config/indent'
             end
         }
+        use { 'machakann/vim-sandwich',
+            config = function()
+                vim.cmd([[
+                    runtime macros/sandwich/keymap/surround.vim
+
+                    " Text objects to select 
+                    " the nearest surrounded text automatically
+                    let g:sandwich_no_default_key_mappings = 1
+                    xmap is <Plug>(extobj-sandwich-aubo-i)
+                    xmap as <Plug>(textobj-sandwich-auto-a)
+                    omap is <Plug>(textobj-sandwich-auto-i)
+                    omap as <Plug>(textobj-sandwich-auto-a)
+                ]]
+                )
+            end
+        }
 
         -- --------------------------- beautify ----------------------------
         -- theme
@@ -170,15 +192,22 @@ require('packer').startup(
                 require 'plugins/config/lualine'
             end,
         }
+        -- use {
+        --     "lukas-reineke/virt-column.nvim",
+        --     config = function()
+        --         require("virt-column").setup()
+        --     end
+        -- }
 
         -- show position in code in status line
         use {
-            "SmiteshP/nvim-gps",
-            requires = "nvim-treesitter/nvim-treesitter",
+            'SmiteshP/nvim-gps',
+            requires = 'nvim-treesitter/nvim-treesitter',
             config = function()
                 require("nvim-gps").setup()
             end
         }
+        use 'Raimondi/delimitMate'
 
         -- buffer line beautify
         use {
@@ -232,8 +261,8 @@ require('packer').startup(
 
         -- <leader>t to open lsp diagnostic
         use {
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
+            'folke/trouble.nvim',
+            requires = 'kyazdani42/nvim-web-devicons',
             config = function()
                 require 'plugins/config/trouble'
             end,
