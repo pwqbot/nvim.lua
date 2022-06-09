@@ -3,9 +3,9 @@ local sources = {
     -- null_ls.builtins.diagnostics.cppcheck.with({
     --     extra_args = { "--std" } }),
     -- null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.formatting.golines.with({
-        extra_args = { "-m", "80" }
-    }),
+    -- null_ls.builtins.formatting.golines.with({
+    --     extra_args = { "-m", "80" }
+    -- }),
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

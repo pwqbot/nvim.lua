@@ -75,7 +75,10 @@ require('packer').startup(
             'phaazon/hop.nvim',
             branch = 'v1', -- optional but strongly recommended
             config = function()
-                require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+                require 'hop'.setup {
+                    keys = 'etovxqpdygfblzhckisuran',
+                    multi_windows = true,
+                }
             end
         }
 
@@ -186,7 +189,7 @@ require('packer').startup(
         --  icon
         use 'kyazdani42/nvim-web-devicons'
 
-        -- status line
+        -- stcatus line
         use {
             'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true },
