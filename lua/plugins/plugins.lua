@@ -89,6 +89,7 @@ require('packer').startup(
                 require 'plugins/config/which-key'
             end
         }
+        use 'christoomey/vim-tmux-navigator'
         ----------------------------- file ---------------------------
         -- fuzzy finder, see keymap in keymap/plugin.lua
         use {
