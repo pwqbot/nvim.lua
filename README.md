@@ -66,25 +66,25 @@ a highly extendable fuzzy finder.
 - `F3` to find projects you opened.
 
 ### [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
-    file explor for neovim. 
-    In nvimtree, you may check your project structure, add/delete/remove files.
-    - `F1` toggle nvimtree.
-    - `g?` in nvimtree, and you will see help.
+file explor for neovim. 
+In nvimtree, you may check your project structure, add/delete/remove files.
+- `F1` toggle nvimtree.
+- `g?` in nvimtree, and you will see help.
 
 ### [Comment.nvim](https://github.com/numToStr/Comment.nvim)
-    smart commenting plugin.
-    - `CRTL-/` to toggle comment, support multiple lines selection.
+smart commenting plugin.
+- `CRTL-/` to toggle comment, support multiple lines selection.
 
 ### [hop.nvim](https://github.com/phaazon/hop.nvim)
-    easy motion 
-    - press `f`, and there will be characters in your screen, press characters on some position and you will
-        jump to it.
+move to anywhere with 2 characters.
+- press `f`, and there will be characters in your screen, press characters on some position and you will
+jump to it.
 
 ### [vim-sandwich](https://github.com/machakann/vim-sandwich)
-    easily edit surrond character
-    - press `ds"` inside some sentence `"asfasfasadf"`, `""` will be delete.
-    - press `cs"'` inside some sentence `"asfasfasadf"`, `""` will be replaced with `'asfasfasadf'`.
-    - press `ysiw"` inside some word `asfasfasadf`, `""` will be added around.
+easily edit surrond character
+- press `ds"` inside some sentence `"asfasfasadf"`, `""` will be delete.
+- press `cs"'` inside some sentence `"asfasfasadf"`, `""` will be replaced with `'asfasfasadf'`.
+- press `ysiw"` inside some word `asfasfasadf`, `""` will be added around.
 
 ## How to edit keymaps
 
