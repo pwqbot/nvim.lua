@@ -1,7 +1,8 @@
 # Nvim
-    git clone this project, then `mv nvim.lua  ~/.config/nvim`.
-    On first time startup, there will be some errors due to lack of plugins, just omit errors and run `:PackerSync` in neovim,
-    and then restart.
+git clone this project, then `mv nvim.lua  ~/.config/nvim`.
+
+On first time startup, there will be some errors due to lack of plugins, just type `enter`s to omit errors and run `:PackerSync` in neovim
+and restart.
 
 ## Install Nerd Font
 1. Download Nerd Font https://www.nerdfonts.com/font-downloads
@@ -34,35 +35,35 @@ Language server protocal can give you the power of go to definition, auto-comple
 - preconfigured servers
     Here are preconfigured servers, which means you only need to install language server and no need any 
     configuration.
-    1. clangd for c/c++
-    2. pylsp for python, support auto detect venv
-    3. gopls for golang
-    4. html for html
-    5. sumneko_lua for lua
+    - clangd for c/c++
+    - pylsp for python, support auto detect venv
+    - gopls for golang
+    - html for html
+    - sumneko_lua for lua
 
 ### keymaps
 once language server is attahed to your buffer(use `:LspInfo` to check), you will get those keymaps.
-    - `gd` go to symbol definition
-    - `gr` go to references
-    - `gi` go to definition
-    - `<leader>ff` format file
-    - `<leader>rn` rename symbol in project
-    - `<leader>ca` code action
-    - `<leader>e` open diagnositic floating window
-    - `]d` next diagnositic
-    - `[d` previous diagnositic
+- `gd` go to symbol definition
+- `gr` go to references
+- `gi` go to definition
+- `<leader>ff` format file
+- `<leader>rn` rename symbol in project
+- `<leader>ca` code action
+- `<leader>e` open diagnositic floating window
+- `]d` next diagnositic
+- `[d` previous diagnositic
 
 ## Plugins
 
 ### [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-    a highly extendable fuzzy finder.
-    - `CTRL-p` to find files.
-    - `CTRL-n` to find buffers.
-    - `<leader>fo` to find recently opened files.
-    - `<leader>fg` to live grep in project.
-    - `<leader>fs` to list symbols in current file(need lsp support).
-    - `<leader>fa` to list symbols in project(need lsp support).
-    - `F3` to find projects you opened.
+a highly extendable fuzzy finder.
+- `CTRL-p` to find files.
+- `CTRL-n` to find buffers.
+- `<leader>fo` to find recently opened files.
+- `<leader>fg` to live grep in project.
+- `<leader>fs` to list symbols in current file(need lsp support).
+- `<leader>fa` to list symbols in project(need lsp support).
+- `F3` to find projects you opened.
 
 ### [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
     file explor for neovim. 
@@ -88,7 +89,9 @@ once language server is attahed to your buffer(use `:LspInfo` to check), you wil
 ## How to edit keymaps
 
 edit `lua/keymap/common.lua` for common(no plugin, no lsp) keybindings.
+
 edit `lua/keymap/plugin.lua` for plugin keybindings.
+
 edit `lua/keymap/lsp.lua` for lsp keybindings.
 
 ## How to remove plugin
