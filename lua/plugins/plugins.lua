@@ -26,6 +26,7 @@ require('packer').init({
     },
 })
 
+vim.g.sandwich_no_default_key_mappings = 1
 require('packer').startup(
     function(use)
         --- packer itself ---
@@ -163,13 +164,12 @@ require('packer').startup(
         }
         use { 'machakann/vim-sandwich',
             config = function()
+                -- let g:operator_sandwich_no_default_key_mappings = 1
+                -- let g:textobj_sandwich_no_default_key_mappings = 1
                 vim.cmd([[
                     runtime macros/sandwich/keymap/surround.vim
 
-                    " Text objects to select 
-                    " the nearest surrounded text automatically
-                    let g:sandwich_no_default_key_mappings = 1
-                    xmap is <Plug>(extobj-sandwich-aubo-i)
+                    xmap is <Plug>(textobj-sandwich-aubo-i)
                     xmap as <Plug>(textobj-sandwich-auto-a)
                     omap is <Plug>(textobj-sandwich-auto-i)
                     omap as <Plug>(textobj-sandwich-auto-a)

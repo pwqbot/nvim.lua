@@ -3,7 +3,7 @@ local function map(mode, shortcut, command)
 end
 
 --- file tree ---
-map({ 't', 'n' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
+map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 
 --- git ---
 map('n', '<F2>', '<cmd>Neogit<CR>')

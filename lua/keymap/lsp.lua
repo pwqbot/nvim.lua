@@ -11,7 +11,7 @@ end
 
 local function keymappings(client, bufnr)
     -- local opts = { noremap = true, silent = true }
-    map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
+    map('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
     map('n', '[d',
         '<cmd>lua vim.diagnostic.goto_prev()<CR>')
     map('n', ']d',
@@ -27,8 +27,8 @@ local function keymappings(client, bufnr)
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>zz', bufnr)
     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>zz', bufnr)
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', bufnr)
+    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', bufnr)
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', bufnr)
-    bufmap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', bufnr)
     -- bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', bufnr)
     bufmap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', bufnr)
     bufmap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', bufnr)
