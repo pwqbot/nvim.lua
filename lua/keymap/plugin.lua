@@ -18,14 +18,6 @@ map('n', '<leader>fg', function() require('telescope.builtin').grep_string() end
 map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols {} end)
 map('n', '<leader>fa', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
 
-map('n', '<M-1>', '<Cmd>BufferLineGoToBuffer 1<CR>')
-map('n', '<M-2>', '<Cmd>BufferLineGoToBuffer 2<CR>')
-map('n', '<M-3>', '<Cmd>BufferLineGoToBuffer 3<CR>')
-map('n', '<M-4>', '<Cmd>BufferLineGoToBuffer 4<CR>')
-map('n', '<M-5>', '<Cmd>BufferLineGoToBuffer 5<CR>')
-map('n', '<M-6>', '<Cmd>BufferLineGoToBuffer 6<CR>')
-map('n', '<M-7>', '<Cmd>BufferLineGoToBuffer 7<CR>')
-
 --- trouble ---
 vim.keymap.set('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
