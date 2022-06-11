@@ -217,14 +217,14 @@ require('packer').startup(
         }
 
         -- buffer line beautify
-        use {
-            'akinsho/bufferline.nvim',
-            tag = "v2.*",
-            config = function()
-                require 'plugins/config/bufferline'
-            end,
-            requires = 'kyazdani42/nvim-web-devicons',
-        }
+        -- use {
+        --     'akinsho/bufferline.nvim',
+        --     tag = "v2.*",
+        --     config = function()
+        --         require 'plugins/config/bufferline'
+        --     end,
+        --     requires = 'kyazdani42/nvim-web-devicons',
+        -- }
 
         -- start up
         use {
