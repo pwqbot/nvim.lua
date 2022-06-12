@@ -89,11 +89,35 @@ require('packer').startup(
                 require 'plugins/config/which-key'
             end
         }
+
+        -- CTRL-T to toggleterminal
         use {
             "akinsho/toggleterm.nvim",
             tag = 'v1.*',
             config = function()
                 require 'plugins/config/toggle'
+            end
+        }
+
+        use { 'machakann/vim-sandwich',
+            config = function()
+                vim.cmd([[
+                    runtime macros/sandwich/keymap/surround.vim
+
+                    xmap is <Plug>(textobj-sandwich-aubo-i)
+                    xmap as <Plug>(textobj-sandwich-auto-a)
+                    omap is <Plug>(textobj-sandwich-auto-i)
+                    omap as <Plug>(textobj-sandwich-auto-a)
+                ]]
+                )
+            end
+        }
+
+        --- auto pairs
+        use {
+            'windwp/nvim-autopairs',
+            config = function()
+                require 'plugins/config/autopairs'
             end
         }
         ----------------------------- file ---------------------------
@@ -151,6 +175,14 @@ require('packer').startup(
                 require 'plugins/config/context'
             end
         }
+        -- show position in code in status line
+        use {
+            'SmiteshP/nvim-gps',
+            requires = 'nvim-treesitter/nvim-treesitter',
+            config = function()
+                require("nvim-gps").setup()
+            end
+        }
 
         use {
             'stevearc/aerial.nvim',
@@ -165,27 +197,6 @@ require('packer').startup(
             config = function()
                 require 'plugins/config/comment'
             end,
-        }
-        use {
-            "lukas-reineke/indent-blankline.nvim",
-            config = function()
-                require 'plugins/config/indent'
-            end
-        }
-        use { 'machakann/vim-sandwich',
-            config = function()
-                -- let g:operator_sandwich_no_default_key_mappings = 1
-                -- let g:textobj_sandwich_no_default_key_mappings = 1
-                vim.cmd([[
-                    runtime macros/sandwich/keymap/surround.vim
-
-                    xmap is <Plug>(textobj-sandwich-aubo-i)
-                    xmap as <Plug>(textobj-sandwich-auto-a)
-                    omap is <Plug>(textobj-sandwich-auto-i)
-                    omap as <Plug>(textobj-sandwich-auto-a)
-                ]]
-                )
-            end
         }
 
         -- --------------------------- beautify ----------------------------
@@ -211,32 +222,12 @@ require('packer').startup(
             end,
         }
 
-        -- show position in code in status line
         use {
-            'SmiteshP/nvim-gps',
-            requires = 'nvim-treesitter/nvim-treesitter',
+            "lukas-reineke/indent-blankline.nvim",
             config = function()
-                require("nvim-gps").setup()
+                require 'plugins/config/indent'
             end
         }
-
-        --- auto pairs
-        use {
-            'windwp/nvim-autopairs',
-            config = function()
-                require 'plugins/config/autopairs'
-            end
-        }
-
-        -- buffer line beautify
-        -- use {
-        --     'akinsho/bufferline.nvim',
-        --     tag = "v2.*",
-        --     config = function()
-        --         require 'plugins/config/bufferline'
-        --     end,
-        --     requires = 'kyazdani42/nvim-web-devicons',
-        -- }
 
         -- start up
         use {
