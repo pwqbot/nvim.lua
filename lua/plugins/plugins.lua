@@ -186,6 +186,12 @@ require('packer').startup(
         -- theme
         use "EdenEast/nightfox.nvim"
         use "sainnhe/everforest"
+        use({
+            "catppuccin/nvim",
+            as = "catppuccin"
+        })
+        use 'navarasu/onedark.nvim'
+
 
         --  icon
         use 'kyazdani42/nvim-web-devicons'
