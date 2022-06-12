@@ -85,8 +85,6 @@ cmp.setup({
         { name = 'luasnip' },
         { name = 'buffer', max_item_count = 5 },
         { name = 'path', max_item_count = 3 },
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
     },
         {
             { name = 'buffer', max_item_count = 5 },
