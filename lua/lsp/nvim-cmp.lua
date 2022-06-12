@@ -53,7 +53,7 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.confirm({ select = true })
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -71,8 +71,9 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s", "c" }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<C-y>'] = cmp.config.disable,
+        ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c', 's' }),
+        ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c', 's' }),
+        -- ['<C-y>'] = cmp.config.disable,
         -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ['<C-e>'] = cmp.mapping({
             i = cmp.mapping.abort(),
@@ -80,16 +81,18 @@ cmp.setup({
         }),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
     },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp', max_item_count = 5 },
-        { name = 'luasnip' },
-        { name = 'buffer', max_item_count = 5 },
-        { name = 'path', max_item_count = 3 },
-    },
+    sources = cmp.config.sources(
+        {
+            { name = 'nvim_lsp', max_item_count = 5 },
+            { name = 'luasnip' },
+            { name = 'buffer', max_item_count = 5 },
+            { name = 'path', max_item_count = 3 },
+        },
         {
             { name = 'buffer', max_item_count = 5 },
             { name = 'path', max_item_count = 3 },
-        }),
+        }
+    ),
     completion = {
         keyword_length = 1,
     },
@@ -115,7 +118,7 @@ cmp.setup({
         entries = "custom"
     },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
     }
 })
 
