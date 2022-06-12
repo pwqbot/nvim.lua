@@ -89,7 +89,13 @@ require('packer').startup(
                 require 'plugins/config/which-key'
             end
         }
-        use 'christoomey/vim-tmux-navigator'
+        use {
+            "akinsho/toggleterm.nvim",
+            tag = 'v1.*',
+            config = function()
+                require 'plugins/config/toggle'
+            end
+        }
         ----------------------------- file ---------------------------
         -- fuzzy finder, see keymap in keymap/plugin.lua
         use {
