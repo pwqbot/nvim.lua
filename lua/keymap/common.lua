@@ -48,3 +48,10 @@ map('i', '<C-B>', '<Left>')
 
 map('n', '<leader>sc',
     [[:execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>]])
+
+map('n', '<M-j>', ":m .+1<CR>==")
+map('n', '<M-k>', ":m .-2<CR>==")
+map('v', '<M-j>', ":m '>+1<CR>gv=gv")
+
+map('v', '<M-k>', ":m '<-2<CR>gv=gv")
+map('n', '<CR>', 'o<ESC>')

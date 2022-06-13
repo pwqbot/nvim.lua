@@ -20,7 +20,6 @@ local function keymappings(client, bufnr)
         '<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>')
     map('n', ']e',
         '<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>')
-    map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- See `:help vim.lsp.*` for documentation on any of the below functions

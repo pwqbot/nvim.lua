@@ -27,6 +27,15 @@ require('packer').init({
 })
 
 vim.g.sandwich_no_default_key_mappings = 1
+vim.g.operator_sandwich_no_default_key_mappings = 1
+vim.g.textobj_sandwich_no_default_key_mappings = 1
+vim.cmd([[
+" This selects the next closest text object.
+map <SPACE> <Plug>(wildfire-fuel)
+" This selects the previous closest text object.
+vmap <C-SPACE> <Plug>(wildfire-water)
+                let g:wildfire_objects = ["i'", "a'", 'a"', 'i"', "i)", "i]", "i}", "ip", "it"] 
+                ]])
 require('packer').startup(
     function(use)
         --- packer itself ---
@@ -89,7 +98,6 @@ require('packer').startup(
                 require 'plugins/config/which-key'
             end
         }
-
         -- CTRL-T to toggleterminal
         use {
             "akinsho/toggleterm.nvim",
@@ -98,16 +106,17 @@ require('packer').startup(
                 require 'plugins/config/toggle'
             end
         }
-
         use { 'machakann/vim-sandwich',
             config = function()
                 vim.cmd([[
-                    runtime macros/sandwich/keymap/surround.vim
+                     silent! nmap <unique> Sa <Plug>(operator-sandwich-add)
+                     silent! xmap <unique> Sa <Plug>(operator-sandwich-add)
+                     silent! omap <unique> Sa <Plug>(operator-sandwich-g@)
 
-                    xmap is <Plug>(textobj-sandwich-aubo-i)
-                    xmap as <Plug>(textobj-sandwich-auto-a)
-                    omap is <Plug>(textobj-sandwich-auto-i)
-                    omap as <Plug>(textobj-sandwich-auto-a)
+                     silent! nmap <unique><silent> Sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+                     silent! nmap <unique><silent> Sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+                     silent! nmap <unique><silent> Sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+                     silent! nmap <unique><silent> Srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(texto"j-sandwich-auto-a)
                 ]]
                 )
             end
@@ -118,6 +127,12 @@ require('packer').startup(
             'windwp/nvim-autopairs',
             config = function()
                 require 'plugins/config/autopairs'
+            end
+        }
+
+        use {
+            'gcmt/wildfire.vim',
+            config = function()
             end
         }
         ----------------------------- file ---------------------------
@@ -144,7 +159,7 @@ require('packer').startup(
                 require 'plugins/config/filetree'
             end,
             requires = {
-                'kyazdani42/nvim-web-devicons', -- optional, for file icon
+                'kyazdani42/nvim-we"-devicons', -- optional, for file icon
             },
         }
 
