@@ -159,7 +159,7 @@ require('packer').startup(
                 require 'plugins/config/filetree'
             end,
             requires = {
-                'kyazdani42/nvim-we"-devicons', -- optional, for file icon
+                'kyazdani42/nvim-web-devicons', -- optional, for file icon
             },
         }
 
