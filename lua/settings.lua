@@ -18,12 +18,13 @@ opt.ignorecase = true
 opt.timeoutlen = 500
 opt.laststatus = 3
 
-opt.cmdheight = 2
-opt.scrolloff = 1
+-- opt.cmdheight = 0
+opt.scrolloff = 3
 opt.signcolumn = "yes:2"
 opt.tabstop = 4
 vim.cmd 'set noswapfile'
 opt.shiftwidth = 4
+opt.winbar = '%=%m %f%='
 vim.cmd 'set clipboard=unnamed'
 opt.expandtab = true
 vim.wo.wrap = false
