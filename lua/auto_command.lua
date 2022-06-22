@@ -75,6 +75,18 @@ vim.api.nvim_create_autocmd(
     }
 )
 
+local tab_group = vim.api.nvim_create_augroup("tab", {})
+vim.api.nvim_create_autocmd(
+    { "FileType" },
+    {
+        group = tab_group,
+        pattern = { "go" },
+        callback = function()
+            vim.opt_local.expandtab = false
+        end
+    }
+)
+
 local lsp_group = vim.api.nvim_create_augroup("lsp", {})
 vim.api.nvim_create_autocmd(
     { "FileType" },
