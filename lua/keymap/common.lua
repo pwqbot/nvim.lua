@@ -6,8 +6,8 @@ end
 map('n', '<C-q>', '<cmd>qa<cr>')
 
 --- cycle through tab ---
-map('n', '<M-j>', 'gT')
-map('n', '<M-k>', 'gt')
+map('n', '<M-h>', 'gT')
+map('n', '<M-l>', 'gt')
 -- map('n', '<leader>nt', '<Cmd>tabnew<CR>')
 map('n', '<leader>ct', '<Cmd>tabclose<CR>')
 map('n', '<leader>cb', '<Cmd>bd<CR>')
@@ -52,6 +52,5 @@ map('n', '<leader>sc',
 map('n', '<M-j>', ":m .+1<CR>==")
 map('n', '<M-k>', ":m .-2<CR>==")
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
-
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<CR>', 'o<ESC>')
