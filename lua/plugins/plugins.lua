@@ -212,13 +212,6 @@ require('packer').startup(
             end,
         }
 
-        use {
-            "lukas-reineke/indent-blankline.nvim",
-            config = function()
-                require 'plugins/config/indent'
-            end
-        }
-
         -- start up
         use {
             'goolord/alpha-nvim',
