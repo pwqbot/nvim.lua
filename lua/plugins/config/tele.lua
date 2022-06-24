@@ -93,6 +93,20 @@ require('telescope').setup {
         },
         path_display = { "absolute" },
     },
+    pickers = {
+        lsp_definitions = {
+            -- theme = "cursor",
+            -- layout_strategy = "center",
+            -- layout_config = {
+            --     cursor = {
+            --         height = 0.5,
+            --         preview_width = 0.5,
+            --         preview_cutoff = 60,
+            --         width = 0.9,
+            --     }
+            -- },
+        },
+    },
     layout_config = {
         dropdown = { width = 0.5 }
     },

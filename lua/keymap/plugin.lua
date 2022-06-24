@@ -8,15 +8,19 @@ map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 --- git ---
 map('n', '<F2>', '<cmd>Neogit<CR>')
 
+local themes = require('telescope.themes')
+local tele = require('telescope.builtin')
+
 --- fuzzf finder ---
-map('n', '<F3>', function() require('telescope').extensions.projects.projects {} end)
-map('n', '<F4>', function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end)
-map('n', '<C-p>', function() require('telescope.builtin').find_files { hidden = true } end)
-map('n', '<C-n>', function() require('telescope.builtin').buffers { sort_mru = true } end)
-map('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end)
-map('n', '<leader>fg', function() require('telescope.builtin').grep_string() end)
-map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols {} end)
-map('n', '<leader>fa', function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end)
+map('n', '<F3>', function() tele.extensions.projects.projects {} end)
+map('n', '<F4>', function() tele.find_files { cwd = "~", hidden = true } end)
+map('n', '<C-p>', function() tele.find_files { hidden = true } end)
+map('n', '<C-n>', function() tele.buffers { sort_mru = true } end)
+map('n', '<leader>fo', function() tele.oldfiles() end)
+map('n', '<leader>fg', function() tele.grep_string() end)
+map('n', '<leader>fs', function() tele.lsp_document_symbols {} end)
+map('n', '<leader>fa', function() tele.lsp_dynamic_workspace_symbols {} end)
+map('n', '<leader>df', function() tele.lsp_definitions({ jump_type = "never", ignore_filename = true, trim_text = true }) end)
 
 --- trouble ---
 vim.keymap.set('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })

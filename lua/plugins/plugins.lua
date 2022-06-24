@@ -49,19 +49,6 @@ require('packer').startup(
             end
         }
 
-        --- F2 ---
-        use {
-            'TimUntersberger/neogit',
-            requires = {
-                'nvim-lua/plenary.nvim',
-                'sindrets/diffview.nvim',
-            },
-            config = function()
-                require 'plugins/config/neogit'
-                require 'plugins/config/diffview'
-            end
-        }
-
         ---------------------------- vim -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
@@ -77,6 +64,9 @@ require('packer').startup(
         -- quickfix window preview
         use {
             'kevinhwang91/nvim-bqf',
+            config = function()
+                require 'plugins/config/bqf'
+            end
         }
 
         -- fast motion
@@ -106,21 +96,6 @@ require('packer').startup(
                 require 'plugins/config/toggle'
             end
         }
-        use { 'machakann/vim-sandwich',
-            config = function()
-                vim.cmd([[
-                     silent! nmap <unique> Sa <Plug>(operator-sandwich-add)
-                     silent! xmap <unique> Sa <Plug>(operator-sandwich-add)
-                     silent! omap <unique> Sa <Plug>(operator-sandwich-g@)
-
-                     silent! nmap <unique><silent> Sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-                     silent! nmap <unique><silent> Sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-                     silent! nmap <unique><silent> Sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-                     silent! nmap <unique><silent> Srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(texto"j-sandwich-auto-a)
-                ]]
-                )
-            end
-        }
 
         --- auto pairs
         use {
@@ -143,7 +118,7 @@ require('packer').startup(
                 require 'plugins/config/tele'
             end,
             requires = {
-                'nvim/lua/plenary.nvim',
+                'nvim-lua/plenary.nvim',
             },
         }
         use {
