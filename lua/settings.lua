@@ -28,3 +28,6 @@ opt.winbar = '%=%m %f%='
 vim.cmd 'set clipboard=unnamed'
 opt.expandtab = true
 vim.wo.wrap = false
+vim.wo.foldcolumn = '1'
+vim.wo.foldlevel = 99 -- feel free to decrease the value
+vim.wo.foldenable = true

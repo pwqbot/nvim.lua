@@ -188,6 +188,13 @@ require('packer').startup(
                 require 'plugins/config/comment'
             end,
         }
+        use {
+            'kevinhwang91/nvim-ufo',
+            requires = 'kevinhwang91/promise-async',
+            config = function()
+                require('ufo').setup()
+            end,
+        }
 
         -- --------------------------- beautify ----------------------------
         -- theme
