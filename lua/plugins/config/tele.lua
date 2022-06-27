@@ -24,6 +24,13 @@ require('telescope').setup {
         preview = {
             -- timeout = 100,
         },
+        layout_strategy = 'horizontal',
+        layout_config = {
+            height = 0.85,
+            width = 0.85,
+            preview_width = 0.45,
+            -- prompt_position = 'top',
+        },
         buffer_previewer_maker = truncate_large_files,
         mappings = {
             i = {
