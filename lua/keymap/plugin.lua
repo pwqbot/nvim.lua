@@ -47,3 +47,6 @@ function _lazygit_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+
+map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
+map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")

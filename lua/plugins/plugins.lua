@@ -188,12 +188,13 @@ require('packer').startup(
                 require 'plugins/config/comment'
             end,
         }
+
         use {
-            'kevinhwang91/nvim-ufo',
-            requires = 'kevinhwang91/promise-async',
+            'xeluxee/competitest.nvim',
+            requires = 'MunifTanjim/nui.nvim',
             config = function()
-                require('ufo').setup()
-            end,
+                require 'competitest'.setup()
+            end
         }
 
         -- --------------------------- beautify ----------------------------
