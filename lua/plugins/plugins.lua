@@ -146,6 +146,16 @@ require('packer').startup(
                 require("project_nvim").setup()
             end
         }
+
+        -- Lua
+        use {
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = function()
+                require("todo-comments").setup {
+                }
+            end
+        }
         -- --------------------------- code ------------------------------
         use {
             'nvim-treesitter/nvim-treesitter',

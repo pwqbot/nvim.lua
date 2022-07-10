@@ -22,8 +22,6 @@ map('n', '<leader>fo', function() tele.oldfiles() end)
 map('n', '<leader>df',
     function() tele.lsp_definitions({ jump_type = "never", ignore_filename = true, trim_text = true }) end)
 
---- trouble ---
-vim.keymap.set('n', "<leader>t", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
 
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
@@ -49,3 +47,8 @@ map("n", "<C-g>", function() _lazygit_toggle() end)
 
 map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
 map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
+
+map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
+
+--- trouble ---
+vim.keymap.set('n', "<leader>fx", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
