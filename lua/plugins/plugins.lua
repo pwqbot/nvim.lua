@@ -70,16 +70,7 @@ require('packer').startup(
         }
 
         -- fast motion
-        use {
-            'phaazon/hop.nvim',
-            branch = 'v1', -- optional but strongly recommended
-            config = function()
-                require 'hop'.setup {
-                    keys = 'etovxqpdygfblzhckisuran',
-                    multi_windows = true,
-                }
-            end
-        }
+        use 'ggandor/lightspeed.nvim'
 
         -- show key hint
         use {

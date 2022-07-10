@@ -5,12 +5,8 @@ end
 --- file tree ---
 map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 
---- git ---
-map('n', '<F2>', '<cmd>Neogit<CR>')
-
-local tele = require('telescope.builtin')
-
 --- fuzzf finder ---
+local tele = require('telescope.builtin')
 map('n', '<F3>', function() tele.extensions.projects.projects {} end)
 map('n', '<F4>', function() tele.find_files { cwd = "~", hidden = true } end)
 map('n', '<C-p>', function() tele.find_files { hidden = true } end)
@@ -22,7 +18,6 @@ map('n', '<leader>fo', function() tele.oldfiles() end)
 map('n', '<leader>df',
     function() tele.lsp_definitions({ jump_type = "never", ignore_filename = true, trim_text = true }) end)
 
-
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
 map('x', '<C-_>',
@@ -30,7 +25,7 @@ map('x', '<C-_>',
 )
 
 --- quick motion ---
-map('n', 'f', function() require 'hop'.hint_words({}) end)
+-- map('n', 'f', function() require 'hop'.hint_words({}) end)
 
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
