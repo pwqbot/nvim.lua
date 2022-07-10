@@ -26,16 +26,6 @@ require('packer').init({
     },
 })
 
-vim.g.sandwich_no_default_key_mappings = 1
-vim.g.operator_sandwich_no_default_key_mappings = 1
-vim.g.textobj_sandwich_no_default_key_mappings = 1
-vim.cmd([[
-" This selects the next closest text object.
-map <SPACE> <Plug>(wildfire-fuel)
-" This selects the previous closest text object.
-vmap <C-SPACE> <Plug>(wildfire-water)
-                let g:wildfire_objects = ["i'", "a'", 'a"', 'i"', "i)", "i]", "i}", "ip", "it"] 
-                ]])
 require('packer').startup(
     function(use)
         --- packer itself ---

@@ -47,3 +47,8 @@ map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 
 --- trouble ---
 vim.keymap.set('n', "<leader>fx", "<cmd>TroubleToggle<cr>", { noremap = true, silent = true })
+map('n', '<SPACE>', '<Plug>(wildfire-fuel)')
+map('v', '<C-SPACE>', '<Plug>(wildfire-water)')
+vim.cmd [[ 
+    let g:wildfire_objects = ["i'", "a'", 'a"', 'i"', "i)", "i>", "i]", "i}", "ip", "it"]
+]]
