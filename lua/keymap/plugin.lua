@@ -8,7 +8,6 @@ map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 --- git ---
 map('n', '<F2>', '<cmd>Neogit<CR>')
 
-local themes = require('telescope.themes')
 local tele = require('telescope.builtin')
 
 --- fuzzf finder ---
@@ -42,11 +41,11 @@ local lazygit = Terminal:new({
     direction = "float",
 })
 
-function _lazygit_toggle()
+local function _lazygit_toggle()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+map("n", "<C-g>", function() _lazygit_toggle() end)
 
 map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
 map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
