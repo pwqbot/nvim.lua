@@ -17,6 +17,7 @@ opt.updatetime = 100
 opt.ignorecase = true
 opt.timeoutlen = 500
 opt.laststatus = 3
+opt.guicursor = 'a:block'
 
 -- opt.cmdheight = 0
 opt.scrolloff = 3
