@@ -53,6 +53,8 @@ M.servers = {
         }
     },
     -- pyright = {},
+    yamlls = {},
+    bashls = {},
     pylsp = {
         settings = {
             pylsp = {
