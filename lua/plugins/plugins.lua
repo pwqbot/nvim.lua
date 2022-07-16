@@ -39,7 +39,7 @@ require('packer').startup(
             end
         }
 
-        ---------------------------- vim -----------------------------
+        ---------------------------- vim enhance -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
 
@@ -103,95 +103,6 @@ require('packer').startup(
             end
         }
 
-        ----------------------------- file ---------------------------
-        -- fuzzy finder, see keymap in keymap/plugin.lua
-        use {
-            'nvim-telescope/telescope.nvim',
-            config = function()
-                require 'plugins/config/tele'
-            end,
-            requires = {
-                'nvim-lua/plenary.nvim',
-            },
-        }
-        use {
-            'nvim-telescope/telescope-fzf-native.nvim',
-            run = 'make'
-        }
-
-
-        -- <F1> open file explorer
-        use {
-            'kyazdani42/nvim-tree.lua',
-            config = function()
-                require 'plugins/config/filetree'
-            end,
-            requires = {
-                'kyazdani42/nvim-web-devicons', -- optional, for file icon
-            },
-        }
-
-        -- auto switch pwd
-        use
-        {
-            "ahmedkhalf/project.nvim",
-            config = function()
-                require("project_nvim").setup()
-            end
-        }
-
-        -- Lua
-        use {
-            "folke/todo-comments.nvim",
-            requires = "nvim-lua/plenary.nvim",
-            config = function()
-                require("todo-comments").setup {
-                }
-            end
-        }
-        -- --------------------------- code ------------------------------
-        use {
-            'nvim-treesitter/nvim-treesitter',
-            config = function()
-                require 'plugins/config/tree'
-            end
-        }
-        use {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            config = function()
-                require 'plugins/config/textobj'
-            end
-        }
-        use {
-            'nvim-treesitter/nvim-treesitter-context',
-            config = function()
-                require 'plugins/config/context'
-            end
-        }
-        -- show position in code in status line
-        use {
-            'SmiteshP/nvim-gps',
-            requires = 'nvim-treesitter/nvim-treesitter',
-            config = function()
-                require("nvim-gps").setup()
-            end
-        }
-
-        use {
-            'stevearc/aerial.nvim',
-            config = function()
-                require 'plugins/config/aerial'
-            end
-        }
-
-        -- add comment
-        use {
-            'numToStr/Comment.nvim',
-            config = function()
-                require 'plugins/config/comment'
-            end,
-        }
-
         use {
             'xeluxee/competitest.nvim',
             requires = 'MunifTanjim/nui.nvim',
@@ -230,6 +141,90 @@ require('packer').startup(
                 require 'plugins/config/alpha'
             end
         }
+
+        ----------------------------- project navigator ---------------------------
+        -- fuzzy finder, see keymap in keymap/plugin.lua
+        use {
+            'nvim-telescope/telescope.nvim',
+            config = function()
+                require 'plugins/config/tele'
+            end,
+            requires = {
+                'nvim-lua/plenary.nvim',
+            },
+        }
+
+        -- telescope speed up
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            run = 'make'
+        }
+
+
+        -- <F1> open file explorer
+        use {
+            'kyazdani42/nvim-tree.lua',
+            config = function()
+                require 'plugins/config/filetree'
+            end,
+            requires = {
+                'kyazdani42/nvim-web-devicons',
+            },
+        }
+
+        -- auto switch pwd
+        use
+        {
+            "ahmedkhalf/project.nvim",
+            config = function()
+                require("project_nvim").setup()
+            end
+        }
+
+        -- Lua
+        use {
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = function()
+                require("todo-comments").setup()
+            end
+        }
+
+        -- --------------------------- code ------------------------------
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            config = function()
+                require 'plugins/config/tree'
+            end
+        }
+        use {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            config = function()
+                require 'plugins/config/textobj'
+            end
+        }
+        use {
+            'nvim-treesitter/nvim-treesitter-context',
+            config = function()
+                require 'plugins/config/context'
+            end
+        }
+        -- show position in code in status line
+        use {
+            'SmiteshP/nvim-gps',
+            requires = 'nvim-treesitter/nvim-treesitter',
+            config = function()
+                require("nvim-gps").setup()
+            end
+        }
+
+        -- add comment
+        use {
+            'numToStr/Comment.nvim',
+            config = function()
+                require 'plugins/config/comment'
+            end,
+        }
         -- ---------------------------- LSP --------------------------------
         use {
             'williamboman/nvim-lsp-installer',
@@ -263,7 +258,15 @@ require('packer').startup(
             'hrsh7th/cmp-cmdline',
         }
 
-        -- <leader>t to open lsp diagnostic
+        -- <leader>a open file structure
+        use {
+            'stevearc/aerial.nvim',
+            config = function()
+                require 'plugins/config/aerial'
+            end
+        }
+
+        -- <leader>fx to open lsp diagnostic
         use {
             'folke/trouble.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
