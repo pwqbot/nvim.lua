@@ -1,7 +1,5 @@
 -- go to last position when opening a buf
 local buf_group = vim.api.nvim_create_augroup("buf_group", {})
-
--- jump to last position when opening buffer
 vim.api.nvim_create_autocmd(
     { "BufReadPost" },
     {
@@ -57,7 +55,7 @@ vim.api.nvim_create_autocmd(
     { "FileType" },
     {
         group = quick_exit_group,
-        pattern = { "qf,help,man,checkhealth" },
+        pattern = { "qf,help,man,checkhealth,lspinfo" },
         callback = function()
             vim.keymap.set('n', 'q', "<cmd>close<cr>",
                 { silent = true, buffer = true })
@@ -87,15 +85,12 @@ vim.api.nvim_create_autocmd(
     }
 )
 
-local lsp_group = vim.api.nvim_create_augroup("lsp", {})
+local file_type = vim.api.nvim_create_augroup("filetype", {})
 vim.api.nvim_create_autocmd(
-    { "FileType" },
+    { "BufEnter" },
     {
-        group = lsp_group,
-        pattern = { "lspinfo" },
-        callback = function()
-            vim.keymap.set('n', 'q', "<cmd>close<cr>",
-                { silent = true, buffer = true })
-        end
+        group = tab_group,
+        pattern = { ".clang-tidy", ".clang-format" },
+        command = [[set filetype=yaml]]
     }
 )
