@@ -69,6 +69,7 @@ require('packer').startup(
                 require 'plugins/config/which-key'
             end
         }
+
         -- CTRL-T to toggleterminal
         use {
             "akinsho/toggleterm.nvim",
@@ -91,6 +92,17 @@ require('packer').startup(
             config = function()
             end
         }
+
+        -- speed up startup time
+        use { 'nathom/filetype.nvim' }
+        use {
+            'lewis6991/impatient.nvim',
+            config = function()
+                -- move this to init.lua
+                -- require 'impatient'
+            end
+        }
+
         ----------------------------- file ---------------------------
         -- fuzzy finder, see keymap in keymap/plugin.lua
         use {
