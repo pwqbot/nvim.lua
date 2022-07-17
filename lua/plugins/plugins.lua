@@ -117,7 +117,6 @@ require('packer').startup(
         }
         use 'navarasu/onedark.nvim'
 
-
         --  icon
         use 'kyazdani42/nvim-web-devicons'
 
@@ -147,6 +146,7 @@ require('packer').startup(
             end,
             requires = {
                 'nvim-lua/plenary.nvim',
+
             },
         }
 
@@ -163,9 +163,8 @@ require('packer').startup(
             config = function()
                 require 'plugins/config/filetree'
             end,
-            requires = {
-                'kyazdani42/nvim-web-devicons',
-            },
+            requires = { 'kyazdani42/nvim-web-devicons' },
+            cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeFocus" }
         }
 
         -- auto switch pwd
