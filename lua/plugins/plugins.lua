@@ -24,6 +24,7 @@ require('packer').init({
             return require("packer.util").float { border = 'rounded' }
         end,
     },
+    auto_reload_compile = true,
 })
 
 require('packer').startup(
@@ -109,10 +110,11 @@ require('packer').startup(
         -- theme
         use "EdenEast/nightfox.nvim"
         use "sainnhe/everforest"
-        use({
+        use {
             "catppuccin/nvim",
-            as = "catppuccin"
-        })
+            as = "catppuccin",
+            run = "CatppuccinCompile",
+        }
         use 'navarasu/onedark.nvim'
 
 

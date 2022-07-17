@@ -94,3 +94,16 @@ vim.api.nvim_create_autocmd(
         command = [[set filetype=yaml]]
     }
 )
+
+local cat_group = vim.api.nvim_create_augroup("cat", {})
+vim.api.nvim_create_autocmd(
+    "User",
+    {
+        group = cat_group,
+        pattern = "PackerCompileDone",
+        callback = function()
+            vim.cmd "CatppuccinCompile"
+            vim.cmd "colorscheme catppuccin"
+        end
+    }
+)

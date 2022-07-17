@@ -25,7 +25,8 @@ opt.signcolumn = "yes:2"
 opt.tabstop = 4
 vim.cmd 'set noswapfile'
 opt.shiftwidth = 4
-opt.winbar = '%=%m %f%='
+-- nvim 0.8 feature
+-- opt.winbar = '%=%m %f%='
 vim.cmd 'set clipboard=unnamed'
 opt.expandtab = true
 vim.wo.wrap = false
