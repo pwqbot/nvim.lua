@@ -87,12 +87,6 @@ require('packer').startup(
             end
         }
 
-        use {
-            'gcmt/wildfire.vim',
-            config = function()
-            end
-        }
-
         -- speed up startup time
         use { 'nathom/filetype.nvim' }
         use {
@@ -197,6 +191,7 @@ require('packer').startup(
                 require 'plugins/config/tree'
             end
         }
+        use 'p00f/nvim-ts-rainbow'
         use {
             'nvim-treesitter/nvim-treesitter-textobjects',
             config = function()
