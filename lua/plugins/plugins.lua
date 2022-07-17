@@ -220,6 +220,19 @@ require('packer').startup(
                 require 'plugins/config/comment'
             end,
         }
+        use {
+            'mfussenegger/nvim-dap',
+            'rcarriga/nvim-dap-ui',
+            config = function()
+                require 'plugins/config/dap'
+            end
+        }
+        use {
+            'leoluz/nvim-dap-go',
+            config = function()
+                require('dap-go').setup()
+            end
+        }
         -- ---------------------------- LSP --------------------------------
         use {
             'williamboman/nvim-lsp-installer',
