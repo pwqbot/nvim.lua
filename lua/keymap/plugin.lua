@@ -51,3 +51,4 @@ map('n', "<leader>fx", "<cmd>TroubleToggle<cr>")
 local treesitter = require 'nvim-treesitter'
 map('n', '<SPACE>', function() treesitter.incremental_selection.init_selection() end)
 map('x', '<SPACE>', function() treesitter.incremental_selection.node_incremental() end)
+map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
