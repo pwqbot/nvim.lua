@@ -18,15 +18,20 @@ opt.ignorecase = true
 opt.timeoutlen = 500
 opt.laststatus = 3
 opt.guicursor = 'a:block'
+opt.hlsearch = false
+opt.incsearch = true
 
--- opt.cmdheight = 0
 opt.scrolloff = 3
 opt.signcolumn = "yes:2"
-opt.tabstop = 4
 vim.cmd 'set noswapfile'
-opt.shiftwidth = 4
--- nvim 0.8 feature
--- opt.winbar = '%=%m %f%='
 vim.cmd 'set clipboard=unnamed'
+
+opt.shiftwidth = 4
+opt.tabstop = 4
 opt.expandtab = true
+
 vim.wo.wrap = false
+
+-- nvim 0.8 feature
+-- opt.cmdheight = 0
+-- opt.winbar = '%=%m %f%='
