@@ -260,11 +260,27 @@ require('packer').startup(
         -- all complete plugins
         use {
             'hrsh7th/nvim-cmp',
-            'L3MON4D3/LuaSnip',
             'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
+            'L3MON4D3/LuaSnip',
+            "rafamadriz/friendly-snippets",
+            config = function()
+                print("hi")
+                local luasnip = require "luasnip"
+
+                luasnip.config.set_config {
+                    history = true,
+                    updateevents = "TextChanged,TextChangedI",
+                }
+
+                require("luasnip.loaders.from_vscode").load(
+                    { paths = '~/.config/nvim/pack/packer/start/friendly-snippets/snippets' }
+                )
+            end
         }
 
         -- <leader>a open file structure
