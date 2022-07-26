@@ -8,7 +8,8 @@ if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
     print("install packer")
     packer_bootstrap = vim.fn.system({
         'git', 'clone', '--depth', '1',
-        'https://github.com/wbthomason/packer.nvim', packer_path })
+        'https://github.com/wbthomason/packer.nvim', packer_path
+    })
 end
 
 vim.opt.runtimepath:append(packer_start_path .. '/*')
@@ -236,11 +237,13 @@ require('packer').startup(
         }
         -- ---------------------------- LSP --------------------------------
         use {
-            'williamboman/nvim-lsp-installer',
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
             {
                 "neovim/nvim-lspconfig",
                 config = function()
-                    require 'plugins/config/lsp-installer'
+                    require("mason").setup()
+                    require("mason-lspconfig").setup()
                     require 'lsp/lspconfig'
                 end
             }
@@ -269,7 +272,6 @@ require('packer').startup(
             'L3MON4D3/LuaSnip',
             "rafamadriz/friendly-snippets",
             config = function()
-                print("hi")
                 local luasnip = require "luasnip"
 
                 luasnip.config.set_config {
