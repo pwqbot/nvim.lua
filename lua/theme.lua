@@ -26,6 +26,7 @@ require("catppuccin").setup(
             which_key = true,
             lightspeed = true,
             ts_rainbow = true,
+            leap = true,
         }
     }
 )

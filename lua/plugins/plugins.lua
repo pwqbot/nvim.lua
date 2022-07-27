@@ -62,7 +62,12 @@ require('packer').startup(
         }
 
         -- fast motion
-        use 'ggandor/lightspeed.nvim'
+        use {
+            'ggandor/leap.nvim',
+            config = function()
+                require('leap').set_default_keymaps()
+            end
+        }
 
         -- show key hint
         use {
@@ -147,7 +152,6 @@ require('packer').startup(
             end,
             requires = {
                 'nvim-lua/plenary.nvim',
-
             },
         }
 
