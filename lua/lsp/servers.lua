@@ -55,6 +55,7 @@ M.servers = {
     -- pyright = {},
     yamlls = {},
     bashls = {},
+    rust_analyzer = {},
     pylsp = {
         settings = {
             pylsp = {
