@@ -17,7 +17,7 @@ opt.updatetime = 100
 opt.ignorecase = true
 opt.timeoutlen = 500
 opt.laststatus = 3
-opt.guicursor = 'a:block'
+opt.guicursor = 'a:block-Cursor,i:block-CurSearch'
 opt.hlsearch = false
 opt.incsearch = true
 
