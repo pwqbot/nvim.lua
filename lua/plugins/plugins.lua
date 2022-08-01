@@ -112,6 +112,13 @@ require('packer').startup(
             end
         }
 
+        use {
+            "nvim-neorg/neorg",
+            config = function()
+                require 'plugins/config/org'
+            end,
+            requires = "nvim-lua/plenary.nvim"
+        }
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"
