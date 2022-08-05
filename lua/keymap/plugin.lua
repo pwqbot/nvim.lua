@@ -13,11 +13,8 @@ map('n', '<C-p>', function() tele.find_files { hidden = true } end)
 map('n', '<C-b>', function() tele.buffers { sort_mru = true } end)
 map('n', '<C-n>', function() tele.lsp_dynamic_workspace_symbols {} end)
 map('n', '<C-f>', function() tele.lsp_document_symbols {} end)
-map('n', '<leader>lg', function() tele.live_grep() end)
+map('n', '<leader>gp', function() tele.live_grep() end)
 map('n', '<leader>fo', function() tele.oldfiles() end)
-map('n', '<leader>df',
-    function() tele.lsp_definitions({ jump_type = "never", ignore_filename = true, trim_text = true }) end)
-
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
 map('x', '<C-_>',
