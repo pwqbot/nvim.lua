@@ -161,8 +161,6 @@ cmp.setup({
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c', 's' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c', 's' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            -- if jumpable() then
-            --     luasnip.jump(1)
             if cmp.visible() then
                 cmp.confirm({ select = true })
             elseif luasnip.expandable() then
@@ -174,8 +172,6 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-                -- elseif luasnip.jumpable(-1) then
-                --     luasnip.jump(-1)
             else
                 fallback()
             end
@@ -199,11 +195,11 @@ cmp.setup({
     sources = cmp.config.sources(
         {
             { name = 'luasnip' },
-            { name = 'nvim_lsp', max_item_count = 5 },
+            { name = 'nvim_lsp', max_item_count = 10 },
             { name = 'nvim_lua', max_item_count = 5 },
             { name = 'neorg' },
-            { name = 'buffer', max_item_count = 5, keyword_length = 3 },
-            { name = 'path', max_item_count = 5 },
+            { name = 'buffer', max_item_count = 7, keyword_length = 3 },
+            { name = 'path', max_item_count = 10 },
             { name = 'nvim_lsp_signature_help' },
         }
     ),
