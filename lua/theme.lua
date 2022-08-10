@@ -23,10 +23,16 @@ require("catppuccin").setup(
                 show_root = true,
                 transparent_panel = false,
             },
+            dap = {
+                enabled = true,
+                enable_ui = true,
+            },
             which_key = true,
             lightspeed = true,
             ts_rainbow = true,
             leap = true,
+            lsp_trouble = true,
+            lsp_saga = true,
         }
     }
 )
