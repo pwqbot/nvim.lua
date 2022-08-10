@@ -19,6 +19,9 @@ local truncate_large_files = function(filepath, bufnr, opts)
     end)
 end
 
+require("telescope").load_extension('project')
+require('telescope').load_extension("fzf")
+
 require('telescope').setup {
     defaults = {
         preview = {
@@ -127,6 +130,3 @@ require('telescope').setup {
         }
     },
 }
-
-require("telescope").load_extension "projects"
-require('telescope').load_extension('fzf')

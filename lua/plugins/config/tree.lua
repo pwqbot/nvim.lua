@@ -38,5 +38,11 @@ require 'nvim-treesitter.configs'.setup {
     },
     incremental_selection = {
         enable = true,
+        keymaps = {
+            init_selection = ' ',
+            scope_incremental = '<TAB>',
+            node_incremental = ' ',
+            node_decremental = '<S-TAB>',
+        },
     },
 }

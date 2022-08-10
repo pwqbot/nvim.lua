@@ -153,6 +153,7 @@ require('packer').startup(
         ----------------------------- project navigator ---------------------------
         -- fuzzy finder, see keymap in keymap/plugin.lua
         use {
+            'nvim-telescope/telescope-project.nvim',
             'nvim-telescope/telescope.nvim',
             config = function()
                 require 'plugins/config/tele'

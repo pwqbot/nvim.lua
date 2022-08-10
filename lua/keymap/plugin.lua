@@ -7,7 +7,8 @@ map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 
 --- fuzzf finder ---
 local tele = require('telescope.builtin')
-map('n', '<F3>', function() tele.extensions.projects.projects {} end)
+
+map('n', '<F3>', function() require 'telescope'.extensions.project.project {} end)
 map('n', '<F4>', function() tele.find_files { cwd = "~", hidden = true } end)
 map('n', '<C-p>', function() tele.find_files { hidden = true } end)
 map('n', '<C-b>', function() tele.buffers { sort_mru = true } end)
@@ -45,7 +46,4 @@ map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 --- trouble ---
 map('n', "<leader>fx", "<cmd>TroubleToggle<cr>")
 
-local treesitter = require 'nvim-treesitter'
-map('n', '<SPACE>', function() treesitter.incremental_selection.init_selection() end)
-map('x', '<SPACE>', function() treesitter.incremental_selection.node_incremental() end)
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
