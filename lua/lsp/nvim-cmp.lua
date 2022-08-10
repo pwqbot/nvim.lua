@@ -151,19 +151,19 @@ local function jumpable(dir)
 end
 
 cmp.setup({
-    preselect = cmp.PreselectMode.None,
+    preselect = cmp.PreselectMode.Item,
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c', 's' }),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c', 's' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            if jumpable() then
-                luasnip.jump(1)
-            elseif cmp.visible() then
+            -- if jumpable() then
+            --     luasnip.jump(1)
+            if cmp.visible() then
                 cmp.confirm({ select = true })
             elseif luasnip.expandable() then
                 luasnip.expand()
@@ -174,8 +174,15 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+                -- elseif luasnip.jumpable(-1) then
+                --     luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ['<C-f>'] = cmp.mapping(function(fallback)
+            if jumpable() then
+                luasnip.jump(1)
             else
                 fallback()
             end
@@ -183,10 +190,10 @@ cmp.setup({
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c', 's' }),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c', 's' }),
         -- ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
+        -- ['<C-e>'] = cmp.mapping({
+        --     i = cmp.mapping.abort(),
+        --     c = cmp.mapping.close(),
+        -- }),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     sources = cmp.config.sources(
