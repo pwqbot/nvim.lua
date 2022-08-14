@@ -186,10 +186,9 @@ cmp.setup({
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c', 's' }),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c', 's' }),
         -- ['<C-y>'] = cmp.config.disable,
-        -- ['<C-e>'] = cmp.mapping({
-        --     i = cmp.mapping.abort(),
-        --     c = cmp.mapping.close(),
-        -- }),
+        ['<C-e>'] = cmp.mapping(function(fallback)
+            fallback()
+        end),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     sources = cmp.config.sources(
