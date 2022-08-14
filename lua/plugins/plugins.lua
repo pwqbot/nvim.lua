@@ -119,6 +119,9 @@ require('packer').startup(
             end,
             requires = "nvim-lua/plenary.nvim"
         }
+        use {
+            'linty-org/readline.nvim',
+        }
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"

@@ -41,13 +41,6 @@ map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 map('t', '<M-h>', '<C-\\><C-n>gT')
 map('t', '<M-l>', '<C-\\><C-n>gt')
-
---- emacs like ---
-map('i', '<C-A>', '<Home>')
-map('i', '<C-E>', '<End>')
-map('i', '<C-F>', '<Right>')
-map('i', '<C-B>', '<Left>')
-
 map('n', '<leader>sc',
     [[:execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>]])
 
