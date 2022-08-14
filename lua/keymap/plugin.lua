@@ -18,9 +18,9 @@ map('n', '<leader>gp', function() tele.live_grep() end)
 map('n', '<leader>fo', function() tele.oldfiles() end)
 map('n', '<leader>m', function() require 'telescope'.extensions.vim_bookmarks.all() end)
 --- comment ---
-map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
+map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle.line_wise.current()<CR>')
 map('x', '<C-_>',
-    '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>'
+    '<ESC><CMD>lua require("Comment.api").toggle.blockwise(vim.fn.visualmode())<CR>'
 )
 
 --- quick motion ---
