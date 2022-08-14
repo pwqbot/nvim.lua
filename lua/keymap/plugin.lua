@@ -16,6 +16,7 @@ map('n', '<C-n>', function() tele.lsp_dynamic_workspace_symbols {} end)
 map('n', '<C-f>', function() tele.lsp_document_symbols {} end)
 map('n', '<leader>gp', function() tele.live_grep() end)
 map('n', '<leader>fo', function() tele.oldfiles() end)
+map('n', '<leader>m', function() require 'telescope'.extensions.vim_bookmarks.all() end)
 --- comment ---
 map('n', '<C-_>', require("Comment.api").toggle_current_linewise)
 map('x', '<C-_>',

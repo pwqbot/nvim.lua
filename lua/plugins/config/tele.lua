@@ -1,5 +1,4 @@
 local actions = require "telescope.actions"
-
 local previewers = require('telescope.previewers')
 local previewers_utils = require('telescope.previewers.utils')
 
@@ -19,19 +18,16 @@ local truncate_large_files = function(filepath, bufnr, opts)
     end)
 end
 
-require("telescope").load_extension('project')
-require('telescope').load_extension("fzf")
-
 require('telescope').setup {
     defaults = {
         preview = {
             -- timeout = 100,
         },
-        layout_strategy = 'horizontal',
+        layout_strategy = 'vertical',
         layout_config = {
-            height = 0.85,
-            width = 0.85,
-            preview_width = 0.45,
+            -- height = 0.85,
+            -- width = 0.85,
+            -- preview_width = 0.45,
             -- prompt_position = 'top',
         },
         buffer_previewer_maker = truncate_large_files,
@@ -102,6 +98,7 @@ require('telescope').setup {
             },
         },
         path_display = { "absolute" },
+        wrap_results = true,
     },
     pickers = {
         lsp_definitions = {
@@ -117,9 +114,9 @@ require('telescope').setup {
             -- },
         },
     },
-    layout_config = {
-        dropdown = { width = 0.5 }
-    },
+    -- layout_config = {
+    --     dropdown = { width = 0.5 }
+    -- },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching
@@ -127,6 +124,14 @@ require('telescope').setup {
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
-        }
+        },
+        -- vim_bookmarks = {
+        --     -- hide_filename = true,
+        --     width_text = 10,
+        -- },
     },
 }
+
+require("telescope").load_extension('project')
+require('telescope').load_extension("fzf")
+require('telescope').load_extension("vim_bookmarks")

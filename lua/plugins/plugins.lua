@@ -162,6 +162,10 @@ require('packer').startup(
                 'nvim-lua/plenary.nvim',
             },
         }
+        use {
+            'tom-anders/telescope-vim-bookmarks.nvim',
+            'MattesGroeger/vim-bookmarks'
+        }
 
         -- telescope speed up
         use {
