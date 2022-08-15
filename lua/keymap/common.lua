@@ -6,7 +6,7 @@ end
 map('n', '<C-q>', '<cmd>qa<cr>')
 
 --- cycle through tab ---
-map('n', 'q', '<cmd>close')
+map('n', 'q', '<cmd>close<cr>')
 map('n', 'Q', 'q')
 map('n', '<M-h>', 'gT')
 map('n', '<M-l>', 'gt')

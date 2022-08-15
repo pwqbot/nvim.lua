@@ -39,7 +39,7 @@ require("catppuccin").setup(
 )
 
 vim.g.catppuccin_flavour = "mocha"
-vim.cmd [[ colorscheme catppuccin ]]
+vim.cmd [[ colorscheme everforest ]]
 
 -- require('onedark').setup {
 --     style = 'cool'

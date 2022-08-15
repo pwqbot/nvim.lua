@@ -22,6 +22,7 @@ map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle.line_wise.current()<CR
 map('x', '<C-_>',
     '<ESC><CMD>lua require("Comment.api").toggle.line_wise(vim.fn.visualmode())<CR>'
 )
+map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 
 --- quick motion ---
 -- map('n', 'f', function() require 'hop'.hint_words({}) end)
@@ -42,7 +43,6 @@ map("n", "<C-g>", function() _lazygit_toggle() end)
 map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
 map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
 
-map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 
 --- trouble ---
 map('n', "<leader>fx", "<cmd>TroubleToggle<cr>")
