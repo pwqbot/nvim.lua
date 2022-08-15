@@ -20,7 +20,7 @@ map('n', '<leader>m', function() require 'telescope'.extensions.vim_bookmarks.al
 --- comment ---
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle.line_wise.current()<CR>')
 map('x', '<C-_>',
-    '<ESC><CMD>lua require("Comment.api").toggle.blockwise(vim.fn.visualmode())<CR>'
+    '<ESC><CMD>lua require("Comment.api").toggle.line_wise(vim.fn.visualmode())<CR>'
 )
 
 --- quick motion ---
