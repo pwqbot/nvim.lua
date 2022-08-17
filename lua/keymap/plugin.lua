@@ -51,10 +51,11 @@ map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
 local readline = require 'readline'
 map('!', '<M-f>', readline.forward_word)
 map('!', '<M-b>', readline.backward_word)
-map('!', '<C-a>', readline.beginning_of_line)
+map('!', '<C-a>', '<C-o>^')
 map('!', '<C-e>', readline.end_of_line)
 -- map('!', '<C-w>', readline.unix_word_rubout)
-map('!', '<C-k>', readline.kill_line)
+map('!', '<C-k>', '<Up>')
+map('!', '<C-j>', '<Down>')
 map('!', '<C-u>', readline.backward_kill_line)
 
 --- emacs like ---
