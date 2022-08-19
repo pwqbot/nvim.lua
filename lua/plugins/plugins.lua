@@ -126,10 +126,12 @@ require('packer').startup(
         -- theme
         use "EdenEast/nightfox.nvim"
         use "sainnhe/everforest"
+        use 'folke/tokyonight.nvim'
+
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            run = "CatppuccinCompile",
+            -- run = "CatppuccinCompile",
         }
         use 'navarasu/onedark.nvim'
 
