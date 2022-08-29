@@ -122,6 +122,9 @@ require('packer').startup(
         use {
             'linty-org/readline.nvim',
         }
+        use {
+            'lervag/vimtex'
+        }
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"
