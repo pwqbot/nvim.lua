@@ -276,6 +276,13 @@ require('packer').startup(
         -- beautify
         use 'folke/lsp-colors.nvim'
 
+        use {
+            'p00f/clangd_extensions.nvim',
+            config = function()
+                require 'plugins/config/clangd'
+            end
+        }
+
         -- all complete plugins
         use {
             'hrsh7th/nvim-cmp',

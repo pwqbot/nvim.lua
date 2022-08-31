@@ -43,15 +43,15 @@ local function get_pyls_plugins()
 end
 
 M.servers = {
-    clangd = {
-        cmd = {
-            "clangd",
-            "--background-index",
-            "--suggest-missing-includes",
-            "-compile-commands-dir=build",
-            "--clang-tidy",
-        }
-    },
+    -- clangd = {
+    --     cmd = {
+    --         "clangd",
+    --         "--background-index",
+    --         "--suggest-missing-includes",
+    --         "-compile-commands-dir=build",
+    --         "--clang-tidy",
+    --     }
+    -- },
     -- pyright = {},
     yamlls = {},
     bashls = {},
