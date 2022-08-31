@@ -8,6 +8,8 @@ map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 --- fuzzf finder ---
 local tele = require('telescope.builtin')
 
+map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
+map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
 map('n', '<F3>', function() require 'telescope'.extensions.project.project {} end)
 map('n', '<F4>', function() tele.find_files { cwd = "~", hidden = true } end)
 map('n', '<C-p>', function() tele.find_files { hidden = true } end)
