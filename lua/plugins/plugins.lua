@@ -113,13 +113,6 @@ require('packer').startup(
         }
 
         use {
-            "nvim-neorg/neorg",
-            config = function()
-                require 'plugins/config/org'
-            end,
-            requires = "nvim-lua/plenary.nvim"
-        }
-        use {
             'linty-org/readline.nvim',
         }
         use {
