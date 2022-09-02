@@ -29,18 +29,18 @@ map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 --- quick motion ---
 -- map('n', 'f', function() require 'hop'.hint_words({}) end)
 
-local Terminal = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({
-    cmd = "lazygit",
-    dir = "git_dir",
-    direction = "float",
-})
-
-local function _lazygit_toggle()
-    lazygit:toggle()
-end
-
-map("n", "<C-g>", function() _lazygit_toggle() end)
+-- local Terminal = require('toggleterm.terminal').Terminal
+-- local lazygit = Terminal:new({
+--     cmd = "lazygit",
+--     dir = "git_dir",
+--     direction = "float",
+-- })
+--
+-- local function _lazygit_toggle()
+--     lazygit:toggle()
+-- end
+--
+-- map("n", "<C-g>", function() _lazygit_toggle() end)
 
 map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
 map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
@@ -63,3 +63,7 @@ map('!', '<C-u>', readline.backward_kill_line)
 --- emacs like ---
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
+
+map('n', '<F5>', '<cmd>AsyncTask project-build project-run<cr>')
+map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
+map('n', '<F7>', '<cmd>AsyncTask file-build file-run<cr>')

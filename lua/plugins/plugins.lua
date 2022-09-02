@@ -28,10 +28,30 @@ require('packer').init({
     auto_reload_compile = true,
 })
 
+vim.cmd [[let g:floaterm_keymap_toggle = '<C-t>']]
+
+vim.cmd [[let g:floaterm_width = 0.8]]
+vim.cmd [[let g:floaterm_height = 0.8]]
+vim.cmd [[let g:floaterm_autoinsert = 1]]
+-- vim.cmd [[let g:floaterm_wintype = 'split']]
+
+-- vim.cmd [[let g:floaterm_position='bottomright']]
+
+
+vim.cmd [[ let g:asyncrun_open = 6 ]]
+vim.cmd [[ let g:asynctasks_term_reuse = 1 ]]
+vim.cmd [[ let g:asynctasks_term_pos = 'floaterm_reuse' ]]
+vim.cmd [[let g:asynctasks_term_rows = 6]]
+vim.cmd [[let g:asynctasks_term_cols = 500]]
+vim.cmd [[ let g:asynctasks_term_focus = 1 ]]
+
+
 require('packer').startup(
     function(use)
         --- packer itself ---
         use 'wbthomason/packer.nvim'
+        use 'voldikss/vim-floaterm'
+
 
         --------------------------- git ------------------------------
         use {
@@ -78,13 +98,13 @@ require('packer').startup(
         }
 
         -- CTRL-T to toggleterminal
-        use {
-            "akinsho/toggleterm.nvim",
-            tag = 'v1.*',
-            config = function()
-                require 'plugins/config/toggle'
-            end
-        }
+        -- use {
+        --     "akinsho/toggleterm.nvim",
+        --     tag = 'v1.*',
+        --     config = function()
+        --         require 'plugins/config/toggle'
+        --     end
+        -- }
 
         --- auto pairs
         use {
@@ -100,7 +120,7 @@ require('packer').startup(
             'lewis6991/impatient.nvim',
             config = function()
                 -- move this to init.lua
-                -- require 'impatient'
+                require 'impatient'
             end
         }
 
@@ -116,7 +136,8 @@ require('packer').startup(
             'linty-org/readline.nvim',
         }
         use {
-            'lervag/vimtex'
+            'skywind3000/asynctasks.vim',
+            'skywind3000/asyncrun.vim',
         }
         -- --------------------------- beautify ----------------------------
         -- theme
@@ -134,7 +155,7 @@ require('packer').startup(
         --  icon
         use 'kyazdani42/nvim-web-devicons'
 
-        -- stcatus line
+        -- status line
         use {
             'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -263,6 +284,9 @@ require('packer').startup(
                     require 'lsp/lspconfig'
                 end
             }
+        }
+        use {
+            'lervag/vimtex'
         }
 
         -- lsp adapter
