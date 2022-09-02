@@ -26,21 +26,7 @@ map('x', '<C-_>',
 )
 map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 
---- quick motion ---
--- map('n', 'f', function() require 'hop'.hint_words({}) end)
-
--- local Terminal = require('toggleterm.terminal').Terminal
--- local lazygit = Terminal:new({
---     cmd = "lazygit",
---     dir = "git_dir",
---     direction = "float",
--- })
---
--- local function _lazygit_toggle()
---     lazygit:toggle()
--- end
---
--- map("n", "<C-g>", function() _lazygit_toggle() end)
+map("n", "<C-g>", "<cmd>LazyGit<cr>")
 
 map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
 map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")

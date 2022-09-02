@@ -97,14 +97,10 @@ require('packer').startup(
             end
         }
 
-        -- CTRL-T to toggleterminal
-        -- use {
-        --     "akinsho/toggleterm.nvim",
-        --     tag = 'v1.*',
-        --     config = function()
-        --         require 'plugins/config/toggle'
-        --     end
-        -- }
+        use {
+            'kdheepak/lazygit.nvim'
+        }
+
 
         --- auto pairs
         use {
