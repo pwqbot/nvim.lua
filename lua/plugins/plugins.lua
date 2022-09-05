@@ -135,6 +135,22 @@ require('packer').startup(
             'skywind3000/asynctasks.vim',
             'skywind3000/asyncrun.vim',
         }
+        use {
+            'rcarriga/nvim-notify',
+            config = function()
+                vim.notify = require("notify")
+                -- require 'notifier'.setup {
+                --     -- You configuration here
+                --
+                -- }
+            end
+        }
+        -- use {
+        --     'levouh/tint.nvim',
+        --     config = function()
+        --         require("tint").setup()
+        --     end
+        -- }
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"
