@@ -134,6 +134,7 @@ require('packer').startup(
         use {
             'skywind3000/asynctasks.vim',
             'skywind3000/asyncrun.vim',
+            'GustavoKatel/telescope-asynctasks.nvim',
         }
         use {
             'rcarriga/nvim-notify',

@@ -50,6 +50,7 @@ map('!', '<C-u>', readline.backward_kill_line)
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
 
-map('n', '<F5>', '<cmd>AsyncTask project-build project-run<cr>')
+map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')
 map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
 map('n', '<F7>', '<cmd>AsyncTask file-build file-run<cr>')
+map('n', '<leader>ts', function() require('telescope').extensions.asynctasks.all() end)
