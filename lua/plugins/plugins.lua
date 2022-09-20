@@ -64,6 +64,18 @@ require('packer').startup(
         ---------------------------- vim enhance -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
+        use { "anuvyklack/windows.nvim",
+            requires = {
+                "anuvyklack/middleclass",
+                "anuvyklack/animation.nvim"
+            },
+            config = function()
+                vim.o.winwidth = 10
+                vim.o.winminwidth = 10
+                vim.o.equalalways = false
+                require('windows').setup()
+            end
+        }
 
         --  jk to ESC
         use {

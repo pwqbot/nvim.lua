@@ -45,6 +45,7 @@ map('!', '<C-e>', readline.end_of_line)
 map('!', '<C-k>', '<Up>')
 map('!', '<C-j>', '<Down>')
 map('!', '<C-u>', readline.backward_kill_line)
+map('n', '<C-w>z', '<Cmd>WindowsMaximize<CR>')
 
 --- emacs like ---
 map('i', '<C-F>', '<Right>')
