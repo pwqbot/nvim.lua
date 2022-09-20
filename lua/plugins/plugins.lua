@@ -92,6 +92,18 @@ require('packer').startup(
                 require 'plugins/config/bqf'
             end
         }
+        use { 'gen740/SmoothCursor.nvim',
+            config = function()
+                require('smoothcursor').setup {
+                    linehl = 'cursorline',
+                    cursor = '@',
+                    fancy = {
+                        head = { cursor = "", texthl = "SmoothCursor", linehl = 'cursorline' },
+                        enable = true,
+                    },
+                }
+            end
+        }
 
         -- fast motion
         use {
