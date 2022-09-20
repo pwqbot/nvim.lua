@@ -189,7 +189,7 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping(function(fallback)
             fallback()
         end),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<CR>'] = cmp.config.disable,
     }),
     sources = cmp.config.sources(
         {
