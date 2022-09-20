@@ -104,6 +104,9 @@ require('packer').startup(
                 }
             end
         }
+        use {
+            'monaqa/dial.nvim'
+        }
 
         -- fast motion
         use {
