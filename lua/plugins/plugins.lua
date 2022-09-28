@@ -326,6 +326,15 @@ require('packer').startup(
             'lervag/vimtex'
         }
 
+
+        use({
+            "glepnir/lspsaga.nvim",
+            branch = "main",
+            config = function()
+                require 'plugins/config/lspsaga'
+            end,
+        })
+
         -- lsp adapter
         use {
             'jose-elias-alvarez/null-ls.nvim',
