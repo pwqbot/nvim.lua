@@ -29,6 +29,7 @@ vim.cmd 'set clipboard=unnamed'
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.expandtab = true
+opt.jumpoptions = 'stack'
 
 vim.wo.wrap = false
 
