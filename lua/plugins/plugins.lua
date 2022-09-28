@@ -77,6 +77,14 @@ require('packer').startup(
             end
         }
 
+        use({
+            'mvllow/modes.nvim',
+            tag = 'v0.2.0',
+            config = function()
+                require('modes').setup()
+            end
+        })
+
         --  jk to ESC
         use {
             "max397574/better-escape.nvim",
@@ -92,18 +100,7 @@ require('packer').startup(
                 require 'plugins/config/bqf'
             end
         }
-        use { 'gen740/SmoothCursor.nvim',
-            config = function()
-                require('smoothcursor').setup {
-                    linehl = 'cursorline',
-                    cursor = '@',
-                    fancy = {
-                        head = { cursor = "", texthl = "SmoothCursor", linehl = 'cursorline' },
-                        enable = true,
-                    },
-                }
-            end
-        }
+
         use {
             'monaqa/dial.nvim'
         }
