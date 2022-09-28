@@ -64,6 +64,8 @@ require('packer').startup(
         ---------------------------- vim enhance -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
+
+        -- auto adjust window size
         use { "anuvyklack/windows.nvim",
             requires = {
                 "anuvyklack/middleclass",
@@ -77,6 +79,7 @@ require('packer').startup(
             end
         }
 
+        -- highlight cursorline
         use({
             'mvllow/modes.nvim',
             tag = 'v0.2.0',
@@ -101,6 +104,7 @@ require('packer').startup(
             end
         }
 
+        -- powerful c-a/c-x
         use {
             'monaqa/dial.nvim'
         }
@@ -164,18 +168,9 @@ require('packer').startup(
             'rcarriga/nvim-notify',
             config = function()
                 vim.notify = require("notify")
-                -- require 'notifier'.setup {
-                --     -- You configuration here
-                --
-                -- }
             end
         }
-        -- use {
-        --     'levouh/tint.nvim',
-        --     config = function()
-        --         require("tint").setup()
-        --     end
-        -- }
+
         -- --------------------------- beautify ----------------------------
         -- theme
         use "EdenEast/nightfox.nvim"
@@ -185,7 +180,6 @@ require('packer').startup(
         use {
             "catppuccin/nvim",
             as = "catppuccin",
-            -- run = "CatppuccinCompile",
         }
         use 'navarasu/onedark.nvim'
 
