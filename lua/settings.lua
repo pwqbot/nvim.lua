@@ -8,6 +8,7 @@ opt.undofile = true
 opt.hidden = true
 opt.syntax = 'on'
 opt.number = true
+opt.relativenumber = true
 opt.splitbelow = true
 opt.splitright = true
 opt.laststatus = 2
