@@ -20,10 +20,6 @@ map('n', '<leader>gp', function() tele.live_grep() end)
 map('n', '<leader>fo', function() tele.oldfiles() end)
 map('n', '<leader>m', function() require 'telescope'.extensions.vim_bookmarks.all() end)
 --- comment ---
-map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle.line_wise.current()<CR>')
-map('x', '<C-_>',
-    '<ESC><CMD>lua require("Comment.api").toggle.line_wise(vim.fn.visualmode())<CR>'
-)
 map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 
 map("n", "<C-g>", "<cmd>LazyGit<cr>")
@@ -40,7 +36,7 @@ map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
 local readline = require 'readline'
 map('!', '<M-f>', readline.forward_word)
 map('!', '<M-b>', readline.backward_word)
-map('!', '<C-a>', '<C-o>^')
+-- map('!', '<C-a>', '<C-o>^')
 map('!', '<C-e>', readline.end_of_line)
 map('!', '<C-k>', '<Up>')
 map('!', '<C-j>', '<Down>')
