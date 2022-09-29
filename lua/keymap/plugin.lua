@@ -31,7 +31,10 @@ map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
 --- trouble ---
 map('n', "<leader>tb", "<cmd>TroubleToggle<cr>")
 
+
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
+map('n', '<leader>sg', '<cmd>Gitsigns stage_hunk<cr>')
+map('n', '<leader>usg', '<cmd>Gitsigns undo_stage_hunk<cr>')
 map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
 local readline = require 'readline'
 map('!', '<M-f>', readline.forward_word)
