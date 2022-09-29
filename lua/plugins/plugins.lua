@@ -1,6 +1,5 @@
 local user_path = vim.fn.expand('~')
 Nvim_path = user_path .. [[/.config/nvim/]]
-
 local packer_start_path = Nvim_path .. 'pack/packer/start'
 local packer_path = packer_start_path .. '/packer.nvim'
 local packer_bootstrap
@@ -87,6 +86,13 @@ require('packer').startup(
                 require('modes').setup()
             end
         })
+
+        use {
+            'karb94/neoscroll.nvim',
+            config = function()
+                require 'plugins/config/scroll'
+            end
+        }
 
         --  jk to ESC
         use {
