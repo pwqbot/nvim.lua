@@ -57,7 +57,7 @@ local on_attach = function(client, bufnr)
         group = augroup,
         buffer = bufnr,
         callback = function()
-            vim.lsp.buf.formatting_sync()
+            vim.lsp.buf.format({ bufnr = bufnr })
         end,
     })
     require("aerial").on_attach(client, bufnr)
