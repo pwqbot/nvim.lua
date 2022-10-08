@@ -71,6 +71,19 @@ require('packer').startup(
         use {
             'jpalardy/vim-slime'
         }
+        -- Packer
+        use({
+            "folke/noice.nvim",
+            event = "VimEnter",
+            config = function()
+                require("noice").setup()
+            end,
+            requires = {
+                -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+                "MunifTanjim/nui.nvim",
+                "rcarriga/nvim-notify",
+            }
+        })
 
         -- highlight cursorline
         use({
@@ -167,12 +180,6 @@ require('packer').startup(
             'skywind3000/asynctasks.vim',
             'skywind3000/asyncrun.vim',
             'GustavoKatel/telescope-asynctasks.nvim',
-        }
-        use {
-            'rcarriga/nvim-notify',
-            config = function()
-                vim.notify = require("notify")
-            end
         }
 
         -- --------------------------- beautify ----------------------------

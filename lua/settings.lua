@@ -35,5 +35,4 @@ opt.jumpoptions = 'stack'
 vim.wo.wrap = false
 
 -- nvim 0.8 feature
-opt.cmdheight = 0
 opt.winbar = '%=%m %f%='
