@@ -65,6 +65,12 @@ require('packer').startup(
         use 'haya14busa/is.vim'
 
         -- auto adjust window size
+        vim.cmd [[ 
+            let g:slime_target = "neovim" 
+        ]]
+        use {
+            'jpalardy/vim-slime'
+        }
 
         -- highlight cursorline
         use({
