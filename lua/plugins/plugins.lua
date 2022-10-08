@@ -244,7 +244,10 @@ require('packer').startup(
         {
             "ahmedkhalf/project.nvim",
             config = function()
-                require("project_nvim").setup()
+                require("project_nvim").setup {
+                    detection_methods = { "pattern", "lsp" },
+                    patterns = { ".root", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+                }
             end
         }
 
