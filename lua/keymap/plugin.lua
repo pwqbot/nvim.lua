@@ -50,6 +50,7 @@ map('n', '<C-w>z', '<Cmd>WindowsMaximize<CR>')
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
 
+map('n', '<F4>', '<cmd>AsyncTask project-test<cr>')
 map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')
 map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
 map('n', '<F7>', '<cmd>AsyncTask file-build file-run<cr>')
