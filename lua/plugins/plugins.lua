@@ -64,7 +64,6 @@ require('packer').startup(
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
 
-        -- auto adjust window size
         vim.cmd [[ 
             let g:slime_target = "neovim" 
         ]]
@@ -93,13 +92,6 @@ require('packer').startup(
                 require('modes').setup()
             end
         })
-
-        use {
-            'karb94/neoscroll.nvim',
-            config = function()
-                require 'plugins/config/scroll'
-            end
-        }
 
         --  jk to ESC
         use {
