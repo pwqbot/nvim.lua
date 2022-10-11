@@ -42,7 +42,7 @@ local function keymappings(client, bufnr)
     bufmap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', bufnr)
     bufmap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', bufnr)
     bufmap('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', bufnr)
-    bufmap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format()<CR>', bufnr)
+    bufmap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({bufnr = bufnr})<CR>', bufnr)
     bufmap('n', '<leader>ic', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', bufnr)
     bufmap('n', '<leader>oc', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', bufnr)
 end
