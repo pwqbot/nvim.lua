@@ -63,6 +63,14 @@ require('packer').startup(
         ---------------------------- vim enhance -----------------------------
         -- automatically turn off search highlight
         use 'haya14busa/is.vim'
+        use {
+            'mizlan/iswap.nvim',
+            config = function()
+                require('iswap').setup {
+                    autoswap = true,
+                }
+            end
+        }
 
         vim.cmd [[ 
             let g:slime_target = "neovim" 
