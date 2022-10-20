@@ -51,3 +51,5 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<CR>', 'o<ESC>')
 map('n', '}', '<cmd>execute "keepjumps norm! " . v:count1 . "}"<CR>')
 map('n', '{', '<cmd>execute "keepjumps norm! " . v:count1 . "{"<CR>')
+
+map('n', '<leader>vt', ":vsp<cr>:term<cr>")
