@@ -9,7 +9,7 @@ require("clangd_extensions").setup {
             "-compile-commands-dir=build",
             "--clang-tidy",
         },
-        capabilities = require('cmp_nvim_lsp').update_capabilities(
+        capabilities = require('cmp_nvim_lsp').default_capabilities(
             vim.lsp.protocol.make_client_capabilities()
         ),
         on_attach =
