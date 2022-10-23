@@ -11,7 +11,7 @@ vim.opt.termguicolors = true
 
 require("catppuccin").setup(
     {
-        transparent_background = false,
+        transparent_background = true,
         compile = {
             enabled = true,
             path = vim.fn.stdpath "cache" .. "/catppuccin",
@@ -39,7 +39,7 @@ require("catppuccin").setup(
 )
 
 vim.g.catppuccin_flavour = "mocha"
-vim.cmd [[ colorscheme nordfox ]]
+vim.cmd [[ colorscheme catppuccin ]]
 
 -- require('onedark').setup {
 --     style = 'cool'
