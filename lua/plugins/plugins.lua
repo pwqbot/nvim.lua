@@ -339,6 +339,9 @@ require('packer').startup(
             'lervag/vimtex'
         }
 
+        use {
+            'onsails/lspkind.nvim'
+        }
 
         use({
             "glepnir/lspsaga.nvim",
