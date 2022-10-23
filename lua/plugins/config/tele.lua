@@ -23,7 +23,7 @@ require('telescope').setup {
         preview = {
             -- timeout = 100,
         },
-        layout_strategy = 'vertical',
+        layout_strategy = 'center',
         layout_config = {
             -- height = 0.85,
             -- width = 0.85,
