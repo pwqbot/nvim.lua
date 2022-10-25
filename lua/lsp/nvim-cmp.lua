@@ -1,41 +1,5 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-local kind_icons = {
-    Class = " ",
-    Color = " ",
-    Constant = "C ",
-    Constructor = " ",
-    Enum = "練",
-    EnumMember = " ",
-    Event = " ",
-    Field = " ",
-    File = "",
-    Folder = " ",
-    Function = " ",
-    Interface = "ﰮ ",
-    Keyword = " ",
-    Method = " ",
-    Module = " ",
-    Operator = "",
-    Property = " ",
-    Reference = " ",
-    Snippet = " ",
-    Struct = " ",
-    Text = " ",
-    TypeParameter = " ",
-    Unit = "塞",
-    Value = " ",
-    Variable = " ",
-}
-
-local source_names = {
-    nvim_lsp = "(LSP)",
-    nvim_lua = "(Lua)",
-    emoji = "(Emoji)",
-    path = "(Path)",
-    luasnip = "(Snip)",
-    buffer = "(Buf)",
-}
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -168,21 +132,21 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "c", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "c", "s" }),
         ['<C-f>'] = cmp.mapping(function(fallback)
-            if jumpable() then
+            if jumpable(0) then
                 luasnip.jump(1)
             else
                 fallback()
             end
-        end, { "i", "s" }),
+        end, { "i", "c", "s" }),
         ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c', 's' }),
         ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c', 's' }),
         -- ['<C-y>'] = cmp.config.disable,
@@ -213,12 +177,8 @@ cmp.setup({
     formatting = {
         format = require('lspkind').cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
-
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
         })
     },
     view = {
