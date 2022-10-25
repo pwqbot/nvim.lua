@@ -86,6 +86,9 @@ require('packer').startup(
                 require("noice").setup()
                 require("notify").setup({
                     background_colour = "#000000",
+                    stages = "slide",
+                    timeout = 1000,
+                    top_down = false,
                 })
             end,
             requires = {
