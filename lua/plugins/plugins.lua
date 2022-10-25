@@ -142,6 +142,10 @@ require('packer').startup(
             end
         }
 
+        use {
+            'rhysd/clever-f.vim'
+        }
+
         -- show key hint
         use {
             "folke/which-key.nvim",
