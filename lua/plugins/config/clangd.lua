@@ -1,3 +1,7 @@
+local clangd_capabilites = require('cmp_nvim_lsp').default_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+)
+clangd_capabilites.offsetEncoding = "utf-8"
 require("clangd_extensions").setup {
     server = {
         -- options to pass to nvim-lspconfig
@@ -9,9 +13,7 @@ require("clangd_extensions").setup {
             "-compile-commands-dir=build",
             "--clang-tidy",
         },
-        capabilities = require('cmp_nvim_lsp').default_capabilities(
-            vim.lsp.protocol.make_client_capabilities()
-        ),
+        capabilities = clangd_capabilites,
         on_attach =
         function(client, bufnr)
             require 'keymap/lsp'.setup(client, bufnr)
