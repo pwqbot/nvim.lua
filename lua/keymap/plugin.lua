@@ -36,6 +36,8 @@ map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
 map('n', '<leader>sg', '<cmd>Gitsigns stage_hunk<cr>')
 map('n', '<leader>usg', '<cmd>Gitsigns undo_stage_hunk<cr>')
 map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
+
+--- emacs like ---
 local readline = require 'readline'
 map('!', '<M-f>', readline.forward_word)
 map('!', '<M-b>', readline.backward_word)
@@ -45,10 +47,9 @@ map('!', '<C-k>', '<Up>')
 map('!', '<C-j>', '<Down>')
 map('!', '<C-u>', readline.backward_kill_line)
 map('n', '<C-w>z', '<Cmd>WindowsMaximize<CR>')
-
---- emacs like ---
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
+
 
 map('n', '<F4>', '<cmd>AsyncTask project-test<cr>')
 map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')
@@ -56,6 +57,7 @@ map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
 map('n', '<F7>', '<cmd>AsyncTask file-build file-run<cr>')
 map('n', '<leader>ts', function() require('telescope').extensions.asynctasks.all() end)
 map('n', '<leader>sw', '<cmd>ISwapWith<cr>')
+map('n', '<leader>cp', '<cmd>CopilotPanel<cr>')
 vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })

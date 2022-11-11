@@ -121,12 +121,31 @@ cmp.setup({
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
+    sorting = {
+        priority_weight = 2,
+        comparators = {
+            require("copilot_cmp.comparators").prioritize,
+            require("copilot_cmp.comparators").score,
+
+            -- Below is the default comparitor list and order for nvim-cmp
+            cmp.config.compare.offset,
+            -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
     mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c', 's' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c', 's' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.confirm({ select = true })
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
             elseif luasnip.expandable() then
                 luasnip.expand()
             else
@@ -157,6 +176,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources(
         {
+            { name = "copilot" },
             { name = 'luasnip' },
             { name = 'nvim_lsp', max_item_count = 10 },
             { name = 'nvim_lua', max_item_count = 5 },
@@ -179,6 +199,7 @@ cmp.setup({
             mode = 'symbol_text', -- show only symbol annotations
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            symbol_map = { Copilot = "" },
         })
     },
     view = {
