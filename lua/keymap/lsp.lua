@@ -45,6 +45,7 @@ local function keymappings(client, bufnr)
     bufmap('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({bufnr = bufnr})<CR>', bufnr)
     bufmap('n', '<leader>ic', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', bufnr)
     bufmap('n', '<leader>oc', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', bufnr)
+    bufmap('n', '<leader>cl', '<cmd>lua vim.lsp.codelens.run()<cr>', bufnr)
 end
 
 function M.setup(client, bufnr)

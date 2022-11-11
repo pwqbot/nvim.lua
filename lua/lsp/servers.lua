@@ -75,8 +75,8 @@ M.servers = {
             }
         }
     },
-    hls = {
-    },
+    -- hls = {
+    -- },
     sumneko_lua = {
         settings = {
             Lua = {

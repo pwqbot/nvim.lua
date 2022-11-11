@@ -392,6 +392,9 @@ require('packer').startup(
         use {
             'lervag/vimtex'
         }
+        use {
+            'MrcJkb/haskell-tools.nvim',
+        }
 
         use {
             'onsails/lspkind.nvim'
