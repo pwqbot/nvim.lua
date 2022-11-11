@@ -5,7 +5,7 @@ require('lspsaga').init_lsp_saga(
         border_style = "single",
         --the range of 0 for fully opaque window (disabled) to 100 for fully
         --transparent background. Values between 0-30 are typically most useful.
-        saga_winblend = 0,
+        saga_winblend = 100,
         -- when cursor in saga window you config these to move
         move_in_saga = { prev = '<C-p>', next = '<C-n>' },
         -- Error, Warn, Info, Hint
@@ -18,7 +18,7 @@ require('lspsaga').init_lsp_saga(
         -- is function type it will have a param `entry`
         -- entry is a table type has these filed
         -- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
-        diagnostic_header = { "🙀", "😿", "😾", "😺" },
+        diagnostic_header = { "😡", "😥", "😤", "😐" },
         -- preview lines of lsp_finder and definition preview
         max_preview_lines = 20,
         -- use emoji lightbulb in default
@@ -33,7 +33,7 @@ require('lspsaga').init_lsp_saga(
             sign = true,
             update_time = 150,
             sign_priority = 20,
-            virtual_text = true,
+            virtual_text = false,
         },
         -- finder icons
         finder_icons = {
