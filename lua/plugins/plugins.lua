@@ -78,6 +78,13 @@ require('packer').startup(
         use {
             'jpalardy/vim-slime'
         }
+
+        use {
+            "nvim-zh/colorful-winsep.nvim",
+            config = function()
+                require('colorful-winsep').setup({})
+            end
+        }
         -- Packer
         use({
             "folke/noice.nvim",
