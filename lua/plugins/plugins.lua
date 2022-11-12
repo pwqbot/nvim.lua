@@ -114,6 +114,9 @@ require('packer').startup(
 
         vim.cmd [[ 
             let g:slime_target = "neovim" 
+            let g:slime_no_mappings = 1
+            xmap <leader>1 <Plug>SlimeRegionSend
+            nmap <leader>1 <Plug>SlimeParagraphSend
         ]]
         use {
             'jpalardy/vim-slime'
@@ -472,3 +475,4 @@ require('packer').startup(
             require('packer').sync()
         end
     end)
+
