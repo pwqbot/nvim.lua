@@ -2,10 +2,10 @@ require('lspsaga').init_lsp_saga(
     {
         -- Options with default value
         -- "single" | "double" | "rounded" | "bold" | "plus"
-        border_style = "single",
+        border_style = "rounded",
         --the range of 0 for fully opaque window (disabled) to 100 for fully
         --transparent background. Values between 0-30 are typically most useful.
-        saga_winblend = 100,
+        saga_winblend = 0,
         -- when cursor in saga window you config these to move
         move_in_saga = { prev = '<C-p>', next = '<C-n>' },
         -- Error, Warn, Info, Hint
