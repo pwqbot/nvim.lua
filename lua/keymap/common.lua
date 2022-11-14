@@ -24,6 +24,9 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 map('n', '<C-h>', '<C-w>h')
 
+map('n', '<C-u>', '<C-u>zz')
+map('n', '<C-d>', '<C-d>zz')
+
 --- save file ---
 map('n', '<C-s>', ':update<CR>')
 map('i', '<C-s>', '<ESC>l:update<CR>')
