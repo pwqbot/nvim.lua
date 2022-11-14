@@ -69,7 +69,6 @@ local on_attach = function(client, bufnr)
             buffer = bufnr,
             callback = vim.lsp.codelens.refresh,
         })
-    require("aerial").on_attach(client, bufnr)
 end
 
 
