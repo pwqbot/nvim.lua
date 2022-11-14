@@ -1,9 +1,8 @@
 local M = {}
--- Use a loop to conveniently call 'setup' on multiple servers and
 
 PYTHON_THING = "empty"
 
-function Find_python_venv()
+local function find_python_venv()
     -- return the path to a currently activated python venv
     -- supports Conda, pyenv, pipenv
     if vim.env.CONDA_PREFIX ~= nil then
@@ -28,7 +27,7 @@ end
 
 local function get_pyls_plugins()
     local pylsp_plugins = {}
-    local python_venv = Find_python_venv()
+    local python_venv = find_python_venv()
 
     pylsp_plugins.pydocstyle = {
         enabled = true
@@ -52,17 +51,21 @@ M.servers = {
     --         "--clang-tidy",
     --     }
     -- },
-    -- pyright = {},
+    pyright = {
+        python = {
+            venvPath = find_python_venv()
+        }
+    },
     yamlls = {},
     bashls = {},
     rust_analyzer = {},
-    pylsp = {
-        settings = {
-            pylsp = {
-                plugins = get_pyls_plugins()
-            }
-        }
-    },
+    -- pylsp = {
+    --     settings = {
+    --         pylsp = {
+    --             plugins = get_pyls_plugins()
+    --         }
+    --     }
+    -- },
     html = {},
     gopls = {
         settings = {
@@ -101,8 +104,7 @@ M.servers = {
             },
         },
     },
-    cmake = {
-    },
+    cmake = {},
 }
 
 return M
