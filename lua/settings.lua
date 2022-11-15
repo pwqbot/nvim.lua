@@ -21,6 +21,8 @@ opt.laststatus = 3
 opt.guicursor = 'a:block-Cursor,i:block-CurSearch'
 opt.hlsearch = true
 opt.incsearch = true
+opt.spell = true
+opt.spo = 'camel'
 
 opt.scrolloff = 3
 opt.signcolumn = "yes:2"
