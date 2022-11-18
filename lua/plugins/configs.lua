@@ -198,11 +198,7 @@ local lsp = {
         end
     },
 
-    ['p00f/clangd_extensions.nvim'] = {
-        config = function()
-            require 'plugins/config/clangd'
-        end
-    },
+    ['p00f/clangd_extensions.nvim'] = {},
 
     ['MrcJkb/haskell-tools.nvim'] = {},
 
