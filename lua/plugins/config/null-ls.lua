@@ -7,7 +7,7 @@ local sources = {
     -- }),
     null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.diagnostics.cmake_lint,
-    null_ls.builtins.diagnostics.markdownlint,
+    -- null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.formatting.markdownlint
 }
 
