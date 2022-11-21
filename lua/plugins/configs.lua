@@ -336,6 +336,7 @@ local git = {
 }
 
 local build_system = {
+    ['skywind3000/asyncrun.vim'] = {},
     ['skywind3000/asynctasks.vim'] = {
         setup = function()
             vim.cmd [[ let g:asynctasks_term_reuse = 1 ]]
