@@ -289,6 +289,24 @@ local vim_enhance = {
     -- automatically turn off search highlight
     ['haya14busa/is.vim'] = {},
 
+    -- resize window
+    ['anuvyklack/windows.nvim'] = {
+        requires = {
+            "anuvyklack/middleclass",
+            -- "anuvyklack/animation.nvim"
+        },
+        config = function()
+            vim.o.winwidth = 10
+            vim.o.winminwidth = 10
+            vim.o.equalalways = false
+            require('windows').setup({
+                ignore = {
+                    buftype = { 'quickfix', 'terminal' },
+                }
+            })
+        end
+    },
+
     -- <F1> open file explorer
     ['kyazdani42/nvim-tree.lua'] = {
         config = function()
