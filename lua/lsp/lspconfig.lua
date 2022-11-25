@@ -89,6 +89,16 @@ local default_config = {
     capabilities = capabilities,
 }
 
+local ht = require('haskell-tools')
+ht.setup {
+    tools = { -- haskell-tools options
+    },
+    hls = {
+        -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
+        on_attach = on_attach,
+    },
+}
+
 for name, config in pairs(require('lsp/servers').servers) do
     if config == nil then
         config = default_config
@@ -97,27 +107,3 @@ for name, config in pairs(require('lsp/servers').servers) do
     end
     require('lspconfig')[name].setup(config)
 end
-
-
-local ht = require('haskell-tools')
-local def_opts = { noremap = true, silent = true, }
-ht.setup {
-    tools = { -- haskell-tools options
-        codeLens = {
-            -- Whether to automatically display/refresh codeLenses
-            -- autoRefresh = true,
-        },
-    },
-    hls = {
-        -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
-        on_attach = on_attach,
-    },
-}
--- Suggested keymaps that do not depend on haskell-language-server
--- Toggle a GHCi repl for the current package
-vim.keymap.set('n', '<leader>rr', ht.repl.toggle, def_opts)
--- Toggle a GHCi repl for the current buffer
-vim.keymap.set('n', '<leader>rf', function()
-    ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-end, def_opts)
-vim.keymap.set('n', '<leader>rq', ht.repl.quit, def_opts)
