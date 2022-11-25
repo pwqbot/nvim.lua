@@ -321,8 +321,7 @@ local vim_enhance = {
             vim.cmd [[ 
             let g:slime_target = "neovim" 
             let g:slime_no_mappings = 1 
-            xmap <leader>1 <Plug>SlimeRegionSend 
-            nmap <leader>1 <Plug>SlimeParagraphSend ]]
+            ]]
         end
     },
 
