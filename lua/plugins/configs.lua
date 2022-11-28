@@ -174,10 +174,42 @@ local lsp = {
     ['onsails/lspkind.nvim'] = {},
     ['DNLHC/glance.nvim'] = {
         config = function()
-            require('glance').setup({
+            local glance = require('glance')
+            local actions = glance.actions
+            glance.setup({
+                border = {
+                    enable = true,
+                },
                 theme = { -- This feature might not work properly in nvim-0.7.2
                     enable = false, -- Will generate colors for the plugin based on your current colorscheme
                     mode = 'darken', -- 'brighten'|'darken'|'auto', 'auto' will set mode based on the brightness of your colorscheme
+                },
+                mappings = {
+                    list = {
+                        ['j'] = actions.next, -- Bring the cursor to the next item in the list
+                        ['k'] = actions.previous, -- Bring the cursor to the previous item in the list
+                        ['<Down>'] = actions.next,
+                        ['<Up>'] = actions.previous,
+                        ['<Tab>'] = actions.next_location, -- Bring the cursor to the next location skipping groups in the list
+                        ['<S-Tab>'] = actions.previous_location, -- Bring the cursor to the previous location skipping groups in the list
+                        ['<C-u>'] = actions.preview_scroll_win(5),
+                        ['<C-d>'] = actions.preview_scroll_win(-5),
+                        ['v'] = actions.jump_vsplit,
+                        ['s'] = actions.jump_split,
+                        ['t'] = actions.jump_tab,
+                        ['o'] = actions.jump,
+                        ['<CR>'] = actions.enter_win('preview'),
+                        ['q'] = actions.close,
+                        ['Q'] = actions.close,
+                        ['<Esc>'] = actions.close,
+                        -- ['<Esc>'] = false -- disable a mapping
+                    },
+                    preview = {
+                        ['Q'] = actions.close,
+                        ['<Tab>'] = actions.next_location,
+                        ['<S-Tab>'] = actions.previous_location,
+                        ['<leader>l'] = actions.enter_win('list'), -- Focus list window
+                    },
                 },
                 -- your configuration
             })
