@@ -132,6 +132,7 @@ M.servers = {
             venvPath = find_python_venv()
         }
     },
+    volar = {},
     yamlls = {},
     bashls = {},
     rust_analyzer = {},
