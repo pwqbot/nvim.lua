@@ -133,7 +133,7 @@ local beautify = {
                 min_count_to_highlight = 1,
             })
         end
-    }
+    },
 }
 
 local optimize = {
@@ -276,16 +276,31 @@ local complete = {
         event = "VimEnter",
         config = function()
             vim.defer_fn(function()
-                require("copilot").setup()
+                require("copilot").setup(
+                    {
+                        suggestion = {
+                            auto_trigger = false,
+                        },
+                        filetypes = {
+                            yaml = true,
+                        }
+                    }
+                )
             end, 100)
         end,
     },
     ["zbirenbaum/copilot-cmp"] = {
         after = { "copilot.lua" },
         config = function()
-            require("copilot_cmp").setup()
-
-
+            require("copilot_cmp").setup({
+                method = "getCompletionsCycling",
+                formatters = {
+                    label = require("copilot_cmp.format").format_label_text,
+                    insert_text = require("copilot_cmp.format").format_insert_text,
+                    preview = require("copilot_cmp.format").deindent,
+                },
+            }
+            )
         end
     },
 }
