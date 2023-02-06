@@ -40,6 +40,7 @@ map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
 --- emacs like ---
 local readline = require 'readline'
 map('!', '<M-f>', readline.forward_word)
+
 map('!', '<M-b>', readline.backward_word)
 -- map('!', '<C-a>', '<C-o>^')
 map('!', '<C-e>', readline.end_of_line)

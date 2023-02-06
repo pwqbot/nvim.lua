@@ -40,7 +40,7 @@ local function keymappings(client, bufnr)
     bufmap('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufnr)
     bufmap('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufnr)
     bufmap('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufnr)
-    bufmap('n', '<leader>rn', vim.lsp.buf.rename, bufnr)
+    bufmap('n', '<leader>rn', ":IncRename ", bufnr)
     bufmap('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', bufnr)
     bufmap('n', '<leader>ff', function() vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 3000, async = true }) end,
         bufnr)

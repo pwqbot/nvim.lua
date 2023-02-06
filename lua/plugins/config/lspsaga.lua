@@ -1,4 +1,4 @@
-require('lspsaga').init_lsp_saga(
+require('lspsaga').setup(
     {
         -- Options with default value
         -- "single" | "double" | "rounded" | "bold" | "plus"
