@@ -5,8 +5,6 @@ return {
         dependencies = { "williamboman/mason-lspconfig.nvim", "williamboman/mason.nvim" },
         config = function()
             require 'lsp/lspconfig'
-            require("mason").setup()
-            require("mason-lspconfig").setup()
         end
     },
 
@@ -21,6 +19,12 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
+            require("mason").setup()
+            require("mason-lspconfig").setup {
+                ensure_installed = { "clangd", "rust_analyzer",
+                    "bashls", "cmake", "jsonls", "pyright" },
+
+            }
         end
     },
 
@@ -56,7 +60,7 @@ return {
                         ['<Tab>'] = actions.next_location, -- Bring the cursor to the next location skipping groups in the list
                         ['<S-Tab>'] = actions.previous_location, -- Bring the cursor to the previous location skipping groups in the list
                         ['<C-u>'] = actions.preview_scroll_win(5),
-                        ['<C-d>'] = actions.preview_scroll_win(-5),
+                        ['<C-d>'] = actions.preview_scroll_win( -5),
                         ['v'] = actions.jump_vsplit,
                         ['s'] = actions.jump_split,
                         ['t'] = actions.jump_tab,

@@ -157,7 +157,7 @@ M.servers = {
     },
     -- hls = {
     -- },
-    sumneko_lua = {
+    lua_ls = {
         settings = {
             Lua = {
                 runtime = {
