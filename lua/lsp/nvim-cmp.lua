@@ -108,11 +108,18 @@ local function jumpable(dir)
     end
 
     if dir == -1 then
-        return inside_snippet() and luasnip.jumpable(-1)
+        return inside_snippet() and luasnip.jumpable( -1)
     else
         return inside_snippet() and seek_luasnip_cursor_node() and luasnip.jumpable()
     end
 end
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup({
     preselect = cmp.PreselectMode.None,
@@ -141,7 +148,7 @@ cmp.setup({
         },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c', 's' }),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs( -4), { 'i', 'c', 's' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c', 's' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -178,11 +185,11 @@ cmp.setup({
         {
             { name = "copilot" },
             { name = 'luasnip' },
-            { name = 'nvim_lsp', max_item_count = 10 },
-            { name = 'nvim_lua', max_item_count = 5 },
+            { name = 'nvim_lsp',               max_item_count = 10 },
+            { name = 'nvim_lua',               max_item_count = 5 },
             { name = 'neorg' },
-            { name = 'buffer', max_item_count = 7, keyword_length = 3 },
-            { name = 'path', max_item_count = 10 },
+            { name = 'buffer',                 max_item_count = 7, keyword_length = 3 },
+            { name = 'path',                   max_item_count = 10 },
             { name = 'nvim_lsp_signature_help' },
         }
     ),
@@ -193,7 +200,6 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-
     formatting = {
         format = require('lspkind').cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
@@ -221,6 +227,6 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
         { name = 'cmdline', max_item_count = 15 },
-        { name = 'path', max_item_count = 10 },
+        { name = 'path',    max_item_count = 10 },
     })
 })

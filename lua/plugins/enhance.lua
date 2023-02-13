@@ -68,8 +68,6 @@ return {
 
     {
         "voldikss/vim-floaterm",
-
-
         init = function()
             vim.cmd [[let g:floaterm_keymap_toggle = '<C-t>']]
             vim.cmd [[let g:floaterm_width = 0.8]]
