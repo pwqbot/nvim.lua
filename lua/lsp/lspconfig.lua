@@ -1,10 +1,10 @@
 require 'lsp/nvim-cmp'
 
 local signs = {
-    { name = "DiagnosticSignError", text = "😡" },
-    { name = "DiagnosticSignWarn", text = "😥" },
-    { name = "DiagnosticSignHint", text = "😤" },
-    { name = "DiagnosticSignInfo", text = "😐" },
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn",  text = "" },
+    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignInfo",  text = "" },
 }
 
 for _, sign in ipairs(signs) do
@@ -15,7 +15,9 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
+    virtual_text = {
+        prefix = "",
+    },
     signs = true,
     underline = false,
     -- signwidth = 500,
