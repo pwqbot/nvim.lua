@@ -11,7 +11,7 @@ vim.opt.termguicolors = true
 
 require("catppuccin").setup(
     {
-        transparent_background = false,
+        transparent_background = true,
         compile = {
             enabled = true,
             path = vim.fn.stdpath "cache" .. "/catppuccin",
