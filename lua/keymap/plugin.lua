@@ -43,8 +43,8 @@ map({ 'n', 'v' }, '<M-f>', readline.forward_word)
 
 map({ 'n', 'v' }, '<M-b>', readline.backward_word)
 -- map('!', '<C-a>', '<C-o>^')
-map({ 'n', 'v' }, '<C-e>', readline.end_of_line)
-map({ 'n', 'v' }, '<C-u>', readline.backward_kill_line)
+map('i', '<C-e>', readline.end_of_line)
+map('i', '<C-u>', readline.backward_kill_line)
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
 
