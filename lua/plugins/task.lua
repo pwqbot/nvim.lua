@@ -2,7 +2,7 @@ return {
     "skywind3000/asyncrun.vim",
     {
         "skywind3000/asynctasks.vim",
-        setup = function()
+        config = function()
             vim.cmd [[ let g:asynctasks_term_reuse = 1 ]]
             vim.cmd [[ let g:asynctasks_term_pos = 'floaterm_reuse' ]]
             vim.cmd [[let g:asynctasks_term_rows = 6]]
