@@ -37,8 +37,16 @@ require("catppuccin").setup(
         }
     }
 )
-
+vim.api.nvim_set_hl(0, "NvimDapVirtualText", { fg = "#82E0AA" })
+vim.api.nvim_set_hl(0, "DapStoppedLineBG", { bg = "#0B5345" })
+vim.api.nvim_set_hl(0, "DapStoppedLineFG", { fg = "#0B5345" })
+vim.api.nvim_set_hl(0, "DapBreakpointLineBG", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "DapBreakpointLineFG", { fg = "#000000" })
 vim.g.catppuccin_flavour = "mocha"
+vim.fn.sign_define("DapBreakpoint",
+    { text = "", texthl = "Error", linehl = "DapBreakpointLineBG", numhl = "" })
+vim.fn.sign_define("DapStopped",
+    { text = "", texthl = "DapStoppedLineFG", linehl = "DapStoppedLineBG", numhl = "" })
 vim.cmd [[ colorscheme catppuccin ]]
 
 -- require('onedark').setup {

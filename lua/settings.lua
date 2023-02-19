@@ -25,7 +25,7 @@ opt.spell = false
 opt.spo = 'camel'
 
 opt.scrolloff = 3
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes:3"
 vim.cmd 'set noswapfile'
 vim.cmd 'set clipboard=unnamed'
 
