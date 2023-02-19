@@ -1,7 +1,8 @@
 return {
-    { 'mfussenegger/nvim-dap',
+    {
+        'mfussenegger/nvim-dap',
         config = function()
-            require 'plugins/config/dap'
+            require('plugins.config.dap')
         end
     },
     "rcarriga/nvim-dap-ui",

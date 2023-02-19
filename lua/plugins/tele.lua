@@ -1,20 +1,21 @@
 return {
-    'nvim-telescope/telescope-project.nvim',
-    -- telescope speed up
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
-    },
-    { 'nvim-telescope/telescope.nvim',
+    { "nvim-telescope/telescope.nvim",
         config = function()
-            require 'plugins/config/tele'
+            require "plugins/config/tele"
         end,
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
     },
-    'tom-anders/telescope-vim-bookmarks.nvim',
-    'MattesGroeger/vim-bookmarks',
+    "nvim-telescope/telescope-project.nvim",
+    -- telescope speed up
+    {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make"
+    },
+    "tom-anders/telescope-vim-bookmarks.nvim",
+    "nvim-telescope/telescope-dap.nvim",
+    "MattesGroeger/vim-bookmarks",
 
 
 
@@ -25,7 +26,10 @@ return {
             require("project_nvim").setup {
 
                 detection_methods = { "pattern", "lsp" },
-                patterns = { ".root", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+                patterns = {
+                    ".root", ".git", "_darcs", ".hg",
+                    ".bzr", ".svn", "Makefile", "package.json",
+                },
             }
         end
     },

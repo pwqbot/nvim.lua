@@ -39,15 +39,12 @@ map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
 
 --- emacs like ---
 local readline = require 'readline'
-map('!', '<M-f>', readline.forward_word)
+map({ 'n', 'v' }, '<M-f>', readline.forward_word)
 
-map('!', '<M-b>', readline.backward_word)
+map({ 'n', 'v' }, '<M-b>', readline.backward_word)
 -- map('!', '<C-a>', '<C-o>^')
-map('!', '<C-e>', readline.end_of_line)
-map('!', '<C-k>', '<Up>')
-map('!', '<C-j>', '<Down>')
-map('!', '<C-u>', readline.backward_kill_line)
-map('n', '<C-w>z', '<Cmd>WindowsMaximize<CR>')
+map({ 'n', 'v' }, '<C-e>', readline.end_of_line)
+map({ 'n', 'v' }, '<C-u>', readline.backward_kill_line)
 map('i', '<C-F>', '<Right>')
 map('i', '<C-B>', '<Left>')
 
@@ -68,3 +65,18 @@ map("v", "g<C-x>", require("dial.map").dec_gvisual())
 map('n', '<leader>wm', '<cmd>WindowsMaximize<cr>')
 map('n', '<leader>1', '<Plug>SlimeParagraphSend')
 map('x', '<leader>1', '<cmd>SlimeSend<cr>')
+
+
+map({ "n", "t", "i" }, "<A-u>", function() require "dap".step_out() end)
+map({ "n", "t", "i" }, "<A-i>", function() require "dap".step_into() end)
+map({ "n", "t", "i" }, "<A-o>", function() require "dap".step_over() end)
+map({ "n", "t", "i" }, "<A-l>", function() require("dap.ui.widgets").hover() end)
+map({ "n", "t", "i" }, "<A-p>", function() require("dap").up() end)
+map({ "n", "t", "i" }, "<A-d>", function() require("dap").down() end)
+
+map("n", "<leader>db", "<cmd>Telescope dap list_breakpoints<CR>")
+map("n", "<leader>df", "<cmd>Telescope dap frames<CR>")
+map("n", "<leader>dc", function() require("dap").clear_breakpoints() end)
+map("n", "<F7>", function() require "dap".toggle_breakpoint() end)
+map({ "n", "t" }, "<F8>", function() require "dap".continue() end)
+map({ "n", "t" }, "<F9>", function() require "dap".terminate() end)
