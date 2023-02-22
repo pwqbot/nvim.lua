@@ -4,7 +4,6 @@ end
 
 --- file tree ---
 map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
-
 --- fuzzf finder ---
 local tele = require('telescope.builtin')
 
@@ -70,7 +69,7 @@ map('x', '<leader>1', '<cmd>SlimeSend<cr>')
 map({ "n", "t", "i" }, "<A-u>", function() require "dap".step_out() end)
 map({ "n", "t", "i" }, "<A-i>", function() require "dap".step_into() end)
 map({ "n", "t", "i" }, "<A-o>", function() require "dap".step_over() end)
-map({ "n", "t", "i" }, "<A-l>", function() require("dap.ui.widgets").hover() end)
+map({ "n", "t", "i" }, "<A-v>", function() require("dap.ui.widgets").hover() end)
 map({ "n", "t", "i" }, "<A-p>", function() require("dap").up() end)
 map({ "n", "t", "i" }, "<A-d>", function() require("dap").down() end)
 map("n", "<leader>cc", "<cmd>CMake configure<cr>")
