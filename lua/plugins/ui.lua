@@ -79,14 +79,6 @@ return {
         end
     },
 
-    {
-        'SmiteshP/nvim-gps',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
-        config = function()
-            require("nvim-gps").setup()
-        end
-    },
-
     "p00f/nvim-ts-rainbow",
     { 'RRethy/vim-illuminate',
         -- default configuration

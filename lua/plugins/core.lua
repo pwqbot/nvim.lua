@@ -1,8 +1,17 @@
 return {
     {
         "luukvbaal/stabilize.nvim",
-        config = function() require("stabilize").setup() end
+        config = true,
     },
+    {
+        "folke/lazy.nvim",
+        opts = {
+            checker = {
+                enableb = true,
+            }
+        }
+    },
+    "nathom/filetype.nvim",
     {
         'nvim-treesitter/nvim-treesitter',
         version = false,
@@ -96,12 +105,4 @@ return {
             require 'plugins/config/gitsign'
         end
     },
-    {
-        "folke/neodev.nvim",
-        config = function()
-            require("neodev").setup({
-                library = { plugins = { "nvim-dap-ui" }, types = true },
-            })
-        end
-    }
 }

@@ -1,30 +1,39 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        event = "BufReadPre",
-        dependencies = { "williamboman/mason-lspconfig.nvim", "williamboman/mason.nvim" },
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "glepnir/lspsaga.nvim"
+        },
         config = function()
             require 'lsp/lspconfig'
+            -- require("mason-lspconfig").setup {
+            --     ensure_installed = {
+            --         "clangd",
+            --         "rust_analyzer",
+            --         "bashls",
+            --         "cmake",
+            --         "jsonls",
+            --         "pyright",
+            --     },
+            -- }
         end
     },
 
-    { "williamboman/mason.nvim", cmd = "Mason" },
+    {
+        "williamboman/mason.nvim",
+        cmd = "Mason",
+        config = function()
+            require("mason").setup()
+        end
+    },
     {
         "smjonas/inc-rename.nvim",
         config = function()
             require("inc_rename").setup()
-        end
-    },
-
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason").setup()
-            require("mason-lspconfig").setup {
-                ensure_installed = { "clangd", "rust_analyzer",
-                    "bashls", "cmake", "jsonls", "pyright" },
-
-            }
         end
     },
 
@@ -86,6 +95,7 @@ return {
     {
         "glepnir/lspsaga.nvim",
         branch = "main",
+        event = "VeryLazy",
         config = function()
             require 'plugins/config/lspsaga'
         end,
@@ -107,6 +117,8 @@ return {
     -- lsp adapter
     {
         "jose-elias-alvarez/null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "mason.nvim" },
         config = function()
             require 'plugins/config/null-ls'
         end

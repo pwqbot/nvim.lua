@@ -1,14 +1,22 @@
 return {
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    "rafamadriz/friendly-snippets",
+    {
+        'hrsh7th/nvim-cmp',
+        event = "InsertEnter",
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
+            "rafamadriz/friendly-snippets",
+            "L3MON4D3/LuaSnip",
+            "zbirenbaum/copilot-cmp"
+        }
+    },
     {
         'L3MON4D3/LuaSnip',
+        lazy = true,
         config = function()
             local luasnip = require "luasnip"
 
@@ -24,7 +32,7 @@ return {
     },
     {
         "zbirenbaum/copilot.lua",
-        event = "VimEnter",
+        event = "VeryLazy",
         config = function()
             vim.defer_fn(function()
                 require("copilot").setup(
@@ -42,6 +50,7 @@ return {
     },
     {
         "zbirenbaum/copilot-cmp",
+        lazy = true,
         config = function()
             require("copilot_cmp").setup({
                 method = "getCompletionsCycling",

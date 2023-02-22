@@ -1,4 +1,3 @@
-local gps = require "nvim-gps"
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -21,9 +20,9 @@ require('lualine').setup {
         },
         lualine_c = {
             {
-                gps.get_location,
-                cond = gps.is_available,
-                color = { fg = "#d0bfff" },
+                require("lazy.status").updates,
+                cond = require("lazy.status").has_updates,
+                color = { fg = "#ff9e64" },
             },
         },
         lualine_x = {

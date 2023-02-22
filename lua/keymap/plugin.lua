@@ -4,22 +4,12 @@ end
 
 --- file tree ---
 map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
---- fuzzf finder ---
-local tele = require('telescope.builtin')
-
 map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
 map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
-map('n', '<F3>', function() require 'telescope'.extensions.project.project {} end)
-map('n', '<F4>', function() tele.find_files { cwd = "~", hidden = true } end)
-map('n', '<C-p>', function() tele.find_files { hidden = true } end)
-map('n', '<C-b>', function() tele.buffers { sort_mru = true } end)
-map('n', '<C-n>', function() tele.lsp_dynamic_workspace_symbols {} end)
-map('n', '<C-f>', function() tele.lsp_document_symbols {} end)
-map('n', '<leader>gp', function() tele.live_grep() end)
-map('n', '<leader>fo', function() tele.oldfiles() end)
-map('n', '<leader>m', function() require 'telescope'.extensions.vim_bookmarks.all() end)
 --- comment ---
 map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
+map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
+map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
 
 map("n", "<C-g>", "<cmd>LazyGit<cr>")
 
@@ -52,7 +42,6 @@ map('n', '<F4>', '<cmd>AsyncTask project-test<cr>')
 map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')
 map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
 map('n', '<F7>', '<cmd>AsyncTask project-init<cr>')
-map('n', '<leader>ts', function() require('telescope').extensions.asynctasks.all() end)
 map('n', '<leader>sw', '<cmd>ISwapWith<cr>')
 map('n', '<leader>cp', '<cmd>CopilotPanel<cr>')
 map("n", "<C-a>", require("dial.map").inc_normal())

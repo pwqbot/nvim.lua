@@ -1,11 +1,11 @@
 return {
     { "EdenEast/nightfox.nvim", lazy = true },
-    { "sainnhe/everforest", lazy = true },
-    { "folke/tokyonight.nvim", lazy = true },
+    { "sainnhe/everforest",     lazy = true },
+    { "folke/tokyonight.nvim",  lazy = true },
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = true,
+        dependencies = 'nvim-treesitter/nvim-treesitter',
         config = function()
             local cat_group = vim.api.nvim_create_augroup("cat", {})
             vim.api.nvim_create_autocmd(
