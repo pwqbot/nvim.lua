@@ -79,7 +79,6 @@ return {
         end
     },
 
-    "p00f/nvim-ts-rainbow",
     { 'RRethy/vim-illuminate',
         -- default configuration
         config = function()
