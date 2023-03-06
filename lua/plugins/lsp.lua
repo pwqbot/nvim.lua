@@ -6,7 +6,9 @@ return {
             { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "glepnir/lspsaga.nvim"
+            "glepnir/lspsaga.nvim",
+            'p00f/clangd_extensions.nvim',
+            'MrcJkb/haskell-tools.nvim',
         },
         config = function()
             require 'lsp/lspconfig'
@@ -22,6 +24,7 @@ return {
             -- }
         end
     },
+    'simrat39/rust-tools.nvim',
 
     {
         "williamboman/mason.nvim",
@@ -123,8 +126,5 @@ return {
             require 'plugins/config/null-ls'
         end
     },
-
-    'p00f/clangd_extensions.nvim',
-    'MrcJkb/haskell-tools.nvim',
     'lervag/vimtex',
 }

@@ -78,11 +78,15 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
 )
-capabilities.offsetEncoding = "utf-8"
+
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
+
+-- chagne to deep copy
+local clangd_capabilities = vim.deepcopy(capabilities)
+clangd_capabilities.offsetEncoding = "utf-8"
 
 local default_config = {
     on_attach = on_attach,
@@ -91,6 +95,12 @@ local default_config = {
     },
     capabilities = capabilities,
 }
+
+
+local rt = require('rust-tools')
+rt.setup({
+    server = default_config,
+})
 
 local ht = require('haskell-tools')
 ht.setup {
@@ -131,7 +141,7 @@ local clangd = require("clangd_extensions").setup {
         flags = {
             debounce_text_changes = 150,
         },
-        capabilities = capabilities,
+        capabilities = clangd_capabilities,
     },
 
     extensions = {

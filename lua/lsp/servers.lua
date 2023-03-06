@@ -51,7 +51,6 @@ M.servers = {
     volar = {},
     yamlls = {},
     bashls = {},
-    rust_analyzer = {},
     -- pylsp = {
     --     settings = {
     --         pylsp = {
