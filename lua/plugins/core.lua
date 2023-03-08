@@ -98,6 +98,7 @@ return {
     },
     {
         "mizlan/iswap.nvim",
+        keys = { "<leader>sw", "<cmd>ISwapWith<cr>" },
         config = function()
             require('iswap').setup {
                 autoswap = true,
@@ -106,17 +107,26 @@ return {
     },
     {
         "numToStr/Comment.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require 'plugins/config/comment'
         end,
     },
 
     -- Git
-    "kdheepak/lazygit.nvim",
+    {
+        "kdheepak/lazygit.nvim",
+        cmd = "LazyGit"
+    },
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require 'plugins/config/gitsign'
         end
     },
+    {
+        'sindrets/diffview.nvim',
+        dependencies = 'nvim-lua/plenary.nvim'
+    }
 }

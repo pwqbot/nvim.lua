@@ -15,6 +15,13 @@ return {
         }
     },
     {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require 'plugins/config/autopairs'
+        end
+    },
+    {
         'L3MON4D3/LuaSnip',
         lazy = true,
         config = function()

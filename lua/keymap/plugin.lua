@@ -13,14 +13,7 @@ map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
 
 map("n", "<C-g>", "<cmd>LazyGit<cr>")
 
-map('n', '<leader>cr', "<cmd>CompetiTestRun<CR>")
-map('n', '<leader>cg', "<cmd>CompetiTestReceive<CR>")
-
-
 --- trouble ---
-map('n', "<leader>tb", "<cmd>TroubleToggle<cr>")
-
-
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
 map('n', '<leader>sg', '<cmd>Gitsigns stage_hunk<cr>')
 map('n', '<leader>usg', '<cmd>Gitsigns undo_stage_hunk<cr>')
@@ -42,7 +35,6 @@ map('n', '<F4>', '<cmd>AsyncTask project-test<cr>')
 map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')
 map('n', '<F6>', '<cmd>AsyncTask project-build<cr>')
 map('n', '<F7>', '<cmd>AsyncTask project-init<cr>')
-map('n', '<leader>sw', '<cmd>ISwapWith<cr>')
 map('n', '<leader>cp', '<cmd>CopilotPanel<cr>')
 map("n", "<C-a>", require("dial.map").inc_normal())
 map("n", "<C-x>", require("dial.map").dec_normal())

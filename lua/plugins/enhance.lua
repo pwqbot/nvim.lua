@@ -32,6 +32,7 @@ return {
     -- resize window
     {
         'anuvyklack/windows.nvim',
+        event = "VeryLazy",
         dependencies = {
             "anuvyklack/middleclass",
             -- "anuvyklack/animation.nvim"
@@ -59,9 +60,9 @@ return {
 
     { 'jpalardy/vim-slime',
         init = function()
-            vim.cmd [[ 
-            let g:slime_target = "neovim" 
-            let g:slime_no_mappings = 1 
+            vim.cmd [[
+            let g:slime_target = "neovim"
+            let g:slime_no_mappings = 1
             ]]
         end
     },
@@ -75,13 +76,4 @@ return {
             vim.cmd [[let g:floaterm_autoinsert = 1]]
         end
     },
-
-    --- auto pairs
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require 'plugins/config/autopairs'
-        end
-    },
-
 }
