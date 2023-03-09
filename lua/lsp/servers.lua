@@ -58,6 +58,7 @@ M.servers = {
     --         }
     --     }
     -- },
+    jsonls = {},
     html = {},
     gopls = {
         settings = {
