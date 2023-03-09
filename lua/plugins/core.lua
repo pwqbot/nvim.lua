@@ -11,7 +11,6 @@ return {
             }
         }
     },
-    "nathom/filetype.nvim",
     {
         'nvim-treesitter/nvim-treesitter',
         version = false,
