@@ -43,10 +43,10 @@ return {
                     "cmake"
                 },
                 sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-                ignore_install = {}, -- List of parsers to ignore installing
+                ignore_install = {},  -- List of parsers to ignore installing
                 highlight = {
-                    enable = true, -- false will disable the whole extension
-                    disable = {}, -- list of language that will be disabled
+                    enable = true,    -- false will disable the whole extension
+                    disable = {},     -- list of language that will be disabled
                     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
                     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
                     -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -57,9 +57,9 @@ return {
                     enable = true,
                     prev_selection = ',', -- (Optional) keymap to select the previous selection
                     keymaps = {
-                        ['.'] = 'textsubjects-smart',
-                        [';'] = 'textsubjects-container-outer',
-                        ['i;'] = 'textsubjects-container-inner',
+                            ['.'] = 'textsubjects-smart',
+                            [';'] = 'textsubjects-container-outer',
+                            ['i;'] = 'textsubjects-container-inner',
                     },
                 },
                 indent = {
@@ -127,5 +127,18 @@ return {
     {
         'sindrets/diffview.nvim',
         dependencies = 'nvim-lua/plenary.nvim'
+    },
+    {
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup({
+                -- optional configuration
+            })
+        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "MunifTanjim/nui.nvim",
+        },
     }
 }
