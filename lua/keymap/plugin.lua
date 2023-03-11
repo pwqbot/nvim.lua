@@ -4,8 +4,6 @@ end
 
 --- file tree ---
 map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
-map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
-map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
 --- comment ---
 map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
@@ -15,9 +13,10 @@ map("n", "<C-g>", "<cmd>LazyGit<cr>")
 
 --- trouble ---
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
-map('n', '<leader>sg', '<cmd>Gitsigns stage_hunk<cr>')
-map('n', '<leader>usg', '<cmd>Gitsigns undo_stage_hunk<cr>')
-map('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>')
+map('n', '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>')
+map('n', '<leader>gus', '<cmd>Gitsigns undo_stage_hunk<cr>')
+map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
+map('n', '<leader>gdt', '<cmd>DiffviewFileHistory %<cr>')
 
 --- emacs like ---
 local readline = require 'readline'

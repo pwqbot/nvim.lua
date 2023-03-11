@@ -126,7 +126,22 @@ return {
     },
     {
         'sindrets/diffview.nvim',
-        dependencies = 'nvim-lua/plenary.nvim'
+        dependencies = 'nvim-lua/plenary.nvim',
+        config = function()
+            local actions = require 'diffview.actions'
+            require('diffview').setup {
+                keymaps = {
+                    view = {
+                        -- instead of closing one buffer, do `DiffviewClose`
+                            ['q'] = actions.close,
+                    },
+                    file_panel = {
+                            ["q"] = "<cmd>tabc<cr>",
+                            ["<space>"] = actions.toggle_stage_entry,
+                    },
+                },
+            }
+        end
     },
     {
         "jackMort/ChatGPT.nvim",
