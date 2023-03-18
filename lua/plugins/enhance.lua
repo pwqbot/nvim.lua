@@ -35,7 +35,9 @@ return {
         event = "VeryLazy",
         dependencies = {
             "anuvyklack/middleclass",
-            "anuvyklack/animation.nvim"
+            -- "anuvyklack/animation.nvim"
+            -- disable due to
+            -- https://github.com/anuvyklack/windows.nvim/issues/23
         },
         config = function()
             vim.o.winwidth = 10
@@ -55,7 +57,7 @@ return {
                 animation = {
                     enable = true,
                     duration = 300,
-                    fps = 60,
+                    fps = 120,
                     easing = "in_out_sine"
                 }
             })
@@ -67,7 +69,7 @@ return {
         config = function()
             require 'plugins/config/filetree'
         end,
-        dependencies = { 'kyazdani42/nvim-web-devicons' },
+        mependencies = { 'kyazdani42/nvim-web-devicons' },
         cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeFocus" }
     },
 
