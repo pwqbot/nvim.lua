@@ -57,9 +57,9 @@ return {
                     enable = true,
                     prev_selection = ',', -- (Optional) keymap to select the previous selection
                     keymaps = {
-                            ['.'] = 'textsubjects-smart',
-                            [';'] = 'textsubjects-container-outer',
-                            ['i;'] = 'textsubjects-container-inner',
+                        ['.'] = 'textsubjects-smart',
+                        [';'] = 'textsubjects-container-outer',
+                        ['i;'] = 'textsubjects-container-inner',
                     },
                 },
                 indent = {
@@ -133,28 +133,15 @@ return {
                 keymaps = {
                     view = {
                         -- instead of closing one buffer, do `DiffviewClose`
-                            ['q'] = actions.close,
+                        ['q'] = actions.close,
                     },
                     file_panel = {
-                            ["q"] = "<cmd>tabc<cr>",
-                            ["<space>"] = actions.toggle_stage_entry,
+                        ["q"] = "<cmd>tabc<cr>",
+                        ["<space>"] = actions.toggle_stage_entry,
                     },
                 },
             }
         end
-    },
-    {
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup({
-                -- optional configuration
-            })
-        end,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "MunifTanjim/nui.nvim",
-        },
     },
     {
         'pwntester/octo.nvim',
