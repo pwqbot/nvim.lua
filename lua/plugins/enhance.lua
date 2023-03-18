@@ -35,15 +35,28 @@ return {
         event = "VeryLazy",
         dependencies = {
             "anuvyklack/middleclass",
-            -- "anuvyklack/animation.nvim"
+            "anuvyklack/animation.nvim"
         },
         config = function()
             vim.o.winwidth = 10
             vim.o.winminwidth = 10
             vim.o.equalalways = false
             require('windows').setup({
+                autowidth = {			--		       |windows.autowidth|
+                    enable = true,
+                    winwidth = 30,			--		        |windows.winwidth|
+                    filetype = {			--	      |windows.autowidth.filetype|
+                        help = 2,
+                    },
+                },
                 ignore = {
                     buftype = { 'quickfix', 'terminal' },
+                },
+                animation = {
+                    enable = true,
+                    duration = 300,
+                    fps = 60,
+                    easing = "in_out_sine"
                 }
             })
         end
