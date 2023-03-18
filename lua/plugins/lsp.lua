@@ -11,6 +11,7 @@ return {
             'p00f/clangd_extensions.nvim',
             'MrcJkb/haskell-tools.nvim',
             "smjonas/inc-rename.nvim",
+            'simrat39/rust-tools.nvim',
         },
         config = function()
             require 'lsp/lspconfig'
@@ -32,7 +33,6 @@ return {
             }
         end
     },
-    'simrat39/rust-tools.nvim',
 
     {
         "williamboman/mason.nvim",

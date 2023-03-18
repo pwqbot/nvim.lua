@@ -18,14 +18,14 @@ opt.updatetime = 100
 opt.ignorecase = true
 opt.timeoutlen = 500
 opt.laststatus = 3
-opt.guicursor = 'a:block-Cursor,i:block-CurSearch'
+opt.guicursor = 'a:block-Cursor,i:ver10-CurSearch'
 opt.hlsearch = true
 opt.incsearch = true
 opt.spell = false
 opt.spo = 'camel'
 
 opt.scrolloff = 3
-opt.signcolumn = "yes:3"
+opt.signcolumn = "yes:2"
 vim.cmd 'set noswapfile'
 vim.cmd 'set clipboard=unnamed'
 
