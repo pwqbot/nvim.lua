@@ -60,17 +60,6 @@ return {
         }
     },
 
-    -- highlight cursorline
-    {
-        "mvllow/modes.nvim",
-        config = function()
-            require('modes').setup({
-                set_cursor = false,
-                set_cursorline = true,
-            })
-        end
-    },
-
     -- add color for buffer seperate line
     {
         "nvim-zh/colorful-winsep.nvim",
@@ -120,7 +109,7 @@ return {
                 under_cursor = true,
                 -- large_file_cutoff: number of lines at which to use large_file_config
                 -- The `under_cursor` option is disabled when this cutoff is hit
-                large_file_cutoff = nil,
+                large_file_cutoff = 5000,
                 -- large_file_config: config to use for large files (based on large_file_cutoff).
                 -- Supports the same keys passed to .configure
                 -- If nil, vim-illuminate will be disabled for large files.
