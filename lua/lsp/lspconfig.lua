@@ -15,25 +15,25 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-        prefix = "",
+        virtual_text = {
+            prefix = "",
+            severity_sort = true,
+        },
+        signs = true,
+        underline = true,
+        -- signwidth = 500,
+        -- signcolumn = yes,
+        update_in_insert = false, -- delay update diagnostics
+        float = {
+            focusable = false,
+            style = "minimal",
+            border = "rounded",
+            source = "always",
+            header = "",
+            prefix = "",
+        },
         severity_sort = true,
-    },
-    signs = true,
-    underline = false,
-    -- signwidth = 500,
-    -- signcolumn = yes,
-    update_in_insert = false, -- delay update diagnostics
-    float = {
-        focusable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
-    severity_sort = true,
-})
+    })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover,
@@ -66,7 +66,7 @@ local on_attach = function(client, bufnr)
 
     local codelens_group = vim.api.nvim_create_augroup("codelens", {})
     vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter', 'CursorHold',
-        'InsertLeave', 'BufWritePost', 'TextChanged' },
+            'InsertLeave', 'BufWritePost', 'TextChanged' },
         {
             group = codelens_group,
             buffer = bufnr,
@@ -91,7 +91,7 @@ clangd_capabilities.offsetEncoding = "utf-8"
 local default_config = {
     on_attach = on_attach,
     flags = {
-        debounce_text_changes = 150,
+        debounce_text_changes = 50,
     },
     capabilities = capabilities,
 }
@@ -135,7 +135,8 @@ local clangd = require("clangd_extensions").setup {
             "--header-insertion=iwyu",
             "--header-insertion-decorators",
             "--pretty",
-            "-j=4",
+            "-j=8",
+            "--query-driver=/opt/homebrew/bin/g++-12",
         },
         on_attach = on_attach,
         flags = {
@@ -186,7 +187,6 @@ local clangd = require("clangd_extensions").setup {
                 statement = "",
                 ["template argument"] = "",
             },
-
             kind_icons = {
                 Compound = "",
                 Recovery = "",
@@ -196,7 +196,6 @@ local clangd = require("clangd_extensions").setup {
                 TemplateTemplateParm = "",
                 TemplateParamObject = "",
             },
-
             highlights = {
                 detail = "Comment",
             },
