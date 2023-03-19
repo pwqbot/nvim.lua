@@ -97,7 +97,7 @@ return {
     },
     {
         "mizlan/iswap.nvim",
-        keys = { "<leader>sw", "<cmd>ISwapWith<cr>" },
+        keys = { { "<leader>sw", "<cmd>ISwapWith<cr>" } },
         config = function()
             require('iswap').setup {
                 autoswap = true,
@@ -153,5 +153,12 @@ return {
         config = function()
             require "octo".setup()
         end
+    },
+    {
+        'windwp/nvim-spectre',
+        keys = {
+            { "<leader>ss", "<cmd>lua require('spectre').open()<CR>" },
+            { "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>' }
+        },
     }
 }
