@@ -55,10 +55,11 @@ return {
             vim.o.winminwidth = 10
             vim.o.equalalways = false
             require('windows').setup({
-                autowidth = {			--		       |windows.autowidth|
+                autowidth = {
+                    --		       |windows.autowidth|
                     enable = true,
-                    winwidth = 30,			--		        |windows.winwidth|
-                    filetype = {			--	      |windows.autowidth.filetype|
+                    winwidth = 30, --		        |windows.winwidth|
+                    filetype = {   --	      |windows.autowidth.filetype|
                         help = 2,
                     },
                 },
@@ -76,7 +77,8 @@ return {
     },
 
     -- <F1> open file explorer
-    { 'kyazdani42/nvim-tree.lua',
+    {
+        'kyazdani42/nvim-tree.lua',
         config = function()
             require 'plugins/config/filetree'
         end,
@@ -84,7 +86,8 @@ return {
         cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeFocus" }
     },
 
-    { 'jpalardy/vim-slime',
+    {
+        'jpalardy/vim-slime',
         init = function()
             vim.cmd [[
             let g:slime_target = "neovim"
@@ -102,4 +105,11 @@ return {
             vim.cmd [[let g:floaterm_autoinsert = 1]]
         end
     },
+    {
+        'willothy/flatten.nvim',
+        config = true,
+        lazy = false,
+        priority = 1001,
+    }
+
 }
