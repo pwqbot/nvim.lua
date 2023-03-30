@@ -22,14 +22,14 @@ vim.api.nvim_create_autocmd(
     }
 )
 
-local term_group = vim.api.nvim_create_augroup("term", { clear = true })
-vim.api.nvim_create_autocmd(
-    { "BufWinEnter", "WinEnter", "TermOpen" },
-    {
-        group = term_group,
-        pattern = { "Terminal_*", "term://*" },
-        command = "startinsert",
-    })
+-- local term_group = vim.api.nvim_create_augroup("term", { clear = true })
+-- vim.api.nvim_create_autocmd(
+--     { "BufWinEnter", "WinEnter", "TermOpen" },
+--     {
+--         group = term_group,
+--         pattern = { "Terminal_*", "term://*" },
+--         command = "startinsert",
+--     })
 vim.api.nvim_create_autocmd(
     { "BufWinEnter", "WinEnter", "BufEnter", "TermEnter" },
     {
