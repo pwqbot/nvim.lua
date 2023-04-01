@@ -99,7 +99,33 @@ local default_config = {
 
 local rt = require('rust-tools')
 rt.setup({
-    server = default_config,
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            ["rust-analyzer"] = {
+                -- assist = {
+                --     importGranularity = "module",
+                --     importPrefix = "by_self",
+                -- },
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                },
+                callInfo = {
+                    full = true,
+                },
+                procMacro = {
+                    enable = true,
+                },
+                -- diagnostics = {
+                --     enable = true,
+                --     disabled = { "unresolved-proc-macro" },
+                --     enableExperimental = true,
+                --     warningsAsHint = {},
+                -- },
+            },
+        },
+    }
 })
 
 local ht = require('haskell-tools')
