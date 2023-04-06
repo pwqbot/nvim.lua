@@ -3,7 +3,17 @@ return {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true } } },
+            {
+                "folke/neodev.nvim",
+                opts = {
+                    library = {
+                        plugins = {
+                            "nvim-dap-ui"
+                        },
+                        types = true
+                    }
+                }
+            },
             "williamboman/mason.nvim",
             "glepnir/lspsaga.nvim",
             "williamboman/mason-lspconfig.nvim",
@@ -37,9 +47,9 @@ return {
     {
         "williamboman/mason.nvim",
         cmd = "Mason",
-        config = function()
-            require("mason").setup()
-        end
+        opts = {
+            PATH = "append",
+        },
     },
     {
         "smjonas/inc-rename.nvim",
@@ -72,15 +82,13 @@ return {
 
     {
         "stevearc/aerial.nvim",
-        config = function()
-            require("aerial").setup({
-                backends = { "treesitter", "lsp" },
-                on_attach = function(bufnr)
-                    -- Toggle the aerial window with <leader>a
-                    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
-                end
-            })
-        end,
+        opts = {
+            backends = { "treesitter", "lsp" },
+            on_attach = function(bufnr)
+                -- Toggle the aerial window with <leader>a
+                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+            end
+        }
     },
 
     -- lsp adapter
