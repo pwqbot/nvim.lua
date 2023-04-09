@@ -11,6 +11,7 @@ opt.number = true
 opt.relativenumber = true
 opt.splitbelow = true
 opt.splitright = true
+opt.splitkeep = "screen"
 opt.laststatus = 2
 opt.autoindent = true
 opt.mouse = 'a'
