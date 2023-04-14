@@ -113,6 +113,9 @@ return {
             require 'plugins/config/filetree'
         end,
         mependencies = { 'kyazdani42/nvim-web-devicons' },
+        keys = {
+            { "<F1>", "<cmd>NvimTreeToggle<cr>", mode = { "t", "n", "i" } },
+        },
         cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeFocus" }
     },
 

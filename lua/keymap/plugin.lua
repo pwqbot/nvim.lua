@@ -2,8 +2,6 @@ local function map(mode, shortcut, command)
     vim.keymap.set(mode, shortcut, command, { silent = true })
 end
 
---- file tree ---
-map({ 't', 'n', 'i' }, '<F1>', '<cmd>NvimTreeFindFileToggle<CR>')
 --- comment ---
 map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
@@ -15,20 +13,6 @@ map("n", "<C-g>", "<cmd>LazyGit<cr>")
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
 map('n', '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>')
 map('n', '<leader>gus', '<cmd>Gitsigns undo_stage_hunk<cr>')
-map('n', '<leader>gd', '<cmd>DiffviewOpen<cr>')
-map('n', '<leader>gdt', '<cmd>DiffviewFileHistory %<cr>')
-
---- emacs like ---
-local readline = require 'readline'
-map({ 'n', 'v' }, '<M-f>', readline.forward_word)
-
-map({ 'n', 'v' }, '<M-b>', readline.backward_word)
--- map('!', '<C-a>', '<C-o>^')
-map('i', '<C-e>', readline.end_of_line)
-map('i', '<C-u>', readline.backward_kill_line)
-map('i', '<C-F>', '<Right>')
-map('i', '<C-B>', '<Left>')
-
 
 map('n', '<F4>', '<cmd>AsyncTask project-test<cr>')
 map('n', '<F5>', '<cmd>AsyncTask project-run<cr>')

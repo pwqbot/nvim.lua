@@ -83,13 +83,20 @@ return {
         'nvim-treesitter/nvim-treesitter-textobjects',
         config = function()
             require 'plugins/config/textobj'
-        end
+        end,
+        event = "BufReadPost",
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
-        config = function()
-            require 'plugins/config/context'
-        end
+        config = {
+            enable = true,
+            max_lines = 0,
+            zindex = 20,
+            line_numbers = true,
+            mode = 'topline',
+            separator = nil,
+        },
+        event = "BufReadPost",
     },
     {
         "mizlan/iswap.nvim",
@@ -122,6 +129,10 @@ return {
     },
     {
         'sindrets/diffview.nvim',
+        keys = {
+            { "<leader>gd",  "<cmd>DiffviewOpen<cr>" },
+            { "<leader>gdt", "<cmd>DiffviewFileHistory %<cr>" },
+        },
         dependencies = 'nvim-lua/plenary.nvim',
         config = function()
             local actions = require 'diffview.actions'

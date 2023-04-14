@@ -16,8 +16,8 @@ return {
             },
             "williamboman/mason.nvim",
             "glepnir/lspsaga.nvim",
+            "onsails/lspkind.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "glepnir/lspsaga.nvim",
             'p00f/clangd_extensions.nvim',
             'MrcJkb/haskell-tools.nvim',
             "smjonas/inc-rename.nvim",
@@ -69,12 +69,10 @@ return {
         end,
     },
 
-    "onsails/lspkind.nvim",
-
     {
         "glepnir/lspsaga.nvim",
         branch = "main",
-        event = "VeryLazy",
+        lazy = true,
         config = function()
             require 'plugins/config/lspsaga'
         end,
@@ -82,13 +80,16 @@ return {
 
     {
         "stevearc/aerial.nvim",
+        keys = {
+            { "<leader>a", "<cmd>AerialToggle!<cr>" },
+        },
         opts = {
             backends = { "treesitter", "lsp" },
             on_attach = function(bufnr)
                 -- Toggle the aerial window with <leader>a
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
             end
-        }
+        },
     },
 
     -- lsp adapter

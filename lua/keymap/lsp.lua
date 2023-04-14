@@ -9,9 +9,9 @@ local function bufmap(mode, shortcut, command, bufnr)
         { silent = true, noremap = true, buffer = bufnr })
 end
 
-local saga = require('lspsaga')
 
 local function keymappings(client, bufnr)
+    local saga = require('lspsaga')
     -- local opts = { noremap = true, silent = true }
     map('n', '<leader>e', "<cmd>Lspsaga show_line_diagnostics<CR>")
     map('n', '[d',

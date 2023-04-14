@@ -41,6 +41,7 @@ return {
                 dap_configuration = 'codelldb', -- DAP configuration to use if the projects `parameters_file` does not specify one.
                 dap_open_command = false,       -- Command to run after starting DAP session. You can set it to `false` if you don't want to open anything or `require('dapui').open` if you are using https://github.com/rcarriga/nvim-dap-ui
             })
-        end
+        end,
+        event = "BufReadPost",
     }
 }

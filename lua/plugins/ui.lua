@@ -19,12 +19,6 @@ return {
         end
     },
 
-    "folke/lsp-colors.nvim",
-    {
-        "stevearc/dressing.nvim",
-        lazy = true,
-    },
-
     {
         "folke/noice.nvim",
         event = "VeryLazy",
@@ -40,11 +34,11 @@ return {
                 },
                 -- you can enable a preset for easier configuration
                 presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
+                    bottom_search = true,         -- use a classic bottom cmdline for search
+                    command_palette = true,       -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = true, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = true, -- add a border to hover docs and signature help
+                    inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = true,        -- add a border to hover docs and signature help
                 },
             })
             require("notify").setup({
@@ -68,14 +62,15 @@ return {
         end
     },
 
-    { 'RRethy/vim-illuminate',
+    {
+        'RRethy/vim-illuminate',
         -- default configuration
         config = function()
             require('illuminate').configure({
                 -- providers: provider used to get references in the buffer, ordered by priority
                 providers = {
-                    'lsp',
                     'treesitter',
+                    'lsp',
                     'regex',
                 },
                 -- delay: delay in milliseconds
@@ -117,6 +112,7 @@ return {
                 -- min_count_to_highlight: minimum number of matches required to perform highlighting
                 min_count_to_highlight = 1,
             })
-        end
+        end,
+        event = "BufReadPost"
     },
 }
