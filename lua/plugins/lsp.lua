@@ -76,6 +76,9 @@ return {
         config = function()
             require 'plugins/config/lspsaga'
         end,
+        dependencies = {
+            { "nvim-treesitter/nvim-treesitter" }
+        }
     },
 
     {
