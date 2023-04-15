@@ -73,7 +73,7 @@ return {
     -- resize window
     {
         'anuvyklack/windows.nvim',
-        event = "VeryLazy",
+        event = "BufReadPost",
         dependencies = {
             "anuvyklack/middleclass",
             -- "anuvyklack/animation.nvim"
