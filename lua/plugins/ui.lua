@@ -13,7 +13,6 @@ return {
     -- start up
     {
         "goolord/alpha-nvim",
-        commit = "f4aa42b68e62efed26b92b86b844336cadaa0096",
         config = function()
             require "plugins/config/alpha"
         end

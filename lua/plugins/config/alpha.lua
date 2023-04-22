@@ -23,9 +23,9 @@ dashboard.section.header.opts = {
 
 local entrys = {
     { "<leader>fo", "       Recent ", ":Telescope oldfiles<CR>" },
-    { "<F3>", "     ﳑ  Project", ":Telescope projects<CR>" },
-    { ":ene <CR>", "       New    ", ":ene <CR>" },
-    { ":qa<CR>", "       Out    ", ":qa<CR>" },
+    { "<F3>",       "     ﳑ  Project", ":Telescope projects<CR>" },
+    { ":ene <CR>",  "       New    ", ":ene <CR>" },
+    { ":qa<CR>",    "       Out    ", ":qa<CR>" },
 }
 
 local buttons = {}
@@ -38,14 +38,6 @@ for _, entry in pairs(entrys) do
     end
 
     local button = dashboard.button(entry[1], entry[2], entry[3])
-    button.opts = {
-        position = "center",
-        hl = "Aqua",
-        align_shortcut = "right",
-        hl_shortcut = "Number",
-        cursor = 0,
-        width = 50,
-    }
     button.on_press = on_press
     table.insert(buttons, button)
 end
