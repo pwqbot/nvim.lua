@@ -56,9 +56,7 @@ return {
     -- add color for buffer seperate line
     {
         "nvim-zh/colorful-winsep.nvim",
-        config = function()
-            require("colorful-winsep").setup({})
-        end
+        config = true,
     },
 
     {
@@ -68,8 +66,8 @@ return {
             require('illuminate').configure({
                 -- providers: provider used to get references in the buffer, ordered by priority
                 providers = {
-                    'treesitter',
                     'lsp',
+                    'treesitter',
                     'regex',
                 },
                 -- delay: delay in milliseconds
