@@ -102,11 +102,9 @@ return {
     {
         "mizlan/iswap.nvim",
         keys = { { "<leader>sw", "<cmd>ISwapWith<cr>" } },
-        config = function()
-            require('iswap').setup {
-                autoswap = true,
-            }
-        end
+        config = {
+            autoswap = true,
+        }
     },
     {
         "numToStr/Comment.nvim",
@@ -119,7 +117,9 @@ return {
     -- Git
     {
         "kdheepak/lazygit.nvim",
-        cmd = "LazyGit"
+        keys = {
+            {"<C-g>", "<cmd>LazyGit<cr>"}
+        }
     },
     {
         "lewis6991/gitsigns.nvim",

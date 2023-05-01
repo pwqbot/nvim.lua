@@ -7,8 +7,6 @@ map('n', '<leader>td', "<cmd>TodoTelescope<CR>")
 map('n', ']h', '<CMD>Gitsigns next_hunk<CR>')
 map('n', '[h', '<CMD>Gitsigns prev_hunk<CR>')
 
-map("n", "<C-g>", "<cmd>LazyGit<cr>")
-
 --- trouble ---
 map('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
 map('n', '<leader>gs', '<cmd>Gitsigns stage_hunk<cr>')

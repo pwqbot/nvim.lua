@@ -1,12 +1,18 @@
 return {
-    'rhysd/clever-f.vim',
+    {
+        'rhysd/clever-f.vim',
+        keys = {
+            { "f" },
+        }
+    },
     {
         'ggandor/leap.nvim',
         keys = {
             {
-                's', function()
-                require('leap').leap { target_windows = { vim.fn.win_getid() } }
-            end
+                's',
+                function()
+                    require('leap').leap { target_windows = { vim.fn.win_getid() } }
+                end
             },
         },
         config = function()
@@ -50,5 +56,10 @@ return {
 
         }
     },
-    'chaoren/vim-wordmotion'
+    {
+        'chaoren/vim-wordmotion',
+        config = function()
+            vim.cmd [[ let g:wordmotion_spaces = '_-.' ]]
+        end,
+    }
 }
