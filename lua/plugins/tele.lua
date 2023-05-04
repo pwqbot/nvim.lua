@@ -35,8 +35,16 @@ return {
         "MattesGroeger/vim-bookmarks",
         event = "VeryLazy"
     },
-
-
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+            require "telescope".load_extension("frecency")
+        end,
+        dependencies = {
+            "kkharji/sqlite.lua",
+            "nvim-telescope/telescope.nvim",
+        }
+    },
 
     -- auto switch pwd
     {
