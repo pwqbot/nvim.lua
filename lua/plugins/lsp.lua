@@ -63,7 +63,7 @@ return {
         keys = {
             { "<leader>tb", "<cmd>TroubleToggle<cr>" },
         },
-        dependencies = 'kyazdani42/nvim-web-devicons',
+        dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             require 'plugins/config/trouble'
         end,
