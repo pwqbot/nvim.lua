@@ -115,9 +115,9 @@ return {
         },
         keys = {
             {
-                "<leader>fe",
+                "<leader><F1>",
                 function()
-                    require("neo-tree.command").execute({ toggle = true })
+                    require("neo-tree.command").execute({ toggle = true, dir = vim.env.HOME })
                 end,
                 desc = "Explorer NeoTree (root dir)",
             },
@@ -128,7 +128,6 @@ return {
                 end,
                 desc = "Explorer NeoTree (cwd)",
             },
-            { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
         },
         deactivate = function()
             vim.cmd([[Neotree close]])
