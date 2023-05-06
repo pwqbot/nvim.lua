@@ -63,5 +63,22 @@ return {
         -- Remove the following line to use development versions,
         -- not just the formal releases
         version = "*"
+    },
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "alfaix/neotest-gtest"
+        },
+        lazy = true,
+        config = function()
+            require("neotest-gtest").setup({})
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-gtest")
+                }
+            })
+        end
     }
 }
