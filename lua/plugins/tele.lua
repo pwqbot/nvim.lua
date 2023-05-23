@@ -39,11 +39,16 @@ return {
         keys = {
             {
                 '<C-p>',
-                function() require('telescope').extensions.frecency.frecency({ workspace = 'CWD' }) end
+                function()
+                    require("telescope").extensions.frecency.frecency({
+                        sorter = require("telescope").extensions.fzf.native_fzf_sorter(), workspace = 'CMD' })
+                end
             },
             {
                 '<C-e>',
-                function() require('telescope').extensions.frecency.frecency() end
+                function()
+                    require("telescope").extensions.frecency.frecency({ sorter = require("telescope").extensions.fzf.native_fzf_sorter() })
+                end
             },
         },
         config = function()
