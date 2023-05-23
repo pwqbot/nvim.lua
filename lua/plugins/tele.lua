@@ -47,7 +47,8 @@ return {
             {
                 '<C-e>',
                 function()
-                    require("telescope").extensions.frecency.frecency({ sorter = require("telescope").extensions.fzf.native_fzf_sorter() })
+                    require("telescope").extensions.frecency.frecency({
+                        sorter = require("telescope").extensions.fzf.native_fzf_sorter() })
                 end
             },
         },
