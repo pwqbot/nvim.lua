@@ -1,3 +1,7 @@
+local git_blame = require('gitblame')
+-- This disables showing of the blame text next to the cursor
+vim.g.gitblame_display_virtual_text = 0
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -19,11 +23,7 @@ require('lualine').setup {
             },
         },
         lualine_c = {
-            {
-                require("lazy.status").updates,
-                cond = require("lazy.status").has_updates,
-                color = { fg = "#ff9e64" },
-            },
+            { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
         },
         lualine_x = {
             {
@@ -45,5 +45,5 @@ require('lualine').setup {
         lualine_z = {}
     },
     tabline = {},
-    extensions = { 'nvim-tree', 'quickfix', 'man', 'lazy', 'trouble' }
+    extensions = { 'nvim-tree', 'quickfix', 'man', 'lazy', 'trouble', 'neo-tree', 'toggleterm' }
 }
