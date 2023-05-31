@@ -59,16 +59,16 @@ return {
     -- automatically turn off search highlight
     'haya14busa/is.vim',
 
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        event = { "BufReadPost" },
-        config =
-        {
-            -- for example, context is off by default, use this to turn it on
-            show_current_context = false,
-            show_current_context_start = true,
-        }
-    },
+    -- {
+    --     'lukas-reineke/indent-blankline.nvim',
+    --     event = { "BufReadPost" },
+    --     config =
+    --     {
+    --         -- for example, context is off by default, use this to turn it on
+    --         show_current_context = false,
+    --         show_current_context_start = true,
+    --     }
+    -- },
 
     -- resize window
     {
