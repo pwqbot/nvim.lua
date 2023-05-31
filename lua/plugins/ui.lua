@@ -7,6 +7,9 @@ return {
             require 'plugins/config/lualine'
         end,
     },
+    {
+        'f-person/git-blame.nvim'
+    },
 
     -- start up
     {
