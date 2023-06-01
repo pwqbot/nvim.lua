@@ -41,7 +41,7 @@ return {
                 '<C-p>',
                 function()
                     require("telescope").extensions.frecency.frecency({
-                        sorter = require("telescope").extensions.fzf.native_fzf_sorter(), workspace = 'CMD' })
+                        sorter = require("telescope").extensions.fzf.native_fzf_sorter(), workspace = 'CWD' })
                 end
             },
             {
