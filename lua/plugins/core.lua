@@ -186,11 +186,27 @@ return {
             {
                 "s1n7ax/nvim-window-picker",
                 config = {
-                    show_prompt = true,
-                    use_winbar = "smart",
-                    autoselect_one = true,
-                    include_current = false,
+                    hint = 'floating-big-letter',
+                    show_prompt = false,
+                    picker_config = {
+                        statusline_winbar_picker = {
+                            -- You can change the display string in status bar.
+                            -- It supports '%' printf style. Such as `return char .. ': %f'` to display
+                            -- buffer file path. See :h 'stl' for details.
+                            selection_display = function(char, windowid)
+                                return '%=' .. char .. '%='
+                            end,
+
+                            -- whether you want to use winbar instead of the statusline
+                            -- "always" means to always use winbar,
+                            -- "never" means to never use winbar
+                            -- "smart" means to use winbar if cmdheight=0 and statusline if cmdheight > 0
+                            use_winbar = 'smart', -- "always" | "never" | "smart"
+                        },
+                    },
                     filter_rules = {
+                        autoselect_one = true,
+                        include_current_win = false,
                         -- filter using buffer options
                         bo = {
                             -- if the file type is one of following, the window will be ignored
@@ -199,7 +215,6 @@ return {
                             buftype = { 'terminal', "quickfix" },
                         },
                     },
-                    other_win_hl_color = '#e35e4f',
                 }
             },
         },
