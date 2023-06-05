@@ -108,7 +108,7 @@ local function jumpable(dir)
     end
 
     if dir == -1 then
-        return inside_snippet() and luasnip.jumpable( -1)
+        return inside_snippet() and luasnip.jumpable(-1)
     else
         return inside_snippet() and seek_luasnip_cursor_node() and luasnip.jumpable()
     end
@@ -129,7 +129,7 @@ cmp.setup({
         end,
     },
     sorting = {
-        priority_weight = 2,
+        priority_weight = 5,
         comparators = {
             require("copilot_cmp.comparators").prioritize,
             require("copilot_cmp.comparators").score,
@@ -148,7 +148,7 @@ cmp.setup({
         },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs( -4), { 'i', 'c', 's' }),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c', 's' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c', 's' }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -185,11 +185,11 @@ cmp.setup({
         {
             { name = "copilot" },
             { name = 'luasnip' },
-            { name = 'nvim_lsp',               max_item_count = 10 },
+            { name = 'nvim_lsp',               max_item_count = 5 },
             { name = 'nvim_lua',               max_item_count = 5 },
             { name = 'neorg' },
-            { name = 'buffer',                 max_item_count = 7, keyword_length = 3 },
-            { name = 'path',                   max_item_count = 10 },
+            { name = 'buffer',                 max_item_count = 5, keyword_length = 3 },
+            { name = 'path',                   max_item_count = 5 },
             { name = 'nvim_lsp_signature_help' },
         }
     ),
@@ -202,8 +202,8 @@ cmp.setup({
     },
     formatting = {
         format = require('lspkind').cmp_format({
-            mode = 'symbol_text', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            mode = 'symbol_text',  -- show only symbol annotations
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             symbol_map = { Copilot = "" },
         })

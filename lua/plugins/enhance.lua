@@ -131,7 +131,7 @@ return {
             end,
             insert_mappings = true,
             terminal_mappings = true,
-            direction = 'vertical',
+            direction = 'float',
             open_mapping = [[<c-t>]],
             winbar = {
                 enabled = true,
