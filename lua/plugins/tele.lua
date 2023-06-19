@@ -5,7 +5,7 @@ return {
         version = false, -- telescope did only one release, so use HEAD for now
         keys = {
             { '<F3>',       function() require 'telescope'.extensions.project.project {} end },
-            { '<F4>',       function() require('telescope.builtin').find_files { cwd = "~", hidden = true } end },
+            { '<C-p>',      function() require('telescope.builtin').find_files { hidden = true } end },
             { '<C-b>',      function() require('telescope.builtin').buffers { sort_mru = true } end },
             { '<C-n>',      function() require('telescope.builtin').lsp_dynamic_workspace_symbols {} end },
             { '<C-f>',      function() require('telescope.builtin').lsp_document_symbols {} end },
@@ -37,13 +37,13 @@ return {
     {
         "nvim-telescope/telescope-frecency.nvim",
         keys = {
-            {
-                '<C-p>',
-                function()
-                    require("telescope").extensions.frecency.frecency({
-                        sorter = require("telescope").extensions.fzf.native_fzf_sorter(), workspace = 'CWD' })
-                end
-            },
+            -- {
+            --     '<C-p>',
+            --     function()
+            --         require("telescope").extensions.frecency.frecency({
+            --             sorter = require("telescope").extensions.fzf.native_fzf_sorter(), workspace = 'CWD' })
+            --     end
+            -- },
             {
                 '<C-e>',
                 function()
