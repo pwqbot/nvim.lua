@@ -58,6 +58,9 @@ local on_attach = function(client, bufnr)
             buffer = bufnr,
             callback = vim.lsp.codelens.refresh,
         })
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.buf.inlay_hint(bufnr, true)
+    end
 end
 
 
@@ -148,7 +151,6 @@ local clangd = require("clangd_extensions").setup {
             "--header-insertion-decorators",
             "--pretty",
             "-j=8",
-            "--query-driver=/opt/homebrew/bin/g++-12",
         },
         on_attach = on_attach,
         flags = {
@@ -160,7 +162,7 @@ local clangd = require("clangd_extensions").setup {
     extensions = {
         -- defaults:
         -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
+        autoSetHints = false,
         -- These apply to the default ClangdSetInlayHints command
         inlay_hints = {
             -- Only show inlay hints for the current line
