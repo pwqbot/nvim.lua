@@ -139,7 +139,7 @@ return {
                     return term.name
                 end
             },
-            autochdir = true,
+            autochdir = false,
             float_opts = {
                 -- The border key is *almost* the same as 'nvim_open_win'
                 -- see :h nvim_open_win for details on borders however
