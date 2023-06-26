@@ -37,5 +37,4 @@ opt.jumpoptions = 'stack'
 
 vim.wo.wrap = false
 
--- nvim 0.8 feature
 opt.winbar = '%=%m %f%='
