@@ -1,9 +1,43 @@
 return {
     {
-        'rhysd/clever-f.vim',
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        ---@type Flash.Config
+        opts = {},
         keys = {
-            { "f" },
-        }
+            {
+                "s",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash",
+            },
+            {
+                "S",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter",
+            },
+            {
+                "r",
+                mode = "o",
+                function()
+                    require("flash").remote()
+                end,
+                desc = "Remote Flash",
+            },
+            {
+                "R",
+                mode = { "o", "x" },
+                function()
+                    require("flash").treesitter_search()
+                end,
+                desc = "Flash Treesitter Search",
+            },
+        },
     },
     {
         'ggandor/leap.nvim',
