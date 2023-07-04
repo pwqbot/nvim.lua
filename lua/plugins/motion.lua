@@ -2,7 +2,6 @@ return {
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        ---@type Flash.Config
         opts = {},
         keys = {
             {
@@ -38,6 +37,37 @@ return {
                 desc = "Flash Treesitter Search",
             },
         },
+    },
+    {
+        "rgroli/other.nvim",
+        keys = {
+            {
+                "<C-]>",
+                "<cmd>:Other test<CR>",
+            },
+        },
+        config = function()
+            require("other-nvim").setup({
+                showMissingFiles = true,
+                mappings = {
+                    {
+                        pattern = "/test/unit/(.*)/(.*)_test.cpp$",
+                        target = "/include/*/%1/%2.hpp",
+                        context = "test",
+                    },
+                    {
+                        pattern = "/include/[a-zA-Z]*/(.*)/(.*).hpp$",
+                        target = "/test/unit/%1/%2_test.cpp",
+                        context = "test",
+                    },
+                    {
+                        pattern = "/include/[a-zA-Z]*/(.*).hpp$",
+                        target = "/test/unit/%1_test.cpp",
+                        context = "test",
+                    },
+                }
+            })
+        end
     },
     {
         'ggandor/leap.nvim',
