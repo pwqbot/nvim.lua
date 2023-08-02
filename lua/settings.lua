@@ -12,7 +12,6 @@ opt.relativenumber = true
 opt.splitbelow = true
 opt.splitright = true
 opt.splitkeep = "screen"
-opt.laststatus = 2
 opt.autoindent = true
 opt.mouse = 'a'
 opt.updatetime = 100
@@ -26,7 +25,7 @@ opt.spell = false
 opt.spo = 'camel'
 
 opt.scrolloff = 3
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes:1"
 vim.cmd 'set noswapfile'
 vim.cmd 'set clipboard=unnamed'
 
