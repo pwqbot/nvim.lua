@@ -42,7 +42,22 @@ local function get_pyls_plugins()
 end
 
 M.servers = {
-    -- clangd = clangd,
+    clangd = {
+        cmd = {
+            "clangd",
+            "--background-index",
+            "--suggest-missing-includes",
+            "-compile-commands-dir=build",
+            "--completion-style=detailed",
+            "--clang-tidy",
+            "--include-cleaner-stdlib",
+            "--log=verbose",
+            "--header-insertion=iwyu",
+            "--header-insertion-decorators",
+            "--pretty",
+            "-j=8",
+        },
+    },
     pyright = {
         python = {
             venvPath = find_python_venv()

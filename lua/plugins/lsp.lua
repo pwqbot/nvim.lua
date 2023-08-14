@@ -18,7 +18,6 @@ return {
             "glepnir/lspsaga.nvim",
             "onsails/lspkind.nvim",
             "williamboman/mason-lspconfig.nvim",
-            'p00f/clangd_extensions.nvim',
             'MrcJkb/haskell-tools.nvim',
             "smjonas/inc-rename.nvim",
             'simrat39/rust-tools.nvim',
