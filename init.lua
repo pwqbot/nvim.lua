@@ -1,5 +1,4 @@
 vim.loader.enable()
-pcall(require, "impatient")
 
 require('settings')
 require('keymap/common')
