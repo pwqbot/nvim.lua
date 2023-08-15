@@ -38,6 +38,7 @@ return {
                     "cmake",
                     "jsonls",
                     "pyright",
+                    "lua_ls"
                 },
             }
         end
