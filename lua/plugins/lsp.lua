@@ -103,5 +103,4 @@ return {
             require 'plugins/config/null-ls'
         end
     },
-    'lervag/vimtex',
 }
