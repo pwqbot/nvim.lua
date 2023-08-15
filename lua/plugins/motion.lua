@@ -80,20 +80,6 @@ return {
         end
     },
     {
-        'ggandor/leap.nvim',
-        keys = {
-            {
-                's',
-                function()
-                    require('leap').leap { target_windows = { vim.fn.win_getid() } }
-                end
-            },
-        },
-        config = function()
-            require('leap').set_default_keymaps()
-        end
-    },
-    {
         'linty-org/readline.nvim',
         keys = {
             { '<M-f>', function() require('readline').forward_word() end,  mode = { 'i' } },
