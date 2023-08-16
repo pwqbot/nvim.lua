@@ -11,7 +11,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         version = false,
         dependencies = {
-            "HiPhish/nvim-ts-rainbow2",
+            "HiPhish/rainbow-delimiters.nvim",
             "RRethy/nvim-treesitter-textsubjects"
         },
         build = ":TSUpdate",
