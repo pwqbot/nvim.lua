@@ -67,15 +67,12 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
 )
+capabilities.offsetEncoding = "utf-8"
 
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
-    lineFoldingOnly = true
+    lineFoldingOnly = true,
 }
-
--- chagne to deep copy
-local clangd_capabilities = vim.deepcopy(capabilities)
-clangd_capabilities.offsetEncoding = "utf-8"
 
 local default_config = {
     on_attach = on_attach,
@@ -83,7 +80,6 @@ local default_config = {
         debounce_text_changes = 50,
     },
     capabilities = capabilities,
-    offsetEncoding = "utf-8",
 }
 
 
@@ -118,15 +114,15 @@ rt.setup({
     }
 })
 
-local ht = require('haskell-tools')
-ht.setup {
-    tools = { -- haskell-tools options
-    },
-    hls = {
-        -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
-        on_attach = on_attach,
-    },
-}
+-- local ht = require('haskell-tools')
+-- ht.setup {
+--     tools = { -- haskell-tools options
+--     },
+--     hls = {
+--         -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
+--         on_attach = on_attach,
+--     },
+-- }
 
 for name, config in pairs(require('lsp/servers').servers) do
     if config == nil then
