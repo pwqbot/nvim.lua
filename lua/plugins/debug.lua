@@ -6,6 +6,7 @@ return {
             "leoluz/nvim-dap-go",
             "theHamsta/nvim-dap-virtual-text",
             "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio"
         },
         config = function()
             require('plugins.config.dap')

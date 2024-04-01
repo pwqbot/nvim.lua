@@ -56,7 +56,7 @@ require('lspsaga').setup(
             },
         },
         symbol_in_winbar = {
-            enable = true,
+            enable = false,
             separator = " ",
             hide_keyword = true,
             show_file = true,
