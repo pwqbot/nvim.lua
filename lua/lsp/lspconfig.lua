@@ -50,16 +50,18 @@ local on_attach = function(client, bufnr)
         end,
     })
 
-    local codelens_group = vim.api.nvim_create_augroup("codelens", {})
-    vim.api.nvim_create_autocmd({ 'FileType', 'BufEnter', 'CursorHold',
-            'InsertLeave', 'BufWritePost', 'TextChanged' },
-        {
-            group = codelens_group,
+    if client.supports_method("textDocument/codeLens", { bufnr = bufnr }) then
+        vim.lsp.codelens.refresh({ bufnr = bufnr })
+        vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
             buffer = bufnr,
-            callback = vim.lsp.codelens.refresh,
+            callback = function()
+                vim.lsp.codelens.refresh({ bufnr = bufnr })
+            end,
         })
+    end
+
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(true)
     end
 end
 
