@@ -47,7 +47,7 @@ M.servers = {
             "clangd",
             "--background-index",
             "--suggest-missing-includes",
-            "-compile-commands-dir=build",
+            "--compile-commands-dir=build/Debug",
             "--completion-style=detailed",
             "--clang-tidy",
             "--include-cleaner-stdlib",
