@@ -1,9 +1,6 @@
 # Nvim
 git clone this project, then `mv nvim.lua  ~/.config/nvim`.
 
-On first time startup, there will be some errors due to lack of plugins, just type `enter`s to omit errors and run `:PackerSync` in neovim
-and restart.
-
 ## Install Nerd Font
 1. Download Nerd Font https://www.nerdfonts.com/font-downloads
 2. Unzip and copy to `~/.fonts`
