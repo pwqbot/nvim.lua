@@ -1,5 +1,3 @@
--- require 'lsp/nvim-cmp'
-
 local signs = {
     { name = "DiagnosticSignError", text = "" },
     { name = "DiagnosticSignWarn", text = "" },
