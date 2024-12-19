@@ -1,4 +1,4 @@
-require 'lsp/nvim-cmp'
+-- require 'lsp/nvim-cmp'
 
 local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -66,9 +66,10 @@ local on_attach = function(client, bufnr)
 end
 
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(
-    vim.lsp.protocol.make_client_capabilities()
-)
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(
+--     vim.lsp.protocol.make_client_capabilities()
+-- )
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 capabilities.offsetEncoding = "utf-8"
 
 capabilities.textDocument.foldingRange = {
