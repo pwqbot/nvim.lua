@@ -31,7 +31,6 @@ return {
                     "bash",
                     "vim",
                     "json",
-                    "norg",
                     "haskell",
                     "regex",
                     "markdown",

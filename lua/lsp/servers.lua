@@ -2,6 +2,7 @@ local M = {}
 
 PYTHON_THING = "empty"
 
+
 local function find_python_venv()
     -- return the path to a currently activated python venv
     -- supports Conda, pyenv, pipenv
