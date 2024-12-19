@@ -40,32 +40,6 @@ return {
         end
     },
     {
-        "andrewferrier/debugprint.nvim",
-        keys = {
-            { "<leader>dp", function() return require("debugprint").debugprint() end,                    expr = true },
-            { "<leader>dv", function() return require("debugprint").debugprint({ variable = true }) end, expr = true },
-            { "<leader>de", function() return require("debugprint").deleteprints() end }
-        },
-        config = function()
-            local cxx_spdlog = {
-                left = "SPDLOG_DEBUG(\"",
-                right = "\");",
-                mid_var = "{}\", ",
-                right_var = ");",
-            }
-            require("debugprint").setup({
-                filetypes = {
-                    cpp = cxx_spdlog,
-                },
-            })
-        end,
-        create_keymaps = false,
-        -- Dependency only needed for NeoVim 0.8
-        -- Remove the following line to use development versions,
-        -- not just the formal releases
-        version = "*"
-    },
-    {
         "nvim-neotest/neotest",
         dependencies = {
             "nvim-lua/plenary.nvim",

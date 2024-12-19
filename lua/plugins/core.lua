@@ -220,16 +220,16 @@ return {
         },
         keys = {
             {
-                "<leader><F1>",
-                function()
-                    require("neo-tree.command").execute({ toggle = true, dir = vim.env.HOME })
-                end,
-                desc = "Explorer NeoTree (root dir)",
-            },
-            {
                 "<F1>",
                 function()
-                    require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+                    require("neo-tree.command").execute({ toggle = true, reveal = true, dir = vim.loop.cwd() })
+                end,
+                desc = "Explorer NeoTree (cwd)",
+            },
+            {
+                "<F2>",
+                function()
+                    require("neo-tree.command").execute({ focus = true, reveal = true, dir = vim.loop.cwd() })
                 end,
                 desc = "Explorer NeoTree (cwd)",
             },
@@ -255,7 +255,7 @@ return {
             },
             filesystem = {
                 bind_to_cwd = false,
-                follow_current_file = true,
+                follow_current_file = false,
                 use_libuv_file_watcher = true,
             },
             window = {

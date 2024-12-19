@@ -18,6 +18,52 @@ return {
             },
         },
     },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = true },
+            dashboard = { enabled = false },
+            indent = { enabled = false },
+            input = { enabled = true },
+            notifier = { enabled = true },
+            quickfile = { enabled = true },
+            scroll = { enabled = false },
+            statuscolumn = { enabled = true },
+            words = { enabled = true },
+        },
+        keys = {
+            { "<leader>z",  function() Snacks.zen() end,       desc = "Toggle Zen Mode" },
+            { "<leader>Z",  function() Snacks.zen.zoom() end,  desc = "Toggle Zoom" },
+            { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+            {
+                "<leader>gB",
+                function() Snacks.gitbrowse() end,
+                desc = "Git Browse",
+                mode = {
+                    "n", "v" }
+            },
+            { "<C-g>", function() Snacks.lazygit() end, desc = "Lazygit" },
+            {
+                "]]",
+                function() Snacks.words.jump(vim.v.count1) end,
+                desc = "Next Reference",
+                mode = {
+                    "n", "t" }
+            },
+            {
+                "[[",
+                function() Snacks.words.jump(-vim.v.count1) end,
+                desc = "Prev Reference",
+                mode = {
+                    "n", "t" }
+            },
+        },
+    },
 
     --  jk to ESC
     {
