@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd(
     {
         group = yank_group,
         callback = function()
-            require('vim.highlight').on_yank({
+            vim.highlight.on_yank({
                 higroup = 'DiffText', timeout = 300,
             })
         end,
