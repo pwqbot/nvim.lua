@@ -1,4 +1,29 @@
 return {
+
+    {
+        "zbirenbaum/copilot.lua",
+        -- event = "VeryLazy",
+        config = function()
+            -- vim.defer_fn(function()
+            require("copilot").setup(
+                {
+                    suggestion = {
+                        enable = false,
+                    },
+                    panel = {
+                        enable = false,
+                    },
+                    filetypes = {
+                        yaml = true,
+                    }
+                }
+            )
+            -- end, 100)
+        end,
+    },
+
+
+
     {
         'saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
@@ -11,7 +36,7 @@ return {
         },
 
         -- use a release tag to download pre-built binaries
-        version = 'v0.*',
+        version = 'v1.*',
         -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
         -- build = 'cargo build --release',
         -- If you use nix, you can build from source using latest nightly rust with:
@@ -26,8 +51,42 @@ return {
             -- see the "default configuration" section below for full documentation on how to define
             -- your own keymap.
             keymap = { preset = 'super-tab' },
-
             appearance = {
+                -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+                kind_icons = {
+                    Copilot = "",
+                    Text = '󰉿',
+                    Method = '󰊕',
+                    Function = '󰊕',
+                    Constructor = '󰒓',
+
+                    Field = '󰜢',
+                    Variable = '󰆦',
+                    Property = '󰖷',
+
+                    Class = '󱡠',
+                    Interface = '󱡠',
+                    Struct = '󱡠',
+                    Module = '󰅩',
+
+                    Unit = '󰪚',
+                    Value = '󰦨',
+                    Enum = '󰦨',
+                    EnumMember = '󰦨',
+
+                    Keyword = '󰻾',
+                    Constant = '󰏿',
+
+                    Snippet = '󱄽',
+                    Color = '󰏘',
+                    File = '󰈔',
+                    Reference = '󰬲',
+                    Folder = '󰉋',
+                    Event = '󱐋',
+                    Operator = '󰪚',
+                    TypeParameter = '󰬛',
+                },
+
                 -- Sets the fallback highlight groups to nvim-cmp's highlight groups
                 -- Useful for when your theme doesn't support blink.cmp
                 -- will be removed in a future release
@@ -47,10 +106,23 @@ return {
                     copilot = {
                         name = "copilot",
                         module = "blink-cmp-copilot",
+                        min_keyword_length = 0,
                         score_offset = 100,
                         async = true,
+                        transform_items = function(_, items)
+                            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+                            local kind_idx = #CompletionItemKind + 1
+                            CompletionItemKind[kind_idx] = "Copilot"
+                            for _, item in ipairs(items) do
+                                item.kind = kind_idx
+                            end
+                            return items
+                        end,
                     },
                 },
+                -- completion = {
+                --     enabled_providers = { "lsp", "path", "snippets", "buffer", "copilot" }
+                -- },
             },
             snippets = {
                 expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
@@ -72,7 +144,7 @@ return {
                     max_items = 20,
                     -- Controls if completion items will be selected automatically,
                     -- and whether selection automatically inserts
-                    selection = 'auto_insert',
+                    selection = { preselect = true, auto_insert = true },
                     -- Controls how the completion items are selected
                     -- 'preselect' will automatically select the first item in the completion list
                     -- 'manual' will not select any item by default
@@ -137,7 +209,8 @@ return {
                 ghost_text = {
                     enabled = true,
                 },
-            }
+            },
+
 
         },
         -- allows extending the providers array elsewhere in your config
@@ -167,27 +240,9 @@ return {
             )
         end
     },
-    {
-        "zbirenbaum/copilot.lua",
-        event = "VeryLazy",
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup(
-                    {
-                        suggestion = {
-                            auto_trigger = false,
-                        },
-                        filetypes = {
-                            yaml = true,
-                        }
-                    }
-                )
-            end, 100)
-        end,
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        lazy = true,
-        config = true,
-    }
+    -- {
+    --     "zbirenbaum/copilot-cmp",
+    --     lazy = true,
+    --     config = true,
+    -- }
 }
