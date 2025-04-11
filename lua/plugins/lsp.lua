@@ -82,12 +82,12 @@ return {
     },
 
     -- lsp adapter
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = { "mason.nvim" },
-        config = function()
-            require 'plugins/config/null-ls'
-        end
-    },
+    -- {
+    --     "jose-elias-alvarez/null-ls.nvim",
+    --     event = { "BufReadPre", "BufNewFile" },
+    --     dependencies = { "mason.nvim" },
+    --     config = function()
+    --         require 'plugins/config/null-ls'
+    --     end
+    -- },
 }
